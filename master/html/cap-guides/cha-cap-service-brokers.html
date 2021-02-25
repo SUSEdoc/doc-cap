@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Service Brokers | Deployment, Administration, and User Guides | SUSE Cloud Application Platform 2.1.0</title><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" /><link rel="stylesheet" type="text/css" href="static/css/style.css" /><link rel="stylesheet" type="text/css" href="static/css/highlight.css" /><meta name="generator" content="DAPS 3.0.0 (https://opensuse.github.io/daps) using SUSE XSL Stylesheets 2.0.17 (based on DocBook XSL Stylesheets 1.79.2) - chunked" /><meta name="product-name" content="SUSE Cloud Application Platform" /><meta name="product-number" content="2.1.0" /><meta name="book-title" content="Deployment, Administration, and User Guides" /><meta name="chapter-title" content="Chapter 22. Service Brokers" /><meta name="description" content="The Open Service Broker API provides (OSBAPI) your SUSE Cloud Application Platform applications with access to external dependencies and platform-level capabilities, such as databases, filesystems, external repositories, and messaging systems. These resources are called services. Services are create…" /><meta name="tracker-url" content="https://github.com/SUSE/doc-cap/issues/new" /><meta name="tracker-type" content="gh" /><meta name="tracker-gh-assignee" content="btat" /><meta name="tracker-gh-labels" content="bug,low priority" /><link rel="home" href="index.html" title="SUSE Cloud Application Platform 2.1.0 Documentation" /><link rel="up" href="part-cap-administration.html" title="Part III. SUSE Cloud Application Platform Administration" /><link rel="prev" href="cha-cap-backup-restore.html" title="Chapter 21. Backup and Restore" /><link rel="next" href="cha-cap-app-autoscaler.html" title="Chapter 23. App-AutoScaler" />
+<script type="text/javascript">
+
+if ( window.location.protocol.toLowerCase() != 'file:' ) {
+  document.write('<link rel="stylesheet" type="text/css" href="https://static.opensuse.org/fonts/fonts.css"></link>');
+}
+else {
+  document.write('<link rel="stylesheet" type="text/css" href="static/css/fonts-onlylocal.css"></link>');
+}
+
+</script><noscript><link rel="stylesheet" type="text/css" href="https://static.opensuse.org/fonts/fonts.css" /></noscript><script src="static/js/jquery-1.10.2.min.js" type="text/javascript"></script><script src="static/js/script.js" type="text/javascript"></script><script src="static/js/highlight.min.js" type="text/javascript"></script><script>
+
+$(document).ready(function() {
+  $('.verbatim-wrap.highlight').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+});
+hljs.configure({
+  useBR: false
+});
+
+</script></head><body class="draft offline js-off" onload="$('#betawarn-button-wrap').toggle();if (document.cookie.length > 0) {if (document.cookie.indexOf('betawarn=closed') != -1){$('#betawarn').toggle()}};"><div id="betawarn" style="position:fixed;bottom:0;z-index:9025;background-color:#FDE8E8;padding:1em;margin-left:10%;margin-right:10%;display:block;border-top:.75em solid #E11;width:80%"><p style="color:#333;margin:1em 0;padding:0;">This is a draft document that was built and uploaded automatically. It may document beta software and be incomplete or even incorrect. <strong>Use this document at your own risk.</strong></p> <div id="betawarn-button-wrap" style="display:none;margin:0;padding:0;"><a href="#" onclick="$('#betawarn').toggle();var d=new Date();d.setTime(d.getTime()+(0.5*24*60*60*1000));document.cookie='betawarn=closed; expires='+d.toUTCString()+'; path=/'; return false;" style="color:#333;text-decoration:underline;float:left;margin-top:.5em;padding:1em;display:block;background-color:#FABEBE;">I understand this is a draft</a></div></div><div class="bypass-block"><a href="#_content">Jump to content</a><a href="#_bottom-navigation">Jump to page navigation: previous page [access key p]/next page [access key n]</a></div><div id="_outer-wrap"><div id="_white-bg" style="background-color: #FABEBE;"><div id="_header"><div id="_logo"><img src="static/images/logo.png" alt="Logo" /></div><div class="crumbs"><a class="book-link" href="index.html" title="SUSE Cloud Application Platform 2.1.0 Documentation"><span class="book-icon">SUSE Cloud Application Platform 2.1.0 Documentation</span></a><span> › </span><a class="crumb" href="book-cap-guides.html">Deployment, Administration, and User Guides</a><span> › </span><a class="crumb" href="part-cap-administration.html">SUSE Cloud Application Platform Administration</a><span> › </span><a class="crumb" href="cha-cap-service-brokers.html">Service Brokers</a></div><div class="clearme"></div></div></div><div id="_toolbar-wrap"><div id="_toolbar"><div id="_toc-area" class="inactive"><a id="_toc-area-button" class="tool" title="Contents" accesskey="c" href="index.html"><span class="tool-spacer"><span class="toc-icon">Contents</span><span class="clearme"></span></span><span class="tool-label">Contents</span></a><div class="active-contents bubble-corner"></div><div class="active-contents bubble"><div class="bubble-container"><h6>Deployment, Administration, and User Guides</h6><div id="_bubble-toc"><ol><li class="inactive"><a href="preface-deployment.html"><span class="number"> </span><span class="name">About This Guide</span></a></li><li class="inactive"><a href="part-cap-overview.html"><span class="number">I </span><span class="name">Overview of SUSE Cloud Application Platform</span></a><ol><li class="inactive"><a href="cha-cap-overview.html"><span class="number">1 </span><span class="name">About SUSE Cloud Application Platform</span></a></li><li class="inactive"><a href="cha-cap-depl-kube-requirements.html"><span class="number">2 </span><span class="name">Other Kubernetes Systems</span></a></li></ol></li><li class="inactive"><a href="part-cap-deployment.html"><span class="number">II </span><span class="name">Deploying SUSE Cloud Application Platform</span></a><ol><li class="inactive"><a href="cha-cap-depl-notes.html"><span class="number">3 </span><span class="name">Deployment and Administration Notes</span></a></li><li class="inactive"><a href="cha-cap-depl-caasp.html"><span class="number">4 </span><span class="name">Deploying SUSE Cloud Application Platform on SUSE CaaS Platform</span></a></li><li class="inactive"><a href="cha-cap-depl-aks.html"><span class="number">5 </span><span class="name">Deploying SUSE Cloud Application Platform on Microsoft Azure Kubernetes Service (AKS)</span></a></li><li class="inactive"><a href="cha-cap-depl-eks.html"><span class="number">6 </span><span class="name">Deploying SUSE Cloud Application Platform on Amazon Elastic Kubernetes Service (EKS)</span></a></li><li class="inactive"><a href="cha-cap-depl-gke.html"><span class="number">7 </span><span class="name">Deploying SUSE Cloud Application Platform on Google Kubernetes Engine (GKE)</span></a></li><li class="inactive"><a href="cha-cap-install-stratos.html"><span class="number">8 </span><span class="name">Installing the Stratos Web Console</span></a></li><li class="inactive"><a href="cha-cap-depl-eirini.html"><span class="number">9 </span><span class="name">Eirini</span></a></li><li class="inactive"><a href="cha-cap-depl-terraform.html"><span class="number">10 </span><span class="name">Deploying SUSE Cloud Application Platform Using Terraform</span></a></li><li class="inactive"><a href="cha-cap-depl-air-gap-registry.html"><span class="number">11 </span><span class="name">Setting Up a Registry for an Air Gapped Environment</span></a></li><li class="inactive"><a href="cha-cap-depl-private-registry.html"><span class="number">12 </span><span class="name">SUSE Private Registry</span></a></li></ol></li><li class="inactive"><a href="part-cap-administration.html"><span class="number">III </span><span class="name">SUSE Cloud Application Platform Administration</span></a><ol><li class="inactive"><a href="cha-cap-upgrade.html"><span class="number">13 </span><span class="name">Upgrading SUSE Cloud Application Platform</span></a></li><li class="inactive"><a href="cha-cap-configuration-changes.html"><span class="number">14 </span><span class="name">Configuration Changes</span></a></li><li class="inactive"><a href="cha-cap-create-admin-user.html"><span class="number">15 </span><span class="name">Creating Admin Users</span></a></li><li class="inactive"><a href="cha-cap-manage-passwords.html"><span class="number">16 </span><span class="name">Managing Passwords</span></a></li><li class="inactive"><a href="cha-cap-uaa-ui.html"><span class="number">17 </span><span class="name">Accessing the UAA User Interface</span></a></li><li class="inactive"><a href="cha-cap-memory-limits.html"><span class="number">18 </span><span class="name">Container Memory Limits and Requests</span></a></li><li class="inactive"><a href="cha-cap-ccdb-secret-rotation.html"><span class="number">19 </span><span class="name">Cloud Controller Database Secret Rotation</span></a></li><li class="inactive"><a href="cha-cap-secrets-rotation.html"><span class="number">20 </span><span class="name">Rotating Automatically Generated Secrets</span></a></li><li class="inactive"><a href="cha-cap-backup-restore.html"><span class="number">21 </span><span class="name">Backup and Restore</span></a></li><li class="inactive"><a href="cha-cap-service-brokers.html"><span class="number">22 </span><span class="name">Service Brokers</span></a></li><li class="inactive"><a href="cha-cap-app-autoscaler.html"><span class="number">23 </span><span class="name">App-AutoScaler</span></a></li><li class="inactive"><a href="cha-cap-credhub.html"><span class="number">24 </span><span class="name">Integrating CredHub with SUSE Cloud Application Platform</span></a></li><li class="inactive"><a href="cha-cap-buildpacks.html"><span class="number">25 </span><span class="name">Buildpacks</span></a></li></ol></li><li class="inactive"><a href="part-cap-user-guide.html"><span class="number">IV </span><span class="name">SUSE Cloud Application Platform User Guide</span></a><ol><li class="inactive"><a href="cha-cap-cf-cli.html"><span class="number">26 </span><span class="name">Deploying and Managing Applications with the Cloud Foundry Client</span></a></li></ol></li><li class="inactive"><a href="part-cap-troubleshooting.html"><span class="number">V </span><span class="name">Troubleshooting</span></a><ol><li class="inactive"><a href="cha-cap-depl-troubleshooting.html"><span class="number">27 </span><span class="name">Troubleshooting</span></a></li></ol></li><li class="inactive"><a href="bk01apa.html"><span class="number">A </span><span class="name">Appendix</span></a></li><li class="inactive"><a href="bk01apb.html"><span class="number">B </span><span class="name">GNU Licenses</span></a></li></ol></div><div class="clearme"></div></div></div></div><div id="_nav-area" class="inactive"><div class="tool"><span class="nav-inner"><span class="tool-label">Navigation</span><a accesskey="p" class="tool-spacer" title="Chapter 21. Backup and Restore" href="cha-cap-backup-restore.html"><span class="prev-icon">←</span></a><a accesskey="n" class="tool-spacer" title="Chapter 23. App-AutoScaler" href="cha-cap-app-autoscaler.html"><span class="next-icon">→</span></a></span></div></div></div></div><div id="_fixed-header-wrap" style="background-color: #FABEBE;" class="inactive"><div id="_fixed-header"><div class="crumbs"><a class="book-link" href="index.html" title="SUSE Cloud Application Platform 2.1.0 Documentation"><span class="book-icon">SUSE Cloud Application Platform 2.1.0 Documentation</span></a><span> › </span><a class="crumb" href="book-cap-guides.html">Deployment, Administration, and User Guides</a><span> › </span><a class="crumb" href="part-cap-administration.html">SUSE Cloud Application Platform Administration</a><span> › </span><a class="crumb" href="cha-cap-service-brokers.html">Service Brokers</a></div><div class="buttons"><a class="top-button button" href="#">Top</a><div class="button"><a accesskey="p" class="tool-spacer" title="Chapter 21. Backup and Restore" href="cha-cap-backup-restore.html"><span class="prev-icon">←</span></a><a accesskey="n" class="tool-spacer" title="Chapter 23. App-AutoScaler" href="cha-cap-app-autoscaler.html"><span class="next-icon">→</span></a></div><div class="clearme"></div></div><div class="clearme"></div></div></div><div id="_content" class="draft "><div class="documentation"><div class="chapter " id="cha-cap-service-brokers"><div class="titlepage"><div><div class="version-info">Applies to  <span class="productname ">SUSE Cloud Application Platform</span> <span class="productnumber ">2.1.0</span></div><div><h2 class="title"><span class="number">22 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Service Brokers</span> <a title="Permalink" class="permalink" href="cha-cap-service-brokers.html#">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_admin_service_broker.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><div class="line"><div class="toc"><dl><dt><span class="sect1"><a href="cha-cap-service-brokers.html#sec-cap-minibroker"><span class="number">22.1 </span><span class="name">Provisioning Services with Minibroker</span></a></span></dt></dl></div></div><p>
+  The Open Service Broker API provides (OSBAPI) your SUSE Cloud Application Platform applications
+  with access to external dependencies and platform-level capabilities, such as
+  databases, filesystems, external repositories, and messaging systems. These
+  resources are called services. Services are created, used, and deleted as
+  needed, and provisioned on demand. This chapter focuses on Minibroker but
+  there are others.
+ </p><p>
+  Use the following guideline to determine which service broker is most suitable
+  for your situation.
+ </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+    When you want services deployed on demand to Kubernetes, use Minibroker. See
+    <a class="xref" href="cha-cap-service-brokers.html#sec-cap-minibroker" title="22.1. Provisioning Services with Minibroker">Section 22.1, “Provisioning Services with Minibroker”</a> for more information.
+   </p></li><li class="listitem "><p>
+    When you want a service that is not one of the above, note that 3rd party
+    OSBAPI brokers will work with SUSE Cloud Application Platform. Refer to the Cloud Foundry documentation
+    at <a class="link" href="https://docs.cloudfoundry.org/services/managing-service-brokers.html" target="_blank">https://docs.cloudfoundry.org/services/managing-service-brokers.html</a> 
+    for configuration instructions.
+   </p></li></ul></div><div class="sect1 " id="sec-cap-minibroker"><div class="titlepage"><div><div><h2 class="title"><span class="number">22.1 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Provisioning Services with Minibroker</span> <a title="Permalink" class="permalink" href="cha-cap-service-brokers.html#sec-cap-minibroker">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_admin_service_broker.xml</li><li><span class="ds-label">ID: </span>sec-cap-minibroker</li></ul></div></div></div></div><p>
+   <a class="link" href="https://github.com/SUSE/minibroker" target="_blank">Minibroker</a> is an
+   <a class="link" href="https://www.openservicebrokerapi.org/" target="_blank">OSBAPI compliant
+   broker</a> created by members of the
+   <a class="link" href="https://github.com/osbkit" target="_blank">Microsoft Azure team</a>. It
+   provides a simple method to provision service brokers on Kubernetes clusters.
+  </p><div id="id-1.3.5.12.5.3" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important: Minibroker Upstream Services</h6><p>
+    The services deployed by Minibroker are sourced from the stable upstream
+    charts repository, see
+    <a class="link" href="https://github.com/helm/charts/tree/master/stable" target="_blank">https://github.com/helm/charts/tree/master/stable</a>,
+    and maintained by contributors to the Helm project. Though SUSE supports
+    Minibroker itself, it does not support the service charts it deploys.
+    Operators should inspect the charts and images exposed by the service plans
+    before deciding to use them in a production environment.
+   </p></div><div class="sect2 " id="sec-cap-minibroker-deployment"><div class="titlepage"><div><div><h3 class="title"><span class="number">22.1.1 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Deploy Minibroker</span> <a title="Permalink" class="permalink" href="cha-cap-service-brokers.html#sec-cap-minibroker-deployment">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_admin_service_broker.xml</li><li><span class="ds-label">ID: </span>sec-cap-minibroker-deployment</li></ul></div></div></div></div><div class="procedure "><div class="procedure-contents"><ol class="procedure" type="1"><li class="step "><p>
+      Minibroker is deployed using a Helm chart. Ensure your SUSE Helm chart
+      repository contains the most recent Minibroker chart:
+     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>helm repo update</pre></div></li><li class="step "><p>
+      Use Helm to deploy Minibroker:
+     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>kubectl create namespace minibroker
+	     
+<code class="prompt user">tux &gt; </code>helm install <em class="replaceable ">minibroker</em> suse/minibroker \
+--namespace <em class="replaceable ">minibroker</em> \
+--set "deployServiceCatalog=false" \
+--set "defaultNamespace=minibroker"</pre></div><p>                                                                        
+      If you are using SUSE Enterprise Storage, you must copy the Ceph admin secret to the           
+      <code class="literal">minibroker</code> namespace:                                        
+     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>kubectl get secret ceph-secret-admin --output json
+--namespace default | \
+sed 's/"namespace": "default"/"namespace": "minibroker"/' | kubectl create
+--filename -</pre></div><div id="id-1.3.5.12.5.4.2.2.5" class="admonition note normal"><img class="symbol" alt="Note" title="Note" src="static/images/icon-note.png" /><h6>Note</h6><p>
+       Platform users provisioning service instances will be able to set
+       arbitrary parameters, which can be potentially dangerous, e.g. if setting
+       a high number of replicas. To prevent this, it is possible to define
+       override parameters per service in the according fields of the
+       <code class="literal">provisioning</code> chart value. If defined, the user-defined
+       parameters are dropped and the override parameters are used instead. 
+      </p><p>
+       The below is an example <code class="filename">values.yaml</code> file where the
+       <code class="literal">provisioning</code> chart value contains a series of override
+       definitions for different services. When the override parameters (or
+       other configurations) are defined in a <code class="filename">values.yaml</code>
+       file, ensure the file is used by including <code class="command">--values
+       FILE</code> in the <code class="command">helm install</code> command.
+      </p><div class="verbatim-wrap"><pre class="screen">### Example configuration file
+### minibroker-values.yaml
+
+provisioning:
+  mariadb:
+    overrideParams:
+      db:
+        user: "dbuser"
+        name: "default"
+      replication:
+        enabled: false
+      metrics:
+        enabled: false
+      resources:
+        limits:
+          cpu: 500m
+          memory: 512Mi
+        requests:
+          cpu: 200m
+          memory: 256Mi
+  postgresql:
+    overrideParams:
+      postgresqlUsername: "dbuser"
+      postgresqlDatabase: "default"
+      replication:
+        enabled: false
+      metrics:
+        enabled: false
+      resources:
+        limits:
+          cpu: 500m
+          memory: 512Mi
+        requests:
+          cpu: 200m
+          memory: 256Mi
+  redis:
+    overrideParams:
+      cluster:
+        enabled: false
+      networkPolicy:
+        enabled: false
+      securityContext:
+        enabled: true
+      sentinel:
+        enabled: false
+      resources:
+        limits:
+          cpu: 500m
+          memory: 512Mi
+        requests:
+          cpu: 200m
+          memory: 256Mi
+  rabbitmq:
+    overrideParams:
+      rabbitmq:
+        username: "dbuser"
+      replicas: 1
+      networkPolicy:
+        enabled: false
+      ingress:
+        enabled: false
+      metrics:
+        enabled: false
+      forceBoot:
+        enabled: false
+      resources:
+        limits:
+          cpu: 500m
+          memory: 512Mi
+        requests:
+          cpu: 200m
+          memory: 256Mi
+  mongodb:
+    overrideParams:
+      volumePermissions:
+        enabled: false
+      service:
+        type: ClusterIP
+      replicaSet:
+        enabled: false
+      ingress:
+        enabled: false
+      metrics:
+        enabled: false
+      resources:
+        limits:
+          cpu: 500m
+          memory: 512Mi
+        requests:
+          cpu: 200m
+          memory: 256Mi</pre></div></div><p>
+      The following tables list the services provided by Minibroker, along with
+      the latest chart and application version combination known to work with
+      Minibroker.
+     </p><p>
+      If your deployment uses Kubernetes 1.15 or earlier, use the following versions.
+     </p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col /><col /><col /></colgroup><thead><tr><th>Service</th><th>Version</th><th>appVersion</th></tr></thead><tbody><tr><td>MariaDB</td><td>4.3.0</td><td>10.1.34</td></tr><tr><td>MongoDB</td><td>5.3.3</td><td>4.0.6</td></tr><tr><td>PostgreSQL</td><td>6.2.1</td><td>11.5.0</td></tr><tr><td>Redis</td><td>3.7.2</td><td>4.0.10</td></tr></tbody></table></div><p>
+      If your deployment uses Kubernetes 1.16 or later, use the following versions.
+     </p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col /><col /><col /></colgroup><thead><tr><th>Service</th><th>Version</th><th>appVersion</th></tr></thead><tbody><tr><td>MariaDB</td><td>7.0.0</td><td>10.3.18</td></tr><tr><td>MongoDB</td><td>7.2.9</td><td>4.0.12</td></tr><tr><td>PostgreSQL</td><td>7.0.0</td><td>11.5.0</td></tr><tr><td>Redis</td><td>9.1.12</td><td>5.0.5</td></tr></tbody></table></div></li><li class="step "><p>
+      Monitor the deployment progress. Wait until all pods are in a ready state
+      before proceeding:
+     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>watch --color 'kubectl get pods --namespace minibroker'</pre></div></li></ol></div></div></div><div class="sect2 " id="sec-cap-minibroker-environment-setup"><div class="titlepage"><div><div><h3 class="title"><span class="number">22.1.2 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Setting Up the Environment for Minibroker Usage</span> <a title="Permalink" class="permalink" href="cha-cap-service-brokers.html#sec-cap-minibroker-environment-setup">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_admin_service_broker.xml</li><li><span class="ds-label">ID: </span>sec-cap-minibroker-environment-setup</li></ul></div></div></div></div><div class="procedure "><div class="procedure-contents"><ol class="procedure" type="1"><li class="step "><p>
+      Begin by logging into your Cloud Application Platform deployment. Select an organization and
+      space to work with, creating them if needed. Be sure to replace
+      <code class="literal">example.com</code> with the <code class="literal">system_domain</code>
+      set in your <code class="filename">kubecf-config-values.yaml</code>.
+     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf api --skip-ssl-validation <em class="replaceable ">https://api.example.com</em>
+ <code class="prompt user">tux &gt; </code>cf login -u <em class="replaceable ">admin</em> -p <em class="replaceable ">PASSWORD</em>
+ <code class="prompt user">tux &gt; </code>cf create-org <em class="replaceable ">MY_ORG</em>
+ <code class="prompt user">tux &gt; </code>cf create-space <em class="replaceable ">MY_SPACE</em> -o <em class="replaceable ">MY_ORG</em>
+ <code class="prompt user">tux &gt; </code>cf target -o <em class="replaceable ">MY_ORG</em> -s <em class="replaceable ">MY_SPACE</em></pre></div></li><li class="step "><p>
+      Create the service broker. Note that Minibroker does not require
+      authentication and the <code class="literal">USERNAME</code> and
+      <code class="literal">PASSWORD</code> parameters act as dummy values to pass to the
+      <code class="command">cf</code> command. These parameters do not need to be
+      customized for the Cloud Application Platform installation:
+     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf create-service-broker <em class="replaceable ">minibroker</em> <em class="replaceable ">USERNAME</em> <em class="replaceable ">PASSWORD</em> http://minibroker-minibroker.minibroker.svc.cluster.local</pre></div><p>
+      After the service broker is ready, it can be seen on your deployment:
+     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf service-brokers
+ Getting service brokers as admin...
+
+ name               url
+ minibroker         http://minibroker-minibroker.minibroker.svc.cluster.local</pre></div></li><li class="step "><p>
+      List the services and their associated plans the Minibroker has access to:
+     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf service-access -b <em class="replaceable ">minibroker</em></pre></div></li><li class="step "><p>
+      Enable access to a service. Refer to the table in
+      <a class="xref" href="cha-cap-service-brokers.html#sec-cap-minibroker-deployment" title="22.1.1. Deploy Minibroker">Section 22.1.1, “Deploy Minibroker”</a> for service plans known to
+      be working with Minibroker.
+     </p><p>
+      This example enables access to the Redis service:
+     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf enable-service-access <em class="replaceable ">redis</em> -b <em class="replaceable ">minibroker</em> -p <em class="replaceable ">5-0-5</em></pre></div><p>
+      Use <code class="command">cf marketplace</code> to verify the service has been
+      enabled:
+     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf marketplace
+ Getting services from marketplace in org org / space space as admin...
+ OK
+
+ service      plans     description
+ redis        5-0-5     Helm Chart for redis
+
+ TIP:  Use 'cf marketplace -s SERVICE' to view descriptions of individual plans of a given service.</pre></div></li><li class="step "><p>
+      Define your
+      <a class="link" href="https://docs.cloudfoundry.org/concepts/asg.html" target="_blank">Application
+      Security Group (ASG)</a> rules in a JSON file. Using the defined rules,
+      create an ASG and bind it to an organization and space:
+     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>echo &gt; <em class="replaceable ">redis.json</em> '[{ "protocol": "tcp", "destination": "<em class="replaceable ">10.0.0.0/8</em>", "ports": "<em class="replaceable ">6379</em>", "description": "<em class="replaceable ">Allow Redis traffic</em>" }]'
+ <code class="prompt user">tux &gt; </code>cf create-security-group <em class="replaceable ">redis_networking</em> <em class="replaceable ">redis.json</em>
+ <code class="prompt user">tux &gt; </code>cf bind-security-group <em class="replaceable ">redis_networking</em> <em class="replaceable ">org</em> <em class="replaceable ">space</em></pre></div><p>
+      Use following ports to define your ASG for the given service:
+     </p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col /><col /></colgroup><thead><tr><th>Service</th><th>Port</th></tr></thead><tbody><tr><td>MariaDB</td><td>3306</td></tr><tr><td>MongoDB</td><td>27017</td></tr><tr><td>PostgreSQL</td><td>5432</td></tr><tr><td>Redis</td><td>6379</td></tr></tbody></table></div></li><li class="step "><p>
+      Create an instance of the Redis service. The <code class="command">cf
+      marketplace</code> or <code class="command">cf marketplace -s redis</code>
+      commands can be used to see the available plans for the service:
+     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf create-service <em class="replaceable ">redis</em> <em class="replaceable ">5-0-5</em> <em class="replaceable ">redis-example-service</em></pre></div><p>
+      Monitor the progress of the pods and wait until all pods are in a ready
+      state. The example below shows the additional <code class="literal">redis</code>
+      pods with a randomly generated name that have been created in the
+      <code class="literal">minibroker</code> namespace:
+     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>watch --color 'kubectl get pods --namespace minibroker'
+ NAME                                            READY     STATUS             RESTARTS   AGE
+ alternating-frog-redis-master-0                 1/1       Running            2          1h
+ alternating-frog-redis-slave-7f7444978d-z86nr   1/1       Running            0          1h
+ minibroker-minibroker-5865f66bb8-6dxm7          2/2       Running            0          1h</pre></div></li></ol></div></div></div><div class="sect2 " id="sec-cap-minibroker-application-usage"><div class="titlepage"><div><div><h3 class="title"><span class="number">22.1.3 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Using Minibroker with Applications</span> <a title="Permalink" class="permalink" href="cha-cap-service-brokers.html#sec-cap-minibroker-application-usage">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_admin_service_broker.xml</li><li><span class="ds-label">ID: </span>sec-cap-minibroker-application-usage</li></ul></div></div></div></div><p>
+    This section demonstrates how to use Minibroker services with your
+    applications. The example below uses the Redis service instance created in
+    the previous section.
+   </p><div class="procedure "><div class="procedure-contents"><ol class="procedure" type="1"><li class="step "><p>
+      Obtain the demo application from Github and use <code class="command">cf push</code>
+      with the <code class="literal">--no-start</code> flag to deploy the application
+      without starting it:
+     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>git clone https://github.com/scf-samples/cf-redis-example-app
+ <code class="prompt user">tux &gt; </code>cd cf-redis-example-app
+ <code class="prompt user">tux &gt; </code>cf push --no-start</pre></div></li><li class="step "><p>
+      Bind the service to your application and start the application:
+     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf bind-service redis-example-app redis-example-service
+ <code class="prompt user">tux &gt; </code>cf start redis-example-app</pre></div></li><li class="step "><p>
+      When the application is ready, it can be tested by storing a value into
+      the Redis service. Be sure to replace <code class="literal">example.com</code> with
+      the <code class="literal">system_domain</code> set in your <code class="filename">kubecf-config-values.yaml</code>.
+     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>export APP=redis-example-app.example.com
+ <code class="prompt user">tux &gt; </code>curl --request GET $APP/foo
+ <code class="prompt user">tux &gt; </code>curl --request PUT $APP/foo --data 'data=bar'
+ <code class="prompt user">tux &gt; </code>curl --request GET $APP/foo</pre></div><p>
+      The first <code class="literal">GET</code> will return <code class="literal">key not
+      present</code>. After storing a value, it will return
+      <code class="literal">bar</code>.
+     </p></li></ol></div></div><div id="id-1.3.5.12.5.6.4" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important: Database Names for PostgreSQL and MariaDB Instances</h6><p>
+     By default, Minibroker creates PostgreSQL and MariaDB server instances
+     without a named database. A named database is required for normal usage
+     with these and will need to be added during the <code class="command">cf
+     create-service</code> step using the <code class="literal">-c</code> flag. To find
+     out the exact parameter to be used, reference the <code class="literal">values.yaml</code>
+     file in the upstream Helm charts at <a class="link" href="https://github.com/helm/charts" target="_blank">https://github.com/helm/charts</a>
+     located in the <code class="literal">stable</code> directory.
+    </p></div></div></div></div></div><div class="page-bottom"><div id="_bottom-navigation"><a class="nav-link" href="cha-cap-app-autoscaler.html"><span class="next-icon">→</span><span class="nav-label"><span class="number">Chapter 23 </span>App-AutoScaler</span></a><a class="nav-link" href="cha-cap-backup-restore.html"><span class="prev-icon">←</span><span class="nav-label"><span class="number">Chapter 21 </span>Backup and Restore</span></a></div><div class="_share-print"><div class="online-contents share"><strong>Share this page: </strong><span class="share-buttons"><span class="_share-fb bottom-button">Facebook</span><span class="spacer"> • </span><span class="_share-in bottom-button">LinkedIn</span><span class="spacer"> • </span><span class="_share-tw bottom-button">Twitter</span><span class="spacer"> • </span><span class="_share-mail bottom-button">E-Mail</span></span></div><div class="print"><span class="_print-button bottom-button">Print this page</span></div><div class="clearme"></div></div></div></div><div id="_inward"></div></div><div id="_footer-wrap"><div id="_footer"><p>©
+        2021 
+        SUSE</p><ul><li><a href="https://jobs.suse.com/" target="_top">Careers</a></li><li><a href="https://www.suse.com/company/legal/" target="_top">Legal</a></li><li><a href="https://www.suse.com/company/about/" target="_top">About</a></li><li><a href="https://www.suse.com/contact/" target="_top">Contact Us</a></li></ul></div></div></body></html>

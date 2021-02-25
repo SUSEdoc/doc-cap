@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Appendix | Deployment, Administration, and User Guides | SUSE Cloud Application Platform 2.1.0</title><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" /><link rel="stylesheet" type="text/css" href="static/css/style.css" /><link rel="stylesheet" type="text/css" href="static/css/highlight.css" /><meta name="generator" content="DAPS 3.0.0 (https://opensuse.github.io/daps) using SUSE XSL Stylesheets 2.0.17 (based on DocBook XSL Stylesheets 1.79.2) - chunked" /><meta name="product-name" content="SUSE Cloud Application Platform" /><meta name="product-number" content="2.1.0" /><meta name="book-title" content="Deployment, Administration, and User Guides" /><meta name="chapter-title" content="Appendix A. Appendix" /><meta name="description" content="This is the complete output of helm inspect values suse/kubecf for the current SUSE Cloud Application Platform 2.1.0 release." /><meta name="tracker-url" content="https://github.com/SUSE/doc-cap/issues/new" /><meta name="tracker-type" content="gh" /><meta name="tracker-gh-assignee" content="btat" /><meta name="tracker-gh-labels" content="bug,low priority" /><link rel="home" href="index.html" title="SUSE Cloud Application Platform 2.1.0 Documentation" /><link rel="up" href="book-cap-guides.html" title="Deployment, Administration, and User Guides" /><link rel="prev" href="cha-cap-depl-troubleshooting.html" title="Chapter 27. Troubleshooting" /><link rel="next" href="bk01apb.html" title="Appendix B. GNU Licenses" />
+<script type="text/javascript">
+
+if ( window.location.protocol.toLowerCase() != 'file:' ) {
+  document.write('<link rel="stylesheet" type="text/css" href="https://static.opensuse.org/fonts/fonts.css"></link>');
+}
+else {
+  document.write('<link rel="stylesheet" type="text/css" href="static/css/fonts-onlylocal.css"></link>');
+}
+
+</script><noscript><link rel="stylesheet" type="text/css" href="https://static.opensuse.org/fonts/fonts.css" /></noscript><script src="static/js/jquery-1.10.2.min.js" type="text/javascript"></script><script src="static/js/script.js" type="text/javascript"></script><script src="static/js/highlight.min.js" type="text/javascript"></script><script>
+
+$(document).ready(function() {
+  $('.verbatim-wrap.highlight').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+});
+hljs.configure({
+  useBR: false
+});
+
+</script></head><body class="draft offline js-off" onload="$('#betawarn-button-wrap').toggle();if (document.cookie.length > 0) {if (document.cookie.indexOf('betawarn=closed') != -1){$('#betawarn').toggle()}};"><div id="betawarn" style="position:fixed;bottom:0;z-index:9025;background-color:#FDE8E8;padding:1em;margin-left:10%;margin-right:10%;display:block;border-top:.75em solid #E11;width:80%"><p style="color:#333;margin:1em 0;padding:0;">This is a draft document that was built and uploaded automatically. It may document beta software and be incomplete or even incorrect. <strong>Use this document at your own risk.</strong></p> <div id="betawarn-button-wrap" style="display:none;margin:0;padding:0;"><a href="#" onclick="$('#betawarn').toggle();var d=new Date();d.setTime(d.getTime()+(0.5*24*60*60*1000));document.cookie='betawarn=closed; expires='+d.toUTCString()+'; path=/'; return false;" style="color:#333;text-decoration:underline;float:left;margin-top:.5em;padding:1em;display:block;background-color:#FABEBE;">I understand this is a draft</a></div></div><div class="bypass-block"><a href="#_content">Jump to content</a><a href="#_bottom-navigation">Jump to page navigation: previous page [access key p]/next page [access key n]</a></div><div id="_outer-wrap"><div id="_white-bg" style="background-color: #FABEBE;"><div id="_header"><div id="_logo"><img src="static/images/logo.png" alt="Logo" /></div><div class="crumbs"><a class="book-link" href="index.html" title="SUSE Cloud Application Platform 2.1.0 Documentation"><span class="book-icon">SUSE Cloud Application Platform 2.1.0 Documentation</span></a><span> › </span><a class="crumb" href="book-cap-guides.html">Deployment, Administration, and User Guides</a><span> › </span><a class="crumb" href="bk01apa.html">Appendix</a></div><div class="clearme"></div></div></div><div id="_toolbar-wrap"><div id="_toolbar"><div id="_toc-area" class="inactive"><a id="_toc-area-button" class="tool" title="Contents" accesskey="c" href="index.html"><span class="tool-spacer"><span class="toc-icon">Contents</span><span class="clearme"></span></span><span class="tool-label">Contents</span></a><div class="active-contents bubble-corner"></div><div class="active-contents bubble"><div class="bubble-container"><h6>Deployment, Administration, and User Guides</h6><div id="_bubble-toc"><ol><li class="inactive"><a href="preface-deployment.html"><span class="number"> </span><span class="name">About This Guide</span></a></li><li class="inactive"><a href="part-cap-overview.html"><span class="number">I </span><span class="name">Overview of SUSE Cloud Application Platform</span></a><ol><li class="inactive"><a href="cha-cap-overview.html"><span class="number">1 </span><span class="name">About SUSE Cloud Application Platform</span></a></li><li class="inactive"><a href="cha-cap-depl-kube-requirements.html"><span class="number">2 </span><span class="name">Other Kubernetes Systems</span></a></li></ol></li><li class="inactive"><a href="part-cap-deployment.html"><span class="number">II </span><span class="name">Deploying SUSE Cloud Application Platform</span></a><ol><li class="inactive"><a href="cha-cap-depl-notes.html"><span class="number">3 </span><span class="name">Deployment and Administration Notes</span></a></li><li class="inactive"><a href="cha-cap-depl-caasp.html"><span class="number">4 </span><span class="name">Deploying SUSE Cloud Application Platform on SUSE CaaS Platform</span></a></li><li class="inactive"><a href="cha-cap-depl-aks.html"><span class="number">5 </span><span class="name">Deploying SUSE Cloud Application Platform on Microsoft Azure Kubernetes Service (AKS)</span></a></li><li class="inactive"><a href="cha-cap-depl-eks.html"><span class="number">6 </span><span class="name">Deploying SUSE Cloud Application Platform on Amazon Elastic Kubernetes Service (EKS)</span></a></li><li class="inactive"><a href="cha-cap-depl-gke.html"><span class="number">7 </span><span class="name">Deploying SUSE Cloud Application Platform on Google Kubernetes Engine (GKE)</span></a></li><li class="inactive"><a href="cha-cap-install-stratos.html"><span class="number">8 </span><span class="name">Installing the Stratos Web Console</span></a></li><li class="inactive"><a href="cha-cap-depl-eirini.html"><span class="number">9 </span><span class="name">Eirini</span></a></li><li class="inactive"><a href="cha-cap-depl-terraform.html"><span class="number">10 </span><span class="name">Deploying SUSE Cloud Application Platform Using Terraform</span></a></li><li class="inactive"><a href="cha-cap-depl-air-gap-registry.html"><span class="number">11 </span><span class="name">Setting Up a Registry for an Air Gapped Environment</span></a></li><li class="inactive"><a href="cha-cap-depl-private-registry.html"><span class="number">12 </span><span class="name">SUSE Private Registry</span></a></li></ol></li><li class="inactive"><a href="part-cap-administration.html"><span class="number">III </span><span class="name">SUSE Cloud Application Platform Administration</span></a><ol><li class="inactive"><a href="cha-cap-upgrade.html"><span class="number">13 </span><span class="name">Upgrading SUSE Cloud Application Platform</span></a></li><li class="inactive"><a href="cha-cap-configuration-changes.html"><span class="number">14 </span><span class="name">Configuration Changes</span></a></li><li class="inactive"><a href="cha-cap-create-admin-user.html"><span class="number">15 </span><span class="name">Creating Admin Users</span></a></li><li class="inactive"><a href="cha-cap-manage-passwords.html"><span class="number">16 </span><span class="name">Managing Passwords</span></a></li><li class="inactive"><a href="cha-cap-uaa-ui.html"><span class="number">17 </span><span class="name">Accessing the UAA User Interface</span></a></li><li class="inactive"><a href="cha-cap-memory-limits.html"><span class="number">18 </span><span class="name">Container Memory Limits and Requests</span></a></li><li class="inactive"><a href="cha-cap-ccdb-secret-rotation.html"><span class="number">19 </span><span class="name">Cloud Controller Database Secret Rotation</span></a></li><li class="inactive"><a href="cha-cap-secrets-rotation.html"><span class="number">20 </span><span class="name">Rotating Automatically Generated Secrets</span></a></li><li class="inactive"><a href="cha-cap-backup-restore.html"><span class="number">21 </span><span class="name">Backup and Restore</span></a></li><li class="inactive"><a href="cha-cap-service-brokers.html"><span class="number">22 </span><span class="name">Service Brokers</span></a></li><li class="inactive"><a href="cha-cap-app-autoscaler.html"><span class="number">23 </span><span class="name">App-AutoScaler</span></a></li><li class="inactive"><a href="cha-cap-credhub.html"><span class="number">24 </span><span class="name">Integrating CredHub with SUSE Cloud Application Platform</span></a></li><li class="inactive"><a href="cha-cap-buildpacks.html"><span class="number">25 </span><span class="name">Buildpacks</span></a></li></ol></li><li class="inactive"><a href="part-cap-user-guide.html"><span class="number">IV </span><span class="name">SUSE Cloud Application Platform User Guide</span></a><ol><li class="inactive"><a href="cha-cap-cf-cli.html"><span class="number">26 </span><span class="name">Deploying and Managing Applications with the Cloud Foundry Client</span></a></li></ol></li><li class="inactive"><a href="part-cap-troubleshooting.html"><span class="number">V </span><span class="name">Troubleshooting</span></a><ol><li class="inactive"><a href="cha-cap-depl-troubleshooting.html"><span class="number">27 </span><span class="name">Troubleshooting</span></a></li></ol></li><li class="inactive"><a href="bk01apa.html"><span class="number">A </span><span class="name">Appendix</span></a></li><li class="inactive"><a href="bk01apb.html"><span class="number">B </span><span class="name">GNU Licenses</span></a></li></ol></div><div class="clearme"></div></div></div></div><div id="_nav-area" class="inactive"><div class="tool"><span class="nav-inner"><span class="tool-label">Navigation</span><a accesskey="p" class="tool-spacer" title="Chapter 27. Troubleshooting" href="cha-cap-depl-troubleshooting.html"><span class="prev-icon">←</span></a><a accesskey="n" class="tool-spacer" title="Appendix B. GNU Licenses" href="bk01apb.html"><span class="next-icon">→</span></a></span></div></div></div></div><div id="_fixed-header-wrap" style="background-color: #FABEBE;" class="inactive"><div id="_fixed-header"><div class="crumbs"><a class="book-link" href="index.html" title="SUSE Cloud Application Platform 2.1.0 Documentation"><span class="book-icon">SUSE Cloud Application Platform 2.1.0 Documentation</span></a><span> › </span><a class="crumb" href="book-cap-guides.html">Deployment, Administration, and User Guides</a><span> › </span><a class="crumb" href="bk01apa.html">Appendix</a></div><div class="buttons"><a class="top-button button" href="#">Top</a><div class="button"><a accesskey="p" class="tool-spacer" title="Chapter 27. Troubleshooting" href="cha-cap-depl-troubleshooting.html"><span class="prev-icon">←</span></a><a accesskey="n" class="tool-spacer" title="Appendix B. GNU Licenses" href="bk01apb.html"><span class="next-icon">→</span></a></div><div class="clearme"></div></div><div class="clearme"></div></div></div><div id="_content" class="draft "><div class="documentation"><div class="appendix " id="id-1.3.8"><div class="titlepage"><div><div class="version-info">Applies to  <span class="productname ">SUSE Cloud Application Platform</span> <span class="productnumber ">2.1.0</span></div><div><h1 class="title"><span class="number">A </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Appendix</span> <a title="Permalink" class="permalink" href="bk01apa.html#">#</a></h1><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>appendix.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><div class="line"><div class="toc"><dl><dt><span class="sect1"><a href="bk01apa.html#app-kubecf-values-yaml"><span class="number">A.1 </span><span class="name">Complete suse/kubecf values.yaml File</span></a></span></dt><dt><span class="sect1"><a href="bk01apa.html#app-cf-operator-values-yaml"><span class="number">A.2 </span><span class="name">Complete suse/cf-operator values.yaml File</span></a></span></dt></dl></div></div><div class="sect1 " id="app-kubecf-values-yaml"><div class="titlepage"><div><div><h2 class="title"><span class="number">A.1 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Complete suse/kubecf values.yaml File</span> <a title="Permalink" class="permalink" href="bk01apa.html#app-kubecf-values-yaml">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>app_kubecf_values_yaml.xml</li><li><span class="ds-label">ID: </span>app-kubecf-values-yaml</li></ul></div></div></div></div><p>
+  This is the complete output of <code class="command">helm inspect values suse/kubecf</code> for
+  the current SUSE Cloud Application Platform 2.1.0 release.
+ </p><div class="verbatim-wrap"><pre class="screen"># REQUIRED: the domain that the deployment will be visible to the user.
+# system_domain: example.com
+
+# List of stacks to install; the first one will be used as the default.
+# A stack is a prebuilt root file system that supports a specific
+# operating system with a corresponding set of buildpacks.
+install_stacks: [sle15, cflinuxfs3]
+
+# Set or override job properties. The first level of the map is the instance group name. The second
+# level of the map is the job name. E.g.:
+#  properties:
+#    adapter:
+#      adapter:
+#        scalablesyslog:
+#          adapter:
+#            logs:
+#              addr: kubecf-log-api:8082
+#
+properties: {}
+
+# Override credentials to not be auto-generated.  The credentials can either be
+# specified as a nested mapping, or with a dot-separated key.  For example:
+#  credentials:
+#    cf_admin_password: changeme
+#    credhub_tls.ca: credhub-real-ca
+#    credhub_tls:
+#      certificate: the-cert
+credentials: {}
+
+# Override variable values to not be auto-generated.  The variables are a simple
+# mapping with keys/values.  Note that the `system_domain` domain is handled
+# differently and must be set via the top-level key (which is required).
+# For example:
+#  variables:
+#    key: value
+variables: {}
+
+kube:
+  # The storage class to be used for the instance groups that need it (e.g. bits, database and
+  # singleton-blobstore). If it's not set, the default storage class will be used.
+  storage_class: ~
+  # The psp key contains the configuration related to Pod Security Policies. By default, a PSP will
+  # be generated with the necessary permissions for running KubeCF. To pass an existing PSP and
+  # prevent KubeCF from creating a new one, set the kube.psp.default with the PSP name.
+  psp:
+    default: ~
+
+# Set to true to enable support for multiple availability zones.
+multi_az: false
+
+# Set to true to enable high availability mode, where pods are replicated in
+# order to prevent downtime when a node is temporarily unavailable.
+high_availability: false
+
+# Instance sizing takes precedence over the high_availability property. I.e. setting the
+# instance count for an instance group greater than 1 will make it highly available.
+#
+# It is also possible to specify custom affinity rules for each instance group. If no rule
+# is provided, then each group as anti-affinity to itself, to try to spread the pods between
+# different nodes. In addition diego-cell and router also have anti-affinity to each other.
+#
+# The default rules look like this:
+#
+# sizing:
+#   sample_group:
+#     affinity:
+#       podAntiAffinity:
+#         preferredDuringSchedulingIgnoredDuringExecution:
+#         - weight: 100
+#           podAffinityTerm:
+#             labelSelector:
+#               matchExpressions:
+#               - key: quarks.cloudfoundry.org/quarks-statefulset-name
+#                 operator: In
+#                 values:
+#                 - sample_group
+#             topologyKey: kubernetes.io/hostname
+#
+# Any affinity rules specified here will *overwrite* the default rule and not merge with it.
+
+sizing:
+  adapter:
+    instances: ~
+  api:
+    instances: ~
+  apps_dns:
+    instances: ~
+  asactors:
+    instances: ~
+  asapi:
+    instances: ~
+  asmetrics:
+    instances: ~
+  asnozzle:
+    instances: ~
+  auctioneer:
+    instances: ~
+  bits:
+    instances: ~
+  cc_worker:
+    instances: ~
+  credhub:
+    instances: ~
+  database:
+    persistence:
+      size: 20Gi
+  diego_api:
+    instances: ~
+  diego_cell:
+    ephemeral_disk:
+      # Size of the ephemeral disk used to store applications in MB
+      size: 40960
+      # IMPORTANT! Only set this if you understand the consequences of using a PVC as ephemeral
+      # storage for diego cells. The storage class should be high performance, and not based on NFS.
+      # Do not set this value in production environments unless you've tested your storage class with
+      # diego cells and have found no problems.
+      # The name of the storage class used for the ephemeral disk PVC.
+      storage_class: ~
+    instances: ~
+  doppler:
+    instances: ~
+  eirini:
+    instances: ~
+  log_api:
+    instances: ~
+  nats:
+    instances: ~
+  router:
+    instances: ~
+  routing_api:
+    instances: ~
+  scheduler:
+    instances: ~
+  uaa:
+    instances: ~
+  tcp_router:
+    instances: ~
+
+#  External endpoints are created for the instance groups only if features.ingress.enabled is false.
+services:
+  router:
+    annotations: {}
+    type: LoadBalancer
+    externalIPs: []
+    clusterIP: ~
+    loadBalancerIP: ~
+  ssh-proxy:
+    annotations: {}
+    type: LoadBalancer
+    externalIPs: []
+    clusterIP: ~
+    loadBalancerIP: ~
+  tcp-router:
+    annotations: {}
+    type: LoadBalancer
+    externalIPs: []
+    clusterIP: ~
+    loadBalancerIP: ~
+    port_range:
+      start: 20000
+      end: 20008
+
+# CPU and memory resources can be configured via the `resources` tree when features.cpu_limits.enabled
+# or features.memory_limits.enabled are set respectively. Each setting covers both limit and request
+# settings for their resource type.
+#
+# The helm chart includes default memory limits for all processes, and some explicit requests. When no
+# request size is specified, a default is calculated as a percentage of the limit, but at least some
+# minimum threshold, but never more than the limit itself. See the features.memory_limits setting to
+# finetune this algorithm.
+#
+# All values are integers; cpu values are in millicpus (m) and memory is in megabytes (Mi).
+#
+# More information about the `resources` structure can be found in the config/resources.yaml file
+# inside this helm chart.
+
+resources:
+  diego-cell:
+    garden:
+      garden: {memory: {limit: 524288, request: 16}}
+
+settings:
+  router:
+    # tls sets up the public TLS for the router. The tls keys:
+    #   crt: the certificate in the PEM format. Required.
+    #   key: the private key in the PEM format. Required.
+    tls: {}
+    # crt: |
+    #   -----BEGIN CERTIFICATE-----
+    #   ...
+    #   -----END CERTIFICATE-----
+    # key: |
+    #   -----BEGIN PRIVATE KEY-----
+    #   ...
+    #   -----END PRIVATE KEY-----
+
+
+features:
+  # Set default memory limits and requests for all containers
+  memory_limits:
+    enabled: true
+    # The memory request size default is calculated as a percentage of the limit.
+    # The default is always at least a minimum value, but never larger than the limit itself.
+    default_request_minimum: 32
+    default_request_in_percent: 25
+  eirini:
+    enabled: false
+  # To support multi-clusters, deploy diego-cell separately please set control_plane is false  and cell_segment is true
+  multiple_cluster_mode:
+    control_plane:
+      enabled: false
+    cell_segment:
+      enabled: false
+    # To support multi-clusters, services for diego-cell deployed separately
+    control_plane_workers:
+      uaa:
+        name: uaa
+        addresses:
+        - ip: ~
+      diego_api:
+        name: diego-api
+        addresses:
+        - ip: ~
+      api:
+        name: api
+        addresses:
+        - ip: ~
+      singleton_blobstore:
+        name: singleton-blobstore
+        addresses:
+        - ip: ~
+    # To support multi-clusters, provider link secrets for diego-cell deployed separately
+    provider_link_service:
+      nats:
+        secret_name: minion-link-nats
+        service_name: minion-service-nats
+        addresses:
+        - ip: ~
+        # To support multi-clusters, fill the provider link secrets context of nats, for example:
+        # link: |
+        #   ---
+        #   nats.user: "nats"
+        #   nats.password: "xxxxxx"
+        #   nats.hostname: "nats"
+        #   nats.port: 4222
+        link: ~
+      nats_tls:
+        secret_name: minion-link-nats-tls
+        service_name: minion-service-nats-tls
+        addresses:
+        - ip: ~
+        # To support multi-clusters, fill the provider link secrets context of nats_tls, for example:
+        # link: |
+        #   ---
+        #   nats.user: "nats"
+        #   nats.password: "xxxxxx"
+        #   nats.hostname: "nats"
+        #   nats.port: 4223
+        #   nats.external.tls.ca: ""
+        link: ~
+      routing_api:
+        secret_name: minion-link-routing-api
+        service_name: minion-service-routing-api
+        addresses:
+        - ip: ~
+        # To support multi-clusters, fill the provider link secrets context of routing-api, for example:
+        # link: |
+        #   routing_api.clients: ~
+        #   routing_api.system_domain: "xxx.xxx.xxx"
+        #   routing_api.port: 3000
+        #   routing_api.mtls_port: 3001
+        #   routing_api.mtls_ca: |
+        #     -----BEGIN CERTIFICATE-----
+        #     xxxxxx
+        #     -----END CERTIFICATE-----
+        #   ......
+        link: ~
+      doppler:
+        secret_name: minion-link-doppler
+        service_name: minion-service-doppler
+        addresses:
+        - ip: ~
+        # To support multi-clusters, fill the provider link secrets context of doppler, for example:
+        # link: |
+        #   doppler.grpc_port: 8082
+        link: ~
+      loggregator:
+        secret_name: minion-link-loggregator
+        service_name: minion-service-loggregator
+        addresses:
+        - ip: ~
+        # To support multi-clusters, fill the provider link secrets context of loggregator, for example:
+        # link: |
+        #   loggregator.tls.ca_cert: |
+        #     -----BEGIN CERTIFICATE-----
+        #     xxxxxx
+        #     -----END CERTIFICATE-----
+        #   ......
+        link: ~
+      cloud_controller:
+        secret_name: minion-link-cloud-controller
+        service_name: minion-service-cloud-controller
+        addresses:
+        - ip: ~
+        # To support multi-clusters, fill the provider link secrets context of cloud-controller, for example:
+        # link: |
+        #   system_domain: "{{ .Values.system_domain }}"
+        #   app_domains: []
+        link: ~
+      cloud_controller_container_networking_info:
+        secret_name: minion-link-cloud-controller-container-networking-info
+        service_name: minion-service-cloud-controller-container-networking-info
+        addresses:
+        - ip: ~
+        # link: |
+        #   cc.internal_route_vip_range: "127.128.0.0/9"
+        link: ~
+      cf_network:
+        secret_name: minion-link-cf-network
+        service_name: minion-service-cf-network
+        addresses:
+        - ip: ~
+        # link: |
+        #   network: "10.255.0.0/16"
+        #   subnet_prefix_length: 24
+        link: ~
+  ingress:
+    enabled: false
+    tls:
+      # TLS certificate for the ingress controller.  This should be a wildcard certificate for the
+      # system domain (*.example.com, where api.example.com is the API endpoint).  It should also
+      # include the full certificate chain (that is, include the intermediate certificates).
+      crt: ~
+      # TLS certificate private key for the ingress controller, matching features.ingress.tls.crt.
+      key: ~
+    annotations: {}
+    labels: {}
+  autoscaler:
+    # Enable the application autoscaler.  The autoscaler service must be manually registered; see
+    # https://github.com/cloudfoundry/app-autoscaler-release#register-service for details.
+    enabled: false
+    mysql:
+      enabled: false
+  credhub:
+    # Enable credhub; this is only used as a service broker for applications, and is not used for
+    # authentication with the Cloud Foundry deployment.
+    enabled: true
+  routing_api:
+    # Enable the routing API.  Disabling this will also disable TCP routing, which is used for TCP
+    # port forwarding.
+    # Enabled by default, except under Eirini, where the routing-api is not (yet) supported.
+    enabled: ~
+  embedded_database:
+    # Enable the embedded database.  If this is disabled, then features.external_database should be
+    # configured to use an external database.
+    enabled: true
+    # Number of seconds to wait for the database to be ready, per iteration of the waiter loop
+    connect_timeout: 3
+  blobstore:
+    # Possible values for provider: singleton and s3.
+    provider: singleton
+    s3:
+      aws_region: ~
+      blobstore_access_key_id: ~
+      blobstore_secret_access_key: ~
+      blobstore_admin_users_password: ~
+      # The following values are used as S3 bucket names.
+      app_package_directory_key: ~
+      buildpack_directory_key: ~
+      droplet_directory_key: ~
+      resource_directory_key: ~
+
+  # Configuration for the external database; see also features.embedded_database.  Please refer to
+  # https://kubecf.io/docs/deployment/kubernetes-deploy/#external-database for details.
+  external_database:
+    enabled: false
+    require_ssl: false
+    ca_cert: ~
+    # The external database type; it can be either 'mysql' or 'postgres'.
+    type: ~
+    host: ~
+    port: ~
+    # Number of seconds to wait for the database to be ready, per iteration of the waiter loop
+    connect_timeout: 3
+    # If seed is set to true, we will initialize the database using the provided
+    # root password (see `.variables.pxc-root-password`); in that case it is not
+    # necessary to provide the configuration for the individual databases.
+    seed: false
+    databases:
+      uaa:
+        name: uaa
+        password: ~
+        username: ~
+      cc:
+        name: cloud_controller
+        password: ~
+        username: ~
+      bbs:
+        name: diego
+        password: ~
+        username: ~
+      routing_api:
+        name: routing-api
+        password: ~
+        username: ~
+      policy_server:
+        name: network_policy
+        password: ~
+        username: ~
+      silk_controller:
+        name: network_connectivity
+        password: ~
+        username: ~
+      locket:
+        name: locket
+        password: ~
+        username: ~
+      credhub:
+        name: credhub
+        password: ~
+        username: ~
+
+# Enable or disable instance groups for the different test suites.
+# Only smoke tests should be run in production environments.
+testing:
+  # __ATTENTION__: The brain tests do things with the cluster which
+  # required them to have `cluster-admin` permissions (i.e. root).
+  # Enabling them is thus potentially insecure. They should only be
+  # activated for isolated testing.
+  brain_tests:
+    enabled: false
+    # Delete the testing pod after completion (default: false)
+    delete_pod: false
+  cf_acceptance_tests:
+    enabled: false
+    # Delete the testing pod after completion (default: false)
+    delete_pod: false
+  smoke_tests:
+    enabled: true
+    # Delete the testing pod after completion (default: false)
+    delete_pod: false
+  sync_integration_tests:
+    enabled: false
+    # Delete the testing pod after completion (default: false)
+    delete_pod: false
+
+ccdb:
+  encryption:
+    # Configure CCDB key rotation.  Please see
+    # https://kubecf.io/docs/tasks/secrets/#rotating-the-ccdb-encryption-keys for details.
+    rotation:
+      # Key labels must be &lt;= 240 characters long.
+      key_labels:
+      - encryption_key_0
+      current_key_label: encryption_key_0
+
+operations:
+  # A list of configmap names that should be applied to the BOSH manifest.
+  custom: []
+  # Inlined operations that get into generated ConfigMaps. E.g. adding a password variable:
+  # operations:
+  #   inline:
+  #   - type: replace
+  #     path: /variables/-
+  #     value:
+  #       name: my_password
+  #       type: password
+  inline: []
+
+eirinix:
+  persi-broker:
+    # Service plans for Eirini persistant storage support
+    service-plans:
+    - id: default
+      name: "default"
+      description: "Existing default storage class"
+      kube_storage_class: ~
+      free: true
+      default_size: "1Gi"
+    description: Eirini persistence broker
+    long_description: Eirini persistence broker to provide Kubernete storage classes
+    provider_display_name: Eirini broker
+    documentation_url: https://github.com/SUSE/eirini-persi-broker
+    support_url: https://github.com/SUSE/eirini-persi-broker/issues
+    display_name: Eirini broker
+    icon_image: Eirini broker
+    secrets:
+      auth-password: ~ # Password is randomly generated if not given</pre></div></div><div class="sect1 " id="app-cf-operator-values-yaml"><div class="titlepage"><div><div><h2 class="title"><span class="number">A.2 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Complete suse/cf-operator values.yaml File</span> <a title="Permalink" class="permalink" href="bk01apa.html#app-cf-operator-values-yaml">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>app_cf_operator_values_yaml.xml</li><li><span class="ds-label">ID: </span>app-cf-operator-values-yaml</li></ul></div></div></div></div><p>
+  This is the complete output of <code class="command">helm inspect values suse/cf-operator</code> for
+  the current SUSE Cloud Application Platform 2.1.0 release.
+ </p><div class="verbatim-wrap"><pre class="screen">## Default values for Cf-operator Helm Chart.
+## This is a YAML-formatted file.
+## Declare variables to be passed into your templates.
+
+
+# applyCRD is a boolean to control the installation of CRD's.
+applyCRD: true
+
+cluster:
+  # domain is the the Kubernetes cluster domain
+  domain: "cluster.local"
+
+# createWatchNamespace is a boolean to control creation of the watched namespace.
+createWatchNamespace: true
+
+# fullnameOverride overrides the release name
+fullnameOverride: ""
+
+# image is the docker image of quarks job.
+image:
+  # repository that provides the operator docker image.
+  repository: cf-operator
+  # org that provides the operator docker image.
+  org: registry.suse.com/cap
+  # tag of the operator docker image
+  tag: v4.5.13-0.gd4738712
+
+# logrotateInterval is the time between logrotate calls for instance groups in minutes
+logrotateInterval: 1440
+
+# logLevel defines from which level the logs should be printed (trace,debug,info,warn).
+logLevel: debug
+
+# workers are the int values for running maximum number of workers of the respective controller.
+workers:
+  boshdeployment: 1
+  quarksSecret: 1
+  quarksStatefulset: 1
+
+operator:
+  webhook:
+    # host under which the webhook server can be reached from the cluster
+    host: ~
+    # port the webhook server listens on
+    port: "2999"
+  # boshDNSDockerImage is the docker image used for emulating bosh DNS (a CoreDNS image).
+  boshDNSDockerImage: "registry.suse.com/cap/coredns:0.1.0-1.6.7-bp152.1.2"
+
+# nameOverride overrides the chart name part of the release name
+nameOverride: ""
+
+# serviceAccount contains the configuration
+# values of the service account used by cf-operator.
+serviceAccount:
+  # create is a boolean to control the creation of service account name.
+  create: true
+  # name of the service account.
+  name:
+
+global:
+  # Context Timeout for each K8's API request in seconds.
+  contextTimeout: 300
+  image:
+    # pullPolicy defines the policy used for pulling docker images.
+    pullPolicy: IfNotPresent
+    # credentials is used for pulling docker images.
+    credentials: ~
+      # username:
+      # password:
+      # servername:
+  operator:
+    # watchNamespace is used for watching the BOSH deployments.
+    watchNamespace: staging
+    webhook:
+      # useServiceReference is a boolean to control the use of the
+      # service reference in the webhook spec instead of a url.
+      useServiceReference: true
+
+  rbac:
+    # create is a boolean to control the installation of quarks job cluster role template.
+    create: true
+
+quarks-job:
+  # createWatchNamespace is a boolean to control creation of the watched namespace.
+  createWatchNamespace: false
+  serviceAccount:
+    # create is a boolean to control the creation of service account name.
+    create: true
+    # name of the service account.
+    name:</pre></div></div></div></div><div class="page-bottom"><div id="_bottom-navigation"><a class="nav-link" href="bk01apb.html"><span class="next-icon">→</span><span class="nav-label"><span class="number">Appendix B </span>GNU Licenses</span></a><a class="nav-link" href="cha-cap-depl-troubleshooting.html"><span class="prev-icon">←</span><span class="nav-label"><span class="number">Chapter 27 </span>Troubleshooting</span></a></div><div class="_share-print"><div class="online-contents share"><strong>Share this page: </strong><span class="share-buttons"><span class="_share-fb bottom-button">Facebook</span><span class="spacer"> • </span><span class="_share-in bottom-button">LinkedIn</span><span class="spacer"> • </span><span class="_share-tw bottom-button">Twitter</span><span class="spacer"> • </span><span class="_share-mail bottom-button">E-Mail</span></span></div><div class="print"><span class="_print-button bottom-button">Print this page</span></div><div class="clearme"></div></div></div></div><div id="_inward"></div></div><div id="_footer-wrap"><div id="_footer"><p>©
+        2021 
+        SUSE</p><ul><li><a href="https://jobs.suse.com/" target="_top">Careers</a></li><li><a href="https://www.suse.com/company/legal/" target="_top">Legal</a></li><li><a href="https://www.suse.com/company/about/" target="_top">About</a></li><li><a href="https://www.suse.com/contact/" target="_top">Contact Us</a></li></ul></div></div></body></html>

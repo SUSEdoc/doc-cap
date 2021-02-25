@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>About SUSE Cloud Application Platform | Deployment, Administration, and User Guides | SUSE Cloud Application Platform 2.1.0</title><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" /><link rel="stylesheet" type="text/css" href="static/css/style.css" /><link rel="stylesheet" type="text/css" href="static/css/highlight.css" /><meta name="generator" content="DAPS 3.0.0 (https://opensuse.github.io/daps) using SUSE XSL Stylesheets 2.0.17 (based on DocBook XSL Stylesheets 1.79.2) - chunked" /><meta name="product-name" content="SUSE Cloud Application Platform" /><meta name="product-number" content="2.1.0" /><meta name="book-title" content="Deployment, Administration, and User Guides" /><meta name="chapter-title" content="Chapter 1. About SUSE Cloud Application Platform" /><meta name="description" content="KubeCF has been updated to 2.5.8:" /><meta name="tracker-url" content="https://github.com/SUSE/doc-cap/issues/new" /><meta name="tracker-type" content="gh" /><meta name="tracker-gh-assignee" content="btat" /><meta name="tracker-gh-labels" content="bug,low priority" /><link rel="home" href="index.html" title="SUSE Cloud Application Platform 2.1.0 Documentation" /><link rel="up" href="part-cap-overview.html" title="Part I. Overview of SUSE Cloud Application Platform" /><link rel="prev" href="part-cap-overview.html" title="Part I. Overview of SUSE Cloud Application Platform" /><link rel="next" href="cha-cap-depl-kube-requirements.html" title="Chapter 2. Other Kubernetes Systems" />
+<script type="text/javascript">
+
+if ( window.location.protocol.toLowerCase() != 'file:' ) {
+  document.write('<link rel="stylesheet" type="text/css" href="https://static.opensuse.org/fonts/fonts.css"></link>');
+}
+else {
+  document.write('<link rel="stylesheet" type="text/css" href="static/css/fonts-onlylocal.css"></link>');
+}
+
+</script><noscript><link rel="stylesheet" type="text/css" href="https://static.opensuse.org/fonts/fonts.css" /></noscript><script src="static/js/jquery-1.10.2.min.js" type="text/javascript"></script><script src="static/js/script.js" type="text/javascript"></script><script src="static/js/highlight.min.js" type="text/javascript"></script><script>
+
+$(document).ready(function() {
+  $('.verbatim-wrap.highlight').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+});
+hljs.configure({
+  useBR: false
+});
+
+</script></head><body class="draft offline js-off" onload="$('#betawarn-button-wrap').toggle();if (document.cookie.length > 0) {if (document.cookie.indexOf('betawarn=closed') != -1){$('#betawarn').toggle()}};"><div id="betawarn" style="position:fixed;bottom:0;z-index:9025;background-color:#FDE8E8;padding:1em;margin-left:10%;margin-right:10%;display:block;border-top:.75em solid #E11;width:80%"><p style="color:#333;margin:1em 0;padding:0;">This is a draft document that was built and uploaded automatically. It may document beta software and be incomplete or even incorrect. <strong>Use this document at your own risk.</strong></p> <div id="betawarn-button-wrap" style="display:none;margin:0;padding:0;"><a href="#" onclick="$('#betawarn').toggle();var d=new Date();d.setTime(d.getTime()+(0.5*24*60*60*1000));document.cookie='betawarn=closed; expires='+d.toUTCString()+'; path=/'; return false;" style="color:#333;text-decoration:underline;float:left;margin-top:.5em;padding:1em;display:block;background-color:#FABEBE;">I understand this is a draft</a></div></div><div class="bypass-block"><a href="#_content">Jump to content</a><a href="#_bottom-navigation">Jump to page navigation: previous page [access key p]/next page [access key n]</a></div><div id="_outer-wrap"><div id="_white-bg" style="background-color: #FABEBE;"><div id="_header"><div id="_logo"><img src="static/images/logo.png" alt="Logo" /></div><div class="crumbs"><a class="book-link" href="index.html" title="SUSE Cloud Application Platform 2.1.0 Documentation"><span class="book-icon">SUSE Cloud Application Platform 2.1.0 Documentation</span></a><span> › </span><a class="crumb" href="book-cap-guides.html">Deployment, Administration, and User Guides</a><span> › </span><a class="crumb" href="part-cap-overview.html">Overview of SUSE Cloud Application Platform</a><span> › </span><a class="crumb" href="cha-cap-overview.html">About SUSE Cloud Application Platform</a></div><div class="clearme"></div></div></div><div id="_toolbar-wrap"><div id="_toolbar"><div id="_toc-area" class="inactive"><a id="_toc-area-button" class="tool" title="Contents" accesskey="c" href="index.html"><span class="tool-spacer"><span class="toc-icon">Contents</span><span class="clearme"></span></span><span class="tool-label">Contents</span></a><div class="active-contents bubble-corner"></div><div class="active-contents bubble"><div class="bubble-container"><h6>Deployment, Administration, and User Guides</h6><div id="_bubble-toc"><ol><li class="inactive"><a href="preface-deployment.html"><span class="number"> </span><span class="name">About This Guide</span></a></li><li class="inactive"><a href="part-cap-overview.html"><span class="number">I </span><span class="name">Overview of SUSE Cloud Application Platform</span></a><ol><li class="inactive"><a href="cha-cap-overview.html"><span class="number">1 </span><span class="name">About SUSE Cloud Application Platform</span></a></li><li class="inactive"><a href="cha-cap-depl-kube-requirements.html"><span class="number">2 </span><span class="name">Other Kubernetes Systems</span></a></li></ol></li><li class="inactive"><a href="part-cap-deployment.html"><span class="number">II </span><span class="name">Deploying SUSE Cloud Application Platform</span></a><ol><li class="inactive"><a href="cha-cap-depl-notes.html"><span class="number">3 </span><span class="name">Deployment and Administration Notes</span></a></li><li class="inactive"><a href="cha-cap-depl-caasp.html"><span class="number">4 </span><span class="name">Deploying SUSE Cloud Application Platform on SUSE CaaS Platform</span></a></li><li class="inactive"><a href="cha-cap-depl-aks.html"><span class="number">5 </span><span class="name">Deploying SUSE Cloud Application Platform on Microsoft Azure Kubernetes Service (AKS)</span></a></li><li class="inactive"><a href="cha-cap-depl-eks.html"><span class="number">6 </span><span class="name">Deploying SUSE Cloud Application Platform on Amazon Elastic Kubernetes Service (EKS)</span></a></li><li class="inactive"><a href="cha-cap-depl-gke.html"><span class="number">7 </span><span class="name">Deploying SUSE Cloud Application Platform on Google Kubernetes Engine (GKE)</span></a></li><li class="inactive"><a href="cha-cap-install-stratos.html"><span class="number">8 </span><span class="name">Installing the Stratos Web Console</span></a></li><li class="inactive"><a href="cha-cap-depl-eirini.html"><span class="number">9 </span><span class="name">Eirini</span></a></li><li class="inactive"><a href="cha-cap-depl-terraform.html"><span class="number">10 </span><span class="name">Deploying SUSE Cloud Application Platform Using Terraform</span></a></li><li class="inactive"><a href="cha-cap-depl-air-gap-registry.html"><span class="number">11 </span><span class="name">Setting Up a Registry for an Air Gapped Environment</span></a></li><li class="inactive"><a href="cha-cap-depl-private-registry.html"><span class="number">12 </span><span class="name">SUSE Private Registry</span></a></li></ol></li><li class="inactive"><a href="part-cap-administration.html"><span class="number">III </span><span class="name">SUSE Cloud Application Platform Administration</span></a><ol><li class="inactive"><a href="cha-cap-upgrade.html"><span class="number">13 </span><span class="name">Upgrading SUSE Cloud Application Platform</span></a></li><li class="inactive"><a href="cha-cap-configuration-changes.html"><span class="number">14 </span><span class="name">Configuration Changes</span></a></li><li class="inactive"><a href="cha-cap-create-admin-user.html"><span class="number">15 </span><span class="name">Creating Admin Users</span></a></li><li class="inactive"><a href="cha-cap-manage-passwords.html"><span class="number">16 </span><span class="name">Managing Passwords</span></a></li><li class="inactive"><a href="cha-cap-uaa-ui.html"><span class="number">17 </span><span class="name">Accessing the UAA User Interface</span></a></li><li class="inactive"><a href="cha-cap-memory-limits.html"><span class="number">18 </span><span class="name">Container Memory Limits and Requests</span></a></li><li class="inactive"><a href="cha-cap-ccdb-secret-rotation.html"><span class="number">19 </span><span class="name">Cloud Controller Database Secret Rotation</span></a></li><li class="inactive"><a href="cha-cap-secrets-rotation.html"><span class="number">20 </span><span class="name">Rotating Automatically Generated Secrets</span></a></li><li class="inactive"><a href="cha-cap-backup-restore.html"><span class="number">21 </span><span class="name">Backup and Restore</span></a></li><li class="inactive"><a href="cha-cap-service-brokers.html"><span class="number">22 </span><span class="name">Service Brokers</span></a></li><li class="inactive"><a href="cha-cap-app-autoscaler.html"><span class="number">23 </span><span class="name">App-AutoScaler</span></a></li><li class="inactive"><a href="cha-cap-credhub.html"><span class="number">24 </span><span class="name">Integrating CredHub with SUSE Cloud Application Platform</span></a></li><li class="inactive"><a href="cha-cap-buildpacks.html"><span class="number">25 </span><span class="name">Buildpacks</span></a></li></ol></li><li class="inactive"><a href="part-cap-user-guide.html"><span class="number">IV </span><span class="name">SUSE Cloud Application Platform User Guide</span></a><ol><li class="inactive"><a href="cha-cap-cf-cli.html"><span class="number">26 </span><span class="name">Deploying and Managing Applications with the Cloud Foundry Client</span></a></li></ol></li><li class="inactive"><a href="part-cap-troubleshooting.html"><span class="number">V </span><span class="name">Troubleshooting</span></a><ol><li class="inactive"><a href="cha-cap-depl-troubleshooting.html"><span class="number">27 </span><span class="name">Troubleshooting</span></a></li></ol></li><li class="inactive"><a href="bk01apa.html"><span class="number">A </span><span class="name">Appendix</span></a></li><li class="inactive"><a href="bk01apb.html"><span class="number">B </span><span class="name">GNU Licenses</span></a></li></ol></div><div class="clearme"></div></div></div></div><div id="_nav-area" class="inactive"><div class="tool"><span class="nav-inner"><span class="tool-label">Navigation</span><a accesskey="p" class="tool-spacer" title="Part I. Overview of SUSE Cloud Application Platform" href="part-cap-overview.html"><span class="prev-icon">←</span></a><a accesskey="n" class="tool-spacer" title="Chapter 2. Other Kubernetes Systems" href="cha-cap-depl-kube-requirements.html"><span class="next-icon">→</span></a></span></div></div></div></div><div id="_fixed-header-wrap" style="background-color: #FABEBE;" class="inactive"><div id="_fixed-header"><div class="crumbs"><a class="book-link" href="index.html" title="SUSE Cloud Application Platform 2.1.0 Documentation"><span class="book-icon">SUSE Cloud Application Platform 2.1.0 Documentation</span></a><span> › </span><a class="crumb" href="book-cap-guides.html">Deployment, Administration, and User Guides</a><span> › </span><a class="crumb" href="part-cap-overview.html">Overview of SUSE Cloud Application Platform</a><span> › </span><a class="crumb" href="cha-cap-overview.html">About SUSE Cloud Application Platform</a></div><div class="buttons"><a class="top-button button" href="#">Top</a><div class="button"><a accesskey="p" class="tool-spacer" title="Part I. Overview of SUSE Cloud Application Platform" href="part-cap-overview.html"><span class="prev-icon">←</span></a><a accesskey="n" class="tool-spacer" title="Chapter 2. Other Kubernetes Systems" href="cha-cap-depl-kube-requirements.html"><span class="next-icon">→</span></a></div><div class="clearme"></div></div><div class="clearme"></div></div></div><div id="_content" class="draft "><div class="documentation"><div class="chapter " id="cha-cap-overview"><div class="titlepage"><div><div class="version-info">Applies to  <span class="productname ">SUSE Cloud Application Platform</span> <span class="productnumber ">2.1.0</span></div><div><h2 class="title"><span class="number">1 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">About SUSE Cloud Application Platform</span> <a title="Permalink" class="permalink" href="cha-cap-overview.html#">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_overview.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><div class="line"><div class="toc"><dl><dt><span class="sect1"><a href="cha-cap-overview.html#sec-cap-changes"><span class="number">1.1 </span><span class="name">New in Version 2.1.0</span></a></span></dt><dt><span class="sect1"><a href="cha-cap-overview.html#sec-cap-overview"><span class="number">1.2 </span><span class="name">SUSE Cloud Application Platform Overview</span></a></span></dt><dt><span class="sect1"><a href="cha-cap-overview.html#sec-cap-architecture"><span class="number">1.3 </span><span class="name">SUSE Cloud Application Platform Architecture</span></a></span></dt></dl></div></div><div class="sect1 " id="sec-cap-changes"><div class="titlepage"><div><div><h2 class="title"><span class="number">1.1 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">New in Version 2.1.0</span> <a title="Permalink" class="permalink" href="cha-cap-overview.html#sec-cap-changes">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_overview.xml</li><li><span class="ds-label">ID: </span>sec-cap-changes</li></ul></div></div></div></div><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+     KubeCF has been updated to 2.5.8:
+    </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+       For a full list of features and fixes see <a class="link" href="https://github.com/cloudfoundry-incubator/kubecf/releases/tag/v2.5.8" target="_blank">https://github.com/cloudfoundry-incubator/kubecf/releases/tag/v2.5.8</a>
+      </p></li></ul></div></li><li class="listitem "><p>
+     cf-operator has been updated to 6.1.17:
+    </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+       For a full list of features and fixes see <a class="link" href="https://github.com/cloudfoundry-incubator/quarks-operator/releases/tag/v6.1.17" target="_blank">https://github.com/cloudfoundry-incubator/quarks-operator/releases/tag/v6.1.17</a>
+      </p></li></ul></div></li><li class="listitem "><p>
+     Stratos Console has been updated to 4.2.0:
+    </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+       Configurable NGINX protocols and ciphers using Helm values
+      </p></li><li class="listitem "><p>
+       For a full list of features and fixes see <a class="link" href="https://github.com/SUSE/stratos/blob/master/CHANGELOG.md#420" target="_blank">https://github.com/SUSE/stratos/blob/master/CHANGELOG.md#420</a>
+      </p></li></ul></div></li></ul></div><p>
+   See all product manuals for SUSE Cloud Application Platform 2.x at
+   <a class="link" href="https://documentation.suse.com/suse-cap/2/" target="_blank">https://documentation.suse.com/suse-cap/2/</a>.
+  </p><div id="id-1.3.3.3.2.4" class="admonition tip normal"><img class="symbol" alt="Tip" title="Tip" src="static/images/icon-tip.png" /><h6>Tip: Read the Release Notes</h6><p>
+    Make sure to review the release notes for SUSE Cloud Application Platform published at
+    <a class="link" href="https://www.suse.com/releasenotes/x86_64/SUSE-CAP/2.0/" target="_blank">https://www.suse.com/releasenotes/x86_64/SUSE-CAP/2.0/</a>.
+   </p></div></div><div class="sect1 " id="sec-cap-overview"><div class="titlepage"><div><div><h2 class="title"><span class="number">1.2 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">SUSE Cloud Application Platform Overview</span> <a title="Permalink" class="permalink" href="cha-cap-overview.html#sec-cap-overview">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_overview.xml</li><li><span class="ds-label">ID: </span>sec-cap-overview</li></ul></div></div></div></div><p>
+    SUSE Cloud Application Platform is a software platform for cloud-native applications based on
+    Cloud Foundry Application Runtime (cf-operator, KubeCF, and Stratos) with
+    additional supporting components.
+   </p><p>
+   SUSE Cloud Application Platform describes the complete software stack, including the operating
+   system, Kubernetes, and KubeCF.
+  </p><p>
+   SUSE Cloud Application Platform is comprised of cf-operator (<code class="literal">cf-operator</code>),
+   KubeCF (<code class="literal">kubecf</code>), the Stratos Web user interface, and
+   Stratos Metrics.
+  </p><p>
+   The Cloud Foundry code base provides the basic functionality. KubeCF differentiates
+   itself from other Cloud Foundry distributions by running in Linux containers managed
+   by Kubernetes, rather than virtual machines managed with BOSH, for greater
+   fault tolerance and lower memory use.
+  </p><p>
+   All Docker images for the SUSE Linux Enterprise builds are hosted on
+   <code class="literal">registry.suse.com</code>. These are the commercially-supported
+   images. (Community-supported images for openSUSE are hosted on
+   <a class="link" href="https://hub.docker.com" target="_blank">Docker Hub</a>.) Product
+   manuals on
+   <a class="link" href="https://documentation.suse.com/suse-cap/2/" target="_blank">https://documentation.suse.com/suse-cap/2/</a>  refer to the
+   commercially-supported SUSE Linux Enterprise version.
+  </p><p>
+   Cloud Application Platform is designed to run on any Kubernetes cluster as described in
+   <a class="xref" href="preface-deployment.html#sec-cap-platform-support" title="5.2. Platform Support">Section 5.2, “Platform Support”</a>. This guide describes how
+   to deploy it:
+  </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+    For SUSE® CaaS Platform, see <a class="xref" href="cha-cap-depl-caasp.html" title="Chapter 4. Deploying SUSE Cloud Application Platform on SUSE CaaS Platform">Chapter 4, <em>Deploying SUSE Cloud Application Platform on SUSE CaaS Platform</em></a>.
+   </p></li><li class="listitem "><p>
+    For Microsoft Azure Kubernetes Service, see <a class="xref" href="cha-cap-depl-aks.html" title="Chapter 5. Deploying SUSE Cloud Application Platform on Microsoft Azure Kubernetes Service (AKS)">Chapter 5, <em>Deploying SUSE Cloud Application Platform on Microsoft Azure Kubernetes Service (AKS)</em></a>.
+   </p></li><li class="listitem "><p>
+    For Amazon Elastic Kubernetes Service, see <a class="xref" href="cha-cap-depl-eks.html" title="Chapter 6. Deploying SUSE Cloud Application Platform on Amazon Elastic Kubernetes Service (EKS)">Chapter 6, <em>Deploying SUSE Cloud Application Platform on Amazon Elastic Kubernetes Service (EKS)</em></a>.
+   </p></li><li class="listitem "><p>
+    For Google Kubernetes Engine, see <a class="xref" href="cha-cap-depl-gke.html" title="Chapter 7. Deploying SUSE Cloud Application Platform on Google Kubernetes Engine (GKE)">Chapter 7, <em>Deploying SUSE Cloud Application Platform on Google Kubernetes Engine (GKE)</em></a>.
+   </p></li></ul></div><p>
+   SUSE Cloud Application Platform serves different but complementary purposes for operators and
+   application developers.
+  </p><p>
+   For operators, the platform is:
+  </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+     Easy to install, manage, and maintain
+    </p></li><li class="listitem "><p>
+     Secure by design
+    </p></li><li class="listitem "><p>
+     Fault tolerant and self-healing
+    </p></li><li class="listitem "><p>
+     Offers high availability for critical components
+    </p></li><li class="listitem "><p>
+     Uses industry-standard components
+    </p></li><li class="listitem "><p>
+     Avoids single vendor lock-in
+    </p></li></ul></div><p>
+   For developers, the platform:
+  </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+     Allocates computing resources on demand via API or Web interface
+    </p></li><li class="listitem "><p>
+     Offers users a choice of language and Web framework
+    </p></li><li class="listitem "><p>
+     Gives access to databases and other data services
+    </p></li><li class="listitem "><p>
+     Emits and aggregates application log streams
+    </p></li><li class="listitem "><p>
+     Tracks resource usage for users and groups
+    </p></li><li class="listitem "><p>
+     Makes the software development workflow more efficient
+    </p></li></ul></div><p>
+   The principle interface and API for deploying applications to SUSE Cloud Application Platform
+   is KubeCF. Most Cloud Foundry distributions run on virtual machines managed
+   by BOSH. KubeCF runs in SUSE Linux Enterprise containers managed by Kubernetes.
+   Containerizing the components of the platform itself has these advantages:
+  </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+     Improves fault tolerance. Kubernetes monitors the health of all containers,
+     and automatically restarts faulty containers faster than virtual machines
+     can be restarted or replaced.
+    </p></li><li class="listitem "><p>
+     Reduces physical memory overhead. KubeCF components deployed in containers
+     consume substantially less memory, as host-level operations are shared
+     between containers by Kubernetes.
+    </p></li></ul></div><p>
+   SUSE Cloud Application Platform uses cf-operator, a Kubernetes Operator deployed via a Helm chart, to
+   install custom resource definitions that convert BOSH releases into
+   Kubernetes resources, such as <code class="literal">Pod</code>, <code class="literal">Deployment</code>,
+   and <code class="literal">StatefulSet</code>. This is made possible
+   by leveraging KubeCF, a version of Cloud Foundry deployed as Helm chart.
+  </p></div><div class="sect1 " id="sec-cap-architecture"><div class="titlepage"><div><div><h2 class="title"><span class="number">1.3 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">SUSE Cloud Application Platform Architecture</span> <a title="Permalink" class="permalink" href="cha-cap-overview.html#sec-cap-architecture">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_overview.xml</li><li><span class="ds-label">ID: </span>sec-cap-architecture</li></ul></div></div></div></div><p>
+   The following figures illustrate the main structural concepts of
+   SUSE Cloud Application Platform. <a class="xref" href="cha-cap-overview.html#fig-cap-cloud-101" title="Cloud Platform Comparisons">Figure 1.1, “Cloud Platform Comparisons”</a> shows a comparison of the
+   basic cloud platforms:
+  </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+     Infrastructure as a Service (IaaS)
+    </p></li><li class="listitem "><p>
+     Container as a Service (CaaS)
+    </p></li><li class="listitem "><p>
+     Platform as a Service (PaaS)
+    </p></li><li class="listitem "><p>
+     Software as a Service (SaaS)
+    </p></li></ul></div><p>
+   SUSE CaaS Platform is a Container as a Service platform, and SUSE Cloud Application Platform is a
+   PaaS.
+  </p><div class="figure" id="fig-cap-cloud-101"><div class="figure-contents"><div class="mediaobject"><a xmlns="" href="images/cloud-101.svg" target="_blank"><img src="images/cloud-101.svg" width="" alt="Comparison of cloud platforms." /></a></div></div><div class="figure-title-wrap"><h6 class="figure-title"><span class="number">Figure 1.1: </span><span class="name">Cloud Platform Comparisons </span><a title="Permalink" class="permalink" href="cha-cap-overview.html#fig-cap-cloud-101">#</a></h6></div></div><p>
+   <a class="xref" href="cha-cap-overview.html#fig-cap-containerized" title="Containerized Platforms">Figure 1.2, “Containerized Platforms”</a> illustrates how SUSE Cloud Application Platform containerize the platform itself on top of a cloud provider.
+  </p><div class="figure" id="fig-cap-containerized"><div class="figure-contents"><div class="mediaobject"><a xmlns="" href="images/cap-containerized.svg" target="_blank"><img src="images/cap-containerized.svg" width="" alt="SUSE SUSE CaaS Platform and SUSE Cloud Application Platform containerize the platform itself." /></a></div></div><div class="figure-title-wrap"><h6 class="figure-title"><span class="number">Figure 1.2: </span><span class="name">Containerized Platforms </span><a title="Permalink" class="permalink" href="cha-cap-overview.html#fig-cap-containerized">#</a></h6></div></div><p>
+   <a class="xref" href="cha-cap-overview.html#fig-cap-stack" title="SUSE Cloud Application Platform Stack">Figure 1.3, “SUSE Cloud Application Platform Stack”</a> shows the relationships of the major
+   components of the software stack. SUSE Cloud Application Platform runs on Kubernetes, which in
+   turn runs on multiple platforms, from bare metal to various cloud stacks.
+   Your applications run on SUSE Cloud Application Platform and provide services.
+  </p><div class="figure" id="fig-cap-stack"><div class="figure-contents"><div class="mediaobject"><a xmlns="" href="images/cap-kube.svg" target="_blank"><img src="images/cap-kube.svg" width="" alt="Relationships of the main Cloud Application Platform components." /></a></div></div><div class="figure-title-wrap"><h6 class="figure-title"><span class="number">Figure 1.3: </span><span class="name">SUSE Cloud Application Platform Stack </span><a title="Permalink" class="permalink" href="cha-cap-overview.html#fig-cap-stack">#</a></h6></div></div><div class="sect2 " id="sec-cap-components"><div class="titlepage"><div><div><h3 class="title"><span class="number">1.3.1 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">KubeCF Components</span> <a title="Permalink" class="permalink" href="cha-cap-overview.html#sec-cap-components">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_overview.xml</li><li><span class="ds-label">ID: </span>sec-cap-components</li></ul></div></div></div></div><p>
+    KubeCF is comprised of developer and administrator clients, trusted download
+    sites, transient and long-running components, APIs, and authentication:
+   </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+      Clients for developers and admins to interact with KubeCF: the cf CLI,
+      which provides the <code class="command">cf</code> command, Stratos Web interface,
+      IDE plugins.
+     </p></li><li class="listitem "><p>
+      Docker Trusted Registry owned by SUSE.
+     </p></li><li class="listitem "><p>
+      SUSE Helm chart repository.
+     </p></li><li class="listitem "><p>
+      Helm, the Kubernetes package manager, and the <code class="command">helm</code>
+      command line client.
+     </p></li><li class="listitem "><p>
+      <code class="command">kubectl</code>, the command line client for Kubernetes.
+     </p></li><li class="listitem "><p>
+       <code class="command">cf-operator</code>, a Kubernetes Operator that converts BOSH
+       releases to Kubernetes resources.
+     </p></li><li class="listitem "><p>
+       <code class="command">KubeCF</code>, a version of Cloud Foundry deployed via cf-operator.
+     </p></li><li class="listitem "><p>
+      Long-running KubeCF components.
+     </p></li><li class="listitem "><p>
+      KubeCF post-deployment components: Transient KubeCF components that start
+      after all KubeCF components are started, perform their tasks, and then
+      exit.
+     </p></li><li class="listitem "><p>
+      KubeCF Linux cell, an elastic runtime component that runs Linux
+      applications.
+     </p></li><li class="listitem "><p>
+      <code class="literal">uaa</code>, a Cloud Application Platform service for authentication and
+      authorization.
+     </p></li><li class="listitem "><p>
+      The Kubernetes API.
+     </p></li></ul></div></div><div class="sect2 " id="sec-cap-containers"><div class="titlepage"><div><div><h3 class="title"><span class="number">1.3.2 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">KubeCF Containers</span> <a title="Permalink" class="permalink" href="cha-cap-overview.html#sec-cap-containers">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_overview.xml</li><li><span class="ds-label">ID: </span>sec-cap-containers</li></ul></div></div></div></div><p>
+    <a class="xref" href="cha-cap-overview.html#fig-cap-cap-containers" title="KubeCF Containers, Grouped by Function">Figure 1.4, “KubeCF Containers, Grouped by Function”</a> provides a look at KubeCF's
+    containers.
+   </p><div class="figure" id="fig-cap-cap-containers"><div class="figure-contents"><div class="mediaobject"><object xmlns="" type="image/svg+xml" data="images/cap-containers.svg" width=""></object></div></div><div class="figure-title-wrap"><h6 class="figure-title"><span class="number">Figure 1.4: </span><span class="name">KubeCF Containers, Grouped by Function </span><a title="Permalink" class="permalink" href="cha-cap-overview.html#fig-cap-cap-containers">#</a></h6></div></div><div class="variablelist "><div class="variablelist-title-wrap"><h6 class="variablelist-title"><span class="name">List of KubeCF Containers </span><a title="Permalink" class="permalink" href="cha-cap-overview.html#id-1.3.3.3.4.11.4">#</a></h6></div><dl class="variablelist"><dt id="id-1.3.3.3.4.11.4.2"><span class="term ">adapter</span></dt><dd><p>
+       Part of the logging system, manages connections to user application
+       syslog drains.
+      </p></dd><dt id="id-1.3.3.3.4.11.4.3"><span class="term ">api</span></dt><dd><p>
+       Contains the KubeCF Cloud Controller, which implements the CF API. It is
+       exposed via the router.
+      </p></dd><dt id="id-1.3.3.3.4.11.4.4"><span class="term ">cc-worker</span></dt><dd><p>
+       Sidekick to the Cloud Controller, processes background tasks.
+      </p></dd><dt id="id-1.3.3.3.4.11.4.5"><span class="term ">database</span></dt><dd><p>
+       A PXC database to store persistent data for various CAP components such as the cloud controller, UAA, etc.
+      </p></dd><dt id="id-1.3.3.3.4.11.4.6"><span class="term ">diego-api</span></dt><dd><p>
+       API for the Diego scheduler.
+      </p></dd><dt id="id-1.3.3.3.4.11.4.7"><span class="term ">diego-cell (privileged)</span></dt><dd><p>
+       The elastic layer of KubeCF, where applications live.
+      </p></dd><dt id="id-1.3.3.3.4.11.4.8"><span class="term ">eirini</span></dt><dd><p>
+       An alternative to the Diego scheduler.
+      </p></dd><dt id="id-1.3.3.3.4.11.4.9"><span class="term ">eirini-persi</span></dt><dd><p>
+       Enables persistent storage for applications when using the Eirini scheduler.
+      </p></dd><dt id="id-1.3.3.3.4.11.4.10"><span class="term ">eirini-ssh</span></dt><dd><p>
+       Provides SSH access to user applications when using the Eirini scheduler.
+      </p></dd><dt id="id-1.3.3.3.4.11.4.11"><span class="term ">doppler</span></dt><dd><p>
+       Routes log messages from applications and components.
+      </p></dd><dt id="id-1.3.3.3.4.11.4.12"><span class="term ">log-api</span></dt><dd><p>
+       Part of the logging system; exposes log streams to users using web
+       sockets and proxies user application log messages to syslog drains.
+       Exposed using the router.
+      </p></dd><dt id="id-1.3.3.3.4.11.4.13"><span class="term ">nats</span></dt><dd><p>
+       A pub-sub messaging queue for the routing system.
+      </p></dd><dt id="id-1.3.3.3.4.11.4.14"><span class="term ">router</span></dt><dd><p>
+       Routes application and API traffic. Exposed using a Kubernetes service.
+      </p></dd><dt id="id-1.3.3.3.4.11.4.15"><span class="term ">routing-api</span></dt><dd><p>
+       API for the routing system.
+      </p></dd><dt id="id-1.3.3.3.4.11.4.16"><span class="term ">scheduler</span></dt><dd><p>
+       Service used to create, schedule and interact with jobs that execute on
+       Cloud Foundry
+      </p></dd><dt id="id-1.3.3.3.4.11.4.17"><span class="term ">singleton-blobstore</span></dt><dd><p>
+       A WebDAV blobstore for storing application bits, buildpacks, and stacks.
+      </p></dd><dt id="id-1.3.3.3.4.11.4.18"><span class="term ">tcp-router</span></dt><dd><p>
+       Routes TCP traffic for your applications.
+      </p></dd><dt id="id-1.3.3.3.4.11.4.19"><span class="term ">uaa</span></dt><dd><p>
+       User account and authentication.
+      </p></dd></dl></div></div><div class="sect2 " id="sec-cap-service-diagram"><div class="titlepage"><div><div><h3 class="title"><span class="number">1.3.3 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">KubeCF Service Diagram</span> <a title="Permalink" class="permalink" href="cha-cap-overview.html#sec-cap-service-diagram">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_overview.xml</li><li><span class="ds-label">ID: </span>sec-cap-service-diagram</li></ul></div></div></div></div><p>
+    This simple service diagram illustrates how KubeCF components communicate
+    with each other (<a class="xref" href="cha-cap-overview.html#fig-cap-simple-services" title="Simple Services Diagram">Figure 1.5, “Simple Services Diagram”</a>). See
+    <a class="xref" href="cha-cap-overview.html#fig-cap-detailed-services" title="Detailed Services Diagram">Figure 1.6, “Detailed Services Diagram”</a> for a more detailed view.
+   </p><div class="figure" id="fig-cap-simple-services"><div class="figure-contents"><div class="mediaobject"><object xmlns="" type="image/svg+xml" data="images/cap-simple-services.svg" width=""></object></div></div><div class="figure-title-wrap"><h6 class="figure-title"><span class="number">Figure 1.5: </span><span class="name">Simple Services Diagram </span><a title="Permalink" class="permalink" href="cha-cap-overview.html#fig-cap-simple-services">#</a></h6></div></div><p>
+    This table describes how these services operate.
+   </p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col /><col /><col /><col /><col /></colgroup><thead><tr><th>Interface, Network Name, Network Protocol</th><th>Requestor &amp; Request</th><th>Request Credentials &amp; Request Authorization</th><th>Listener, Response &amp; Response Credentials</th><th>Description of Operation</th></tr></thead><tbody><tr><td>
+        <p>
+	 1
+	</p>
+	<p>
+         External (HTTPS)
+	</p>
+       </td><td>
+        <p>
+ 	 <span class="bold"><strong>Requestor</strong></span>: Helm Client
+	</p>
+	
+	<p>
+         <span class="bold"><strong>Request</strong></span>: Deploy Cloud Application Platform
+	</p>
+       </td><td>
+        <p>
+ 	 <span class="bold"><strong>Request Credentials</strong></span>: OAuth2 Bearer
+	 token
+        </p>
+	<p>
+	 <span class="bold"><strong>Request Authorization</strong></span>: Deployment of
+	 Cloud Application Platform Services on Kubernetes
+	</p>
+       </td><td>
+	<p>
+	 <span class="bold"><strong>Listener</strong></span>: Helm/Kubernetes API
+	</p>	
+	<p>
+         <span class="bold"><strong>Response</strong></span>: Operation ack and handle
+	</p>
+	<p>
+         <span class="bold"><strong>Response Credentials</strong></span>: TLS certificate
+	 on external endpoint
+	</p>
+       </td><td>
+        <p>
+	 Operator deploys Cloud Application Platform on Kubernetes
+	</p>
+       </td></tr><tr><td>
+	<p>
+	 2
+        </p>
+	<p>
+         External (HTTPS)
+	</p>	
+       </td><td>
+        <p>
+	 <span class="bold"><strong>Requestor</strong></span>: Internal Kubernetes components
+	</p>
+	<p>
+         <span class="bold"><strong>Request</strong></span>: Download Docker Images
+	</p>
+       </td><td>
+        <p>
+ 	 <span class="bold"><strong>Request Credentials</strong></span>: Refer to
+	 registry.suse.com
+	</p>
+	<p>
+ 	 <span class="bold"><strong>Request Authorization</strong></span>: Refer to
+	 registry.suse.com
+	</p>
+       </td><td>
+        <p>
+ 	 <span class="bold"><strong>Listener</strong></span>: registry.suse.com
+	</p>
+	<p>
+	 <span class="bold"><strong>Response</strong></span>: Docker images
+	</p>
+	<p>
+	 <span class="bold"><strong>Response Credentials</strong></span>: None
+	</p>
+       </td><td>
+	<p>
+ 	 Docker images that make up Cloud Application Platform are downloaded
+	</p>
+       </td></tr><tr><td>
+        <p>
+         3
+	</p>
+	<p>
+         Tenant (HTTPS)
+	</p>
+       </td><td>
+	<p>
+	 <span class="bold"><strong>Requestor</strong></span>: Cloud Application Platform components
+	</p>
+	<p>
+	 <span class="bold"><strong>Request</strong></span>: Get tokens
+	</p>
+       </td><td>
+        <p>
+ 	 <span class="bold"><strong>Request Credentials</strong></span>: OAuth2 client
+	 secret
+	</p>
+        <p>
+	 <span class="bold"><strong>Request Authorization</strong></span>: Varies, based
+	 on configured OAuth2 client scopes
+	</p>
+       </td><td>
+	<p>
+         <span class="bold"><strong>Listener</strong></span>: <code class="literal">uaa</code>
+	</p>
+        <p>
+	 <span class="bold"><strong>Response</strong></span>: An OAuth2 refresh token used
+	 to interact with other service
+	</p>
+	<p>
+         <span class="bold"><strong>Response Credentials</strong></span>: TLS certificate
+	</p>
+       </td><td>
+	<p>
+	 KubeCF components ask <code class="literal">uaa</code> for tokens so they can talk
+	 to each other
+	</p>
+       </td></tr><tr><td>
+        <p>
+         4
+	</p>
+	<p>
+         External (HTTPS)
+	</p>
+       </td><td>
+        <p>
+         <span class="bold"><strong>Requestor</strong></span>: KubeCF clients
+	</p>
+        <p>
+         <span class="bold"><strong>Request</strong></span>: KubeCF API Requests
+	</p>
+       </td><td>
+        <p>                                                                  
+	 <span class="bold"><strong>Request Credentials</strong></span>: OAuth2 Bearer
+	 token
+        </p>
+        <p>                                                                  
+	 <span class="bold"><strong>Request Authorization</strong></span>: KubeCF
+	 application management             
+        </p>
+       </td><td>
+	<p>
+         <span class="bold"><strong>Listener</strong></span>: Cloud Application Platform components
+	</p>
+        <p>
+	 <span class="bold"><strong>Response</strong></span>: JSON object and HTTP Status
+	 code
+	</p>
+	<p>
+	 <span class="bold"><strong>Response Credentials</strong></span>: TLS certificate
+	 on external endpoint
+	</p>
+       </td><td>
+        <p>
+	 Cloud Application Platform Clients interact with the KubeCF API (for example users deploying
+	 apps)
+        </p>
+       </td></tr><tr><td>
+        <p>
+         5
+	</p>
+	<p>
+         External (WSS)
+	</p>
+       </td><td>
+        <p>
+         <span class="bold"><strong>Requestor</strong></span>: KubeCF clients
+	</p>
+	<p>
+         <span class="bold"><strong>Request</strong></span>: Log streaming
+	</p>
+       </td><td>
+        <p>
+ 	 <span class="bold"><strong>Request Credentials</strong></span>: OAuth2 Bearer
+	 token
+	</p>
+	<p>
+	 <span class="bold"><strong>Request Authorization</strong></span>: KubeCF
+	 application management
+	</p>
+       </td><td>
+        <p>
+         <span class="bold"><strong>Listener</strong></span>: Cloud Application Platform components
+	</p>
+	<p>
+         <span class="bold"><strong>Response</strong></span>: A stream of KubeCF logs
+	</p>
+	<p>
+	 <span class="bold"><strong>Response Credentials</strong></span>: TLS certificate
+	 on external endpoint
+	</p>
+       </td><td>
+	<p>
+	 KubeCF clients ask for logs (for example user looking at application
+	 logs or administrator viewing system logs)
+	</p>
+       </td></tr><tr><td>
+        <p>
+         6
+	</p>
+	<p>
+         External (SSH)
+	</p>
+       </td><td>
+        <p>
+         <span class="bold"><strong>Requestor</strong></span>: KubeCF clients, SSH clients
+	</p>
+	<p>
+         <span class="bold"><strong>Request</strong></span>: SSH Access to Application
+	</p>
+       </td><td>
+        <p>
+	 <span class="bold"><strong>Request Credentials</strong></span>: OAuth2 bearer
+	 token
+	</p>
+	<p>
+	 <span class="bold"><strong>Request Authorization</strong></span>: KubeCF
+	 application management
+	</p>
+       </td><td>
+        <p>
+         <span class="bold"><strong>Listener</strong></span>: Cloud Application Platform components
+	</p>
+        <p>
+	 <span class="bold"><strong>Response</strong></span>: A duplex connection is
+	 created allowing the user to interact with a shell
+	</p>
+	<p>
+	 <span class="bold"><strong>Response Credentials</strong></span>: RSA SSH Key on
+	 external endpoint
+	</p>
+       </td><td>
+	<p>
+	 KubeCF Clients open an SSH connection to an application's container (for
+	 example users debugging their applications)
+	</p>
+       </td></tr><tr><td>
+        <p>
+         7
+	</p>
+	<p>
+         External (HTTPS)
+	</p>
+       </td><td>
+        <p>
+         <span class="bold"><strong>Requestor</strong></span>: Helm
+	</p>
+	<p>
+         <span class="bold"><strong>Request</strong></span>: Download charts
+	</p>
+       </td><td>
+        <p>
+         <span class="bold"><strong>Request Credentials</strong></span>: Refer to
+	 kubernetes-charts.suse.com
+	</p>
+	<p>
+         <span class="bold"><strong>Request Authorization</strong></span>: Refer to
+	 kubernetes-charts.suse.com
+	</p>
+       </td><td>
+        <p>
+	 <span class="bold"><strong>Listener</strong></span>: kubernetes-charts.suse.com
+	</p>
+        <p>
+         <span class="bold"><strong>Response</strong></span>: Helm charts
+	</p>
+	<p>
+	 <span class="bold"><strong>Response Credentials</strong></span>: Helm charts
+	 for Cloud Application Platform are downloaded
+	</p>
+       </td><td>
+        <p>
+         Helm charts for Cloud Application Platform are downloaded
+	</p>
+       </td></tr></tbody></table></div></div><div class="sect2 " id="sec-cap-services-detailed"><div class="titlepage"><div><div><h3 class="title"><span class="number">1.3.4 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Detailed Services Diagram</span> <a title="Permalink" class="permalink" href="cha-cap-overview.html#sec-cap-services-detailed">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_overview.xml</li><li><span class="ds-label">ID: </span>sec-cap-services-detailed</li></ul></div></div></div></div><p>
+    <a class="xref" href="cha-cap-overview.html#fig-cap-detailed-services" title="Detailed Services Diagram">Figure 1.6, “Detailed Services Diagram”</a> presents a more detailed view
+    of KubeCF services and how they interact with each other. Services labeled
+    in red are unencrypted, while services labeled in green run over HTTPS.
+   </p><div class="figure" id="fig-cap-detailed-services"><div class="figure-contents"><div class="mediaobject"><object xmlns="" type="image/svg+xml" data="images/cap-detailed-services.svg" width=""></object></div></div><div class="figure-title-wrap"><h6 class="figure-title"><span class="number">Figure 1.6: </span><span class="name">Detailed Services Diagram </span><a title="Permalink" class="permalink" href="cha-cap-overview.html#fig-cap-detailed-services">#</a></h6></div></div></div></div></div></div><div class="page-bottom"><div id="_bottom-navigation"><a class="nav-link" href="cha-cap-depl-kube-requirements.html"><span class="next-icon">→</span><span class="nav-label"><span class="number">Chapter 2 </span>Other Kubernetes Systems</span></a><a class="nav-link" href="part-cap-overview.html"><span class="prev-icon">←</span><span class="nav-label"><span class="number">Part I </span>Overview of SUSE Cloud Application Platform</span></a></div><div class="_share-print"><div class="online-contents share"><strong>Share this page: </strong><span class="share-buttons"><span class="_share-fb bottom-button">Facebook</span><span class="spacer"> • </span><span class="_share-in bottom-button">LinkedIn</span><span class="spacer"> • </span><span class="_share-tw bottom-button">Twitter</span><span class="spacer"> • </span><span class="_share-mail bottom-button">E-Mail</span></span></div><div class="print"><span class="_print-button bottom-button">Print this page</span></div><div class="clearme"></div></div></div></div><div id="_inward"></div></div><div id="_footer-wrap"><div id="_footer"><p>©
+        2021 
+        SUSE</p><ul><li><a href="https://jobs.suse.com/" target="_top">Careers</a></li><li><a href="https://www.suse.com/company/legal/" target="_top">Legal</a></li><li><a href="https://www.suse.com/company/about/" target="_top">About</a></li><li><a href="https://www.suse.com/contact/" target="_top">Contact Us</a></li></ul></div></div></body></html>

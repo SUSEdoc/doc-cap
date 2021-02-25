@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Buildpacks | Deployment, Administration, and User Guides | SUSE Cloud Application Platform 2.1.0</title><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" /><link rel="stylesheet" type="text/css" href="static/css/style.css" /><link rel="stylesheet" type="text/css" href="static/css/highlight.css" /><meta name="generator" content="DAPS 3.0.0 (https://opensuse.github.io/daps) using SUSE XSL Stylesheets 2.0.17 (based on DocBook XSL Stylesheets 1.79.2) - chunked" /><meta name="product-name" content="SUSE Cloud Application Platform" /><meta name="product-number" content="2.1.0" /><meta name="book-title" content="Deployment, Administration, and User Guides" /><meta name="chapter-title" content="Chapter 25. Buildpacks" /><meta name="description" content="Buildpacks are used to construct the environment needed to run your applications, including any required runtimes or frameworks as well as other dependencies. When you deploy an application, a buildpack can be specified or automatically detected by cycling through all available buildpacks to find on…" /><meta name="tracker-url" content="https://github.com/SUSE/doc-cap/issues/new" /><meta name="tracker-type" content="gh" /><meta name="tracker-gh-assignee" content="btat" /><meta name="tracker-gh-labels" content="bug,low priority" /><link rel="home" href="index.html" title="SUSE Cloud Application Platform 2.1.0 Documentation" /><link rel="up" href="part-cap-administration.html" title="Part III. SUSE Cloud Application Platform Administration" /><link rel="prev" href="cha-cap-credhub.html" title="Chapter 24. Integrating CredHub with SUSE Cloud Application Platform" /><link rel="next" href="part-cap-user-guide.html" title="Part IV. SUSE Cloud Application Platform User Guide" />
+<script type="text/javascript">
+
+if ( window.location.protocol.toLowerCase() != 'file:' ) {
+  document.write('<link rel="stylesheet" type="text/css" href="https://static.opensuse.org/fonts/fonts.css"></link>');
+}
+else {
+  document.write('<link rel="stylesheet" type="text/css" href="static/css/fonts-onlylocal.css"></link>');
+}
+
+</script><noscript><link rel="stylesheet" type="text/css" href="https://static.opensuse.org/fonts/fonts.css" /></noscript><script src="static/js/jquery-1.10.2.min.js" type="text/javascript"></script><script src="static/js/script.js" type="text/javascript"></script><script src="static/js/highlight.min.js" type="text/javascript"></script><script>
+
+$(document).ready(function() {
+  $('.verbatim-wrap.highlight').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+});
+hljs.configure({
+  useBR: false
+});
+
+</script></head><body class="draft offline js-off" onload="$('#betawarn-button-wrap').toggle();if (document.cookie.length > 0) {if (document.cookie.indexOf('betawarn=closed') != -1){$('#betawarn').toggle()}};"><div id="betawarn" style="position:fixed;bottom:0;z-index:9025;background-color:#FDE8E8;padding:1em;margin-left:10%;margin-right:10%;display:block;border-top:.75em solid #E11;width:80%"><p style="color:#333;margin:1em 0;padding:0;">This is a draft document that was built and uploaded automatically. It may document beta software and be incomplete or even incorrect. <strong>Use this document at your own risk.</strong></p> <div id="betawarn-button-wrap" style="display:none;margin:0;padding:0;"><a href="#" onclick="$('#betawarn').toggle();var d=new Date();d.setTime(d.getTime()+(0.5*24*60*60*1000));document.cookie='betawarn=closed; expires='+d.toUTCString()+'; path=/'; return false;" style="color:#333;text-decoration:underline;float:left;margin-top:.5em;padding:1em;display:block;background-color:#FABEBE;">I understand this is a draft</a></div></div><div class="bypass-block"><a href="#_content">Jump to content</a><a href="#_bottom-navigation">Jump to page navigation: previous page [access key p]/next page [access key n]</a></div><div id="_outer-wrap"><div id="_white-bg" style="background-color: #FABEBE;"><div id="_header"><div id="_logo"><img src="static/images/logo.png" alt="Logo" /></div><div class="crumbs"><a class="book-link" href="index.html" title="SUSE Cloud Application Platform 2.1.0 Documentation"><span class="book-icon">SUSE Cloud Application Platform 2.1.0 Documentation</span></a><span> › </span><a class="crumb" href="book-cap-guides.html">Deployment, Administration, and User Guides</a><span> › </span><a class="crumb" href="part-cap-administration.html">SUSE Cloud Application Platform Administration</a><span> › </span><a class="crumb" href="cha-cap-buildpacks.html">Buildpacks</a></div><div class="clearme"></div></div></div><div id="_toolbar-wrap"><div id="_toolbar"><div id="_toc-area" class="inactive"><a id="_toc-area-button" class="tool" title="Contents" accesskey="c" href="index.html"><span class="tool-spacer"><span class="toc-icon">Contents</span><span class="clearme"></span></span><span class="tool-label">Contents</span></a><div class="active-contents bubble-corner"></div><div class="active-contents bubble"><div class="bubble-container"><h6>Deployment, Administration, and User Guides</h6><div id="_bubble-toc"><ol><li class="inactive"><a href="preface-deployment.html"><span class="number"> </span><span class="name">About This Guide</span></a></li><li class="inactive"><a href="part-cap-overview.html"><span class="number">I </span><span class="name">Overview of SUSE Cloud Application Platform</span></a><ol><li class="inactive"><a href="cha-cap-overview.html"><span class="number">1 </span><span class="name">About SUSE Cloud Application Platform</span></a></li><li class="inactive"><a href="cha-cap-depl-kube-requirements.html"><span class="number">2 </span><span class="name">Other Kubernetes Systems</span></a></li></ol></li><li class="inactive"><a href="part-cap-deployment.html"><span class="number">II </span><span class="name">Deploying SUSE Cloud Application Platform</span></a><ol><li class="inactive"><a href="cha-cap-depl-notes.html"><span class="number">3 </span><span class="name">Deployment and Administration Notes</span></a></li><li class="inactive"><a href="cha-cap-depl-caasp.html"><span class="number">4 </span><span class="name">Deploying SUSE Cloud Application Platform on SUSE CaaS Platform</span></a></li><li class="inactive"><a href="cha-cap-depl-aks.html"><span class="number">5 </span><span class="name">Deploying SUSE Cloud Application Platform on Microsoft Azure Kubernetes Service (AKS)</span></a></li><li class="inactive"><a href="cha-cap-depl-eks.html"><span class="number">6 </span><span class="name">Deploying SUSE Cloud Application Platform on Amazon Elastic Kubernetes Service (EKS)</span></a></li><li class="inactive"><a href="cha-cap-depl-gke.html"><span class="number">7 </span><span class="name">Deploying SUSE Cloud Application Platform on Google Kubernetes Engine (GKE)</span></a></li><li class="inactive"><a href="cha-cap-install-stratos.html"><span class="number">8 </span><span class="name">Installing the Stratos Web Console</span></a></li><li class="inactive"><a href="cha-cap-depl-eirini.html"><span class="number">9 </span><span class="name">Eirini</span></a></li><li class="inactive"><a href="cha-cap-depl-terraform.html"><span class="number">10 </span><span class="name">Deploying SUSE Cloud Application Platform Using Terraform</span></a></li><li class="inactive"><a href="cha-cap-depl-air-gap-registry.html"><span class="number">11 </span><span class="name">Setting Up a Registry for an Air Gapped Environment</span></a></li><li class="inactive"><a href="cha-cap-depl-private-registry.html"><span class="number">12 </span><span class="name">SUSE Private Registry</span></a></li></ol></li><li class="inactive"><a href="part-cap-administration.html"><span class="number">III </span><span class="name">SUSE Cloud Application Platform Administration</span></a><ol><li class="inactive"><a href="cha-cap-upgrade.html"><span class="number">13 </span><span class="name">Upgrading SUSE Cloud Application Platform</span></a></li><li class="inactive"><a href="cha-cap-configuration-changes.html"><span class="number">14 </span><span class="name">Configuration Changes</span></a></li><li class="inactive"><a href="cha-cap-create-admin-user.html"><span class="number">15 </span><span class="name">Creating Admin Users</span></a></li><li class="inactive"><a href="cha-cap-manage-passwords.html"><span class="number">16 </span><span class="name">Managing Passwords</span></a></li><li class="inactive"><a href="cha-cap-uaa-ui.html"><span class="number">17 </span><span class="name">Accessing the UAA User Interface</span></a></li><li class="inactive"><a href="cha-cap-memory-limits.html"><span class="number">18 </span><span class="name">Container Memory Limits and Requests</span></a></li><li class="inactive"><a href="cha-cap-ccdb-secret-rotation.html"><span class="number">19 </span><span class="name">Cloud Controller Database Secret Rotation</span></a></li><li class="inactive"><a href="cha-cap-secrets-rotation.html"><span class="number">20 </span><span class="name">Rotating Automatically Generated Secrets</span></a></li><li class="inactive"><a href="cha-cap-backup-restore.html"><span class="number">21 </span><span class="name">Backup and Restore</span></a></li><li class="inactive"><a href="cha-cap-service-brokers.html"><span class="number">22 </span><span class="name">Service Brokers</span></a></li><li class="inactive"><a href="cha-cap-app-autoscaler.html"><span class="number">23 </span><span class="name">App-AutoScaler</span></a></li><li class="inactive"><a href="cha-cap-credhub.html"><span class="number">24 </span><span class="name">Integrating CredHub with SUSE Cloud Application Platform</span></a></li><li class="inactive"><a href="cha-cap-buildpacks.html"><span class="number">25 </span><span class="name">Buildpacks</span></a></li></ol></li><li class="inactive"><a href="part-cap-user-guide.html"><span class="number">IV </span><span class="name">SUSE Cloud Application Platform User Guide</span></a><ol><li class="inactive"><a href="cha-cap-cf-cli.html"><span class="number">26 </span><span class="name">Deploying and Managing Applications with the Cloud Foundry Client</span></a></li></ol></li><li class="inactive"><a href="part-cap-troubleshooting.html"><span class="number">V </span><span class="name">Troubleshooting</span></a><ol><li class="inactive"><a href="cha-cap-depl-troubleshooting.html"><span class="number">27 </span><span class="name">Troubleshooting</span></a></li></ol></li><li class="inactive"><a href="bk01apa.html"><span class="number">A </span><span class="name">Appendix</span></a></li><li class="inactive"><a href="bk01apb.html"><span class="number">B </span><span class="name">GNU Licenses</span></a></li></ol></div><div class="clearme"></div></div></div></div><div id="_nav-area" class="inactive"><div class="tool"><span class="nav-inner"><span class="tool-label">Navigation</span><a accesskey="p" class="tool-spacer" title="Chapter 24. Integrating CredHub with SUSE Cloud Application Platform" href="cha-cap-credhub.html"><span class="prev-icon">←</span></a><a accesskey="n" class="tool-spacer" title="Part IV. SUSE Cloud Application Platform User Guide" href="part-cap-user-guide.html"><span class="next-icon">→</span></a></span></div></div></div></div><div id="_fixed-header-wrap" style="background-color: #FABEBE;" class="inactive"><div id="_fixed-header"><div class="crumbs"><a class="book-link" href="index.html" title="SUSE Cloud Application Platform 2.1.0 Documentation"><span class="book-icon">SUSE Cloud Application Platform 2.1.0 Documentation</span></a><span> › </span><a class="crumb" href="book-cap-guides.html">Deployment, Administration, and User Guides</a><span> › </span><a class="crumb" href="part-cap-administration.html">SUSE Cloud Application Platform Administration</a><span> › </span><a class="crumb" href="cha-cap-buildpacks.html">Buildpacks</a></div><div class="buttons"><a class="top-button button" href="#">Top</a><div class="button"><a accesskey="p" class="tool-spacer" title="Chapter 24. Integrating CredHub with SUSE Cloud Application Platform" href="cha-cap-credhub.html"><span class="prev-icon">←</span></a><a accesskey="n" class="tool-spacer" title="Part IV. SUSE Cloud Application Platform User Guide" href="part-cap-user-guide.html"><span class="next-icon">→</span></a></div><div class="clearme"></div></div><div class="clearme"></div></div></div><div id="_content" class="draft "><div class="documentation"><div class="chapter " id="cha-cap-buildpacks"><div class="titlepage"><div><div class="version-info">Applies to  <span class="productname ">SUSE Cloud Application Platform</span> <span class="productnumber ">2.1.0</span></div><div><h2 class="title"><span class="number">25 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Buildpacks</span> <a title="Permalink" class="permalink" href="cha-cap-buildpacks.html#">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_admin_buildpacks.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><div class="line"><div class="toc"><dl><dt><span class="sect1"><a href="cha-cap-buildpacks.html#sec-cap-cap-system-buildpacks"><span class="number">25.1 </span><span class="name">System Buildpacks</span></a></span></dt><dt><span class="sect1"><a href="cha-cap-buildpacks.html#sec-cap-using-buildpacks"><span class="number">25.2 </span><span class="name">Using Buildpacks</span></a></span></dt><dt><span class="sect1"><a href="cha-cap-buildpacks.html#sec-cap-adding-buildpacks"><span class="number">25.3 </span><span class="name">Adding Buildpacks</span></a></span></dt><dt><span class="sect1"><a href="cha-cap-buildpacks.html#sec-cap-updating-buildpacks"><span class="number">25.4 </span><span class="name">Updating Buildpacks</span></a></span></dt><dt><span class="sect1"><a href="cha-cap-buildpacks.html#sec-cap-offline-buildpacks"><span class="number">25.5 </span><span class="name">Offline Buildpacks</span></a></span></dt></dl></div></div><p>
+  <a class="link" href="https://docs.cloudfoundry.org/buildpacks" target="_blank">Buildpacks</a>
+  are used to construct the environment needed to run your applications,
+  including any required runtimes or frameworks as well as other dependencies.
+  When you deploy an application, a buildpack can be specified or automatically
+  detected by cycling through all available buildpacks to find one that is
+  applicable. When there is a suitable buildpack for your application, the
+  buildpack will then download any necessary dependencies during the staging
+  process.
+ </p><div class="sect1 " id="sec-cap-cap-system-buildpacks"><div class="titlepage"><div><div><h2 class="title"><span class="number">25.1 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">System Buildpacks</span> <a title="Permalink" class="permalink" href="cha-cap-buildpacks.html#sec-cap-cap-system-buildpacks">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_admin_buildpacks.xml</li><li><span class="ds-label">ID: </span>sec-cap-cap-system-buildpacks</li></ul></div></div></div></div><p>
+   SUSE Cloud Application Platform releases include a set of system, or built-in, buildpacks for
+   common languages and frameworks. These system buildpacks are based on the
+   upstream versions of the buildpack, but are made compatible with the
+   SLE-based stack(s) found in SUSE Cloud Application Platform.
+  </p><p>
+   The following table lists the default system buildpacks and their associated
+   versions included as part of the SUSE Cloud Application Platform 2.1.0 release.
+  </p><div class="informaltable"><table class="informaltable" border="1"><colgroup><col /><col /><col /></colgroup><thead><tr><th>Buildpack</th><th>Version</th><th>Github Repository</th></tr></thead><tbody><tr><td>Staticfile</td><td>1.5.5</td><td><a class="link" href="https://github.com/SUSE/cf-staticfile-buildpack" target="_blank">https://github.com/SUSE/cf-staticfile-buildpack</a></td></tr><tr><td>NGINX</td><td>1.1.7</td><td><a class="link" href="https://github.com/SUSE/cf-nginx-buildpack" target="_blank">https://github.com/SUSE/cf-nginx-buildpack</a></td></tr><tr><td>Java</td><td>4.29.1</td><td><a class="link" href="https://github.com/SUSE/cf-java-buildpack" target="_blank">https://github.com/SUSE/cf-java-buildpack</a></td></tr><tr><td>Ruby</td><td>1.8.15</td><td><a class="link" href="https://github.com/SUSE/cf-ruby-buildpack" target="_blank">https://github.com/SUSE/cf-ruby-buildpack</a></td></tr><tr><td>Node.js</td><td>1.7.17</td><td><a class="link" href="https://github.com/SUSE/cf-nodejs-buildpack" target="_blank">https://github.com/SUSE/cf-nodejs-buildpack</a></td></tr><tr><td>Go</td><td>1.9.11</td><td><a class="link" href="https://github.com/SUSE/cf-go-buildpack" target="_blank">https://github.com/SUSE/cf-go-buildpack</a></td></tr><tr><td>Python</td><td>1.7.12</td><td><a class="link" href="https://github.com/SUSE/cf-python-buildpack" target="_blank">https://github.com/SUSE/cf-python-buildpack</a></td></tr><tr><td>PHP</td><td>4.4.12</td><td><a class="link" href="https://github.com/SUSE/cf-php-buildpack" target="_blank">https://github.com/SUSE/cf-php-buildpack</a></td></tr><tr><td>Binary</td><td>1.0.36</td><td><a class="link" href="https://github.com/SUSE/cf-binary-builder" target="_blank">https://github.com/SUSE/cf-binary-builder</a></td></tr><tr><td>.NET Core</td><td>2.3.9</td><td><a class="link" href="https://github.com/SUSE/cf-dotnet-core-buildpack" target="_blank">https://github.com/SUSE/cf-dotnet-core-buildpack</a></td></tr></tbody></table></div></div><div class="sect1 " id="sec-cap-using-buildpacks"><div class="titlepage"><div><div><h2 class="title"><span class="number">25.2 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Using Buildpacks</span> <a title="Permalink" class="permalink" href="cha-cap-buildpacks.html#sec-cap-using-buildpacks">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_admin_buildpacks.xml</li><li><span class="ds-label">ID: </span>sec-cap-using-buildpacks</li></ul></div></div></div></div><p>
+   When deploying an application, a buildpack can be selected by passing the
+   buildpack's name through one of the following methods:
+  </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+     Using the <code class="command">-b</code> option during the
+     <code class="command">cf push</code> command, for example:
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf push <em class="replaceable ">12factor</em> -b <em class="replaceable ">ruby_buildpack</em></pre></div></li><li class="listitem "><p>
+     Using the <code class="literal">buildpacks</code> attribute in your application's
+     <code class="filename">manifest.yml</code>. For more information, see
+     <a class="link" href="https://docs.cloudfoundry.org/devguide/deploy-apps/manifest-attributes.html#buildpack" target="_blank">https://docs.cloudfoundry.org/devguide/deploy-apps/manifest-attributes.html#buildpack</a>.
+    </p><div class="verbatim-wrap"><pre class="screen">---
+applications:
+- name: <em class="replaceable ">12factor</em>
+  buildpacks:
+    - <em class="replaceable ">ruby_buildpack</em></pre></div></li><li class="listitem "><p>
+     Using buildpack detection.
+    </p><p>
+     Buildpack detection occurs when an application is pushed and a buildpack
+     has not been specified using any of the other methods. The application is
+     checked aginst the detection criteria of a buildpack to verify whether its
+     compatible. Each buildpack has its own detection criteria, defined in the
+     <code class="filename">/bin/detect</code> file. The Ruby buildpack, for example,
+     considers an application compatible if it contains a
+     <code class="filename">Gemfile</code> file and <code class="filename">Gemfile.lock</code>
+     file in its root directory.
+    </p><p>
+     The detection process begins with the first buildpack in the detection
+     priority list. If the buildpack is compatible with the application, the
+     staging process continues. If the buildpack is <span class="emphasis"><em>not</em></span>
+     compatible with the application, the buildpack in the next position is
+     checked. To see the detection priority list, run
+     <code class="command">cf buildpacks</code> and examine the
+     <code class="literal">position</code> field. If there are no compatible buildpacks,
+     the <code class="command">cf push</code> command will fail.
+    </p><p>
+     For more information, see
+     <a class="link" href="https://docs.cloudfoundry.org/buildpacks/understand-buildpacks.html#buildpack-detection" target="_blank">https://docs.cloudfoundry.org/buildpacks/understand-buildpacks.html#buildpack-detection</a>.
+    </p></li></ul></div><p>
+   In the above, <em class="replaceable ">ruby_buildpack</em> can be replaced with:
+  </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+     The name of a buildpack. To list the currently available buildpacks,
+     including any that were created or updated, examine the
+     <code class="literal">buildpack</code> field after running:
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf buildpacks</pre></div></li><li class="listitem "><p>
+     The Git URL of a buildpack. For example,
+     <em class="replaceable ">https://github.com/SUSE/cf-ruby-buildpack</em>.
+    </p></li><li class="listitem "><p>
+     The Git URL of a buildpack with a specific branch or tag. For example,
+     <em class="replaceable ">https://github.com/SUSE/cf-ruby-buildpack#1.7.40</em>.
+    </p></li></ul></div><p>
+   For more information about using buildpacks, see
+   <a class="link" href="https://docs.cloudfoundry.org/buildpacks/#using-buildpacks" target="_blank">https://docs.cloudfoundry.org/buildpacks/#using-buildpacks</a>.
+  </p></div><div class="sect1 " id="sec-cap-adding-buildpacks"><div class="titlepage"><div><div><h2 class="title"><span class="number">25.3 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Adding Buildpacks</span> <a title="Permalink" class="permalink" href="cha-cap-buildpacks.html#sec-cap-adding-buildpacks">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_admin_buildpacks.xml</li><li><span class="ds-label">ID: </span>sec-cap-adding-buildpacks</li></ul></div></div></div></div><p>
+   Additional buildpacks can be added to your SUSE Cloud Application Platform deployment to
+   complement the ones already installed.
+  </p><div class="procedure "><div class="procedure-contents"><ol class="procedure" type="1"><li class="step "><p>
+     List the currently installed buildpacks.
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf buildpacks
+Getting buildpacks...
+
+buildpack               position   enabled   locked   filename                                           stack
+staticfile_buildpack    1          true      false    staticfile-buildpack-v1.4.43.1-1.1-53227ab3.zip
+nginx_buildpack         2          true      false    nginx-buildpack-v1.0.15.1-1.1-868e3dbf.zip
+java_buildpack          3          true      false    java-buildpack-v4.20.0.1-7b3efeee.zip
+ruby_buildpack          4          true      false    ruby-buildpack-v1.7.42.1-1.1-897dec18.zip
+nodejs_buildpack        5          true      false    nodejs-buildpack-v1.6.53.1-1.1-ca7738ac.zip
+go_buildpack            6          true      false    go-buildpack-v1.8.42.1-1.1-c93d1f83.zip
+python_buildpack        7          true      false    python-buildpack-v1.6.36.1-1.1-4c0057b7.zip
+php_buildpack           8          true      false    php-buildpack-v4.3.80.1-6.1-613615bf.zip
+binary_buildpack        9          true      false    binary-buildpack-v1.0.33.1-1.1-a53fa79d.zip
+dotnet-core_buildpack   10         true      false    dotnet-core-buildpack-v2.2.13.1-1.1-cf41131a.zip</pre></div></li><li class="step "><p>
+     Add a new buildpack using the <code class="command">cf create-buildpack</code>
+     command.
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf create-buildpack <em class="replaceable ">ANOTHER_RUBY_BUILDPACK</em> <em class="replaceable ">https://cf-buildpacks.suse.com/ruby-buildpack-v1.7.41.1-1.1-c4cd5fed.zip</em> <em class="replaceable ">10</em></pre></div><p>
+     Where:
+    </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+       <em class="replaceable ">ANOTHER_RUBY_BUILDPACK</em> is the name of the
+       buildpack.
+      </p></li><li class="listitem "><p>
+       <em class="replaceable ">https://cf-buildpacks.suse.com/ruby-buildpack-v1.7.41.1-1.1-c4cd5fed.zip</em>
+       is the path to the buildpack release. It should be a zip file, a URL to a
+       zip file, or a local directory.
+      </p></li><li class="listitem "><p>
+       <em class="replaceable ">10</em> is the position of the buildpack and
+       used to determine priority. A lower value indicates a higher priority.
+      </p></li></ul></div><p>
+     To see all available options, run:
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf create-buildpack -h</pre></div></li><li class="step "><p>
+     Verify the new buildpack has been added.
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf buildpacks
+Getting buildpacks...
+
+buildpack                position   enabled   locked   filename                                           stack
+staticfile_buildpack     1          true      false    staticfile-buildpack-v1.4.43.1-1.1-53227ab3.zip
+nginx_buildpack          2          true      false    nginx-buildpack-v1.0.15.1-1.1-868e3dbf.zip
+java_buildpack           3          true      false    java-buildpack-v4.20.0.1-7b3efeee.zip
+ruby_buildpack           4          true      false    ruby-buildpack-v1.7.42.1-1.1-897dec18.zip
+nodejs_buildpack         5          true      false    nodejs-buildpack-v1.6.53.1-1.1-ca7738ac.zip
+go_buildpack             6          true      false    go-buildpack-v1.8.42.1-1.1-c93d1f83.zip
+python_buildpack         7          true      false    python-buildpack-v1.6.36.1-1.1-4c0057b7.zip
+php_buildpack            8          true      false    php-buildpack-v4.3.80.1-6.1-613615bf.zip
+binary_buildpack         9          true      false    binary-buildpack-v1.0.33.1-1.1-a53fa79d.zip
+ANOTHER_RUBY_BUILDPACK   10         true      false    ruby-buildpack-v1.7.41.1-1.1-c4cd5fed.zip
+dotnet-core_buildpack    11         true      false    dotnet-core-buildpack-v2.2.13.1-1.1-cf41131a.zip</pre></div></li></ol></div></div></div><div class="sect1 " id="sec-cap-updating-buildpacks"><div class="titlepage"><div><div><h2 class="title"><span class="number">25.4 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Updating Buildpacks</span> <a title="Permalink" class="permalink" href="cha-cap-buildpacks.html#sec-cap-updating-buildpacks">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_admin_buildpacks.xml</li><li><span class="ds-label">ID: </span>sec-cap-updating-buildpacks</li></ul></div></div></div></div><p>
+   Currently installed buildpacks can be updated using the
+   <code class="command">cf update-buildpack</code> command. To see all values that can be
+   updated, run <code class="command">cf update-buildpack -h</code>.
+  </p><div class="procedure "><div class="procedure-contents"><ol class="procedure" type="1"><li class="step "><p>
+     List the currently installed buildpacks that can be updated.
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf buildpacks
+Getting buildpacks...
+
+buildpack                position   enabled   locked   filename                                           stack
+staticfile_buildpack     1          true      false    staticfile-buildpack-v1.4.43.1-1.1-53227ab3.zip
+nginx_buildpack          2          true      false    nginx-buildpack-v1.0.15.1-1.1-868e3dbf.zip
+java_buildpack           3          true      false    java-buildpack-v4.20.0.1-7b3efeee.zip
+ruby_buildpack           4          true      false    ruby-buildpack-v1.7.42.1-1.1-897dec18.zip
+nodejs_buildpack         5          true      false    nodejs-buildpack-v1.6.53.1-1.1-ca7738ac.zip
+go_buildpack             6          true      false    go-buildpack-v1.8.42.1-1.1-c93d1f83.zip
+python_buildpack         7          true      false    python-buildpack-v1.6.36.1-1.1-4c0057b7.zip
+php_buildpack            8          true      false    php-buildpack-v4.3.80.1-6.1-613615bf.zip
+binary_buildpack         9          true      false    binary-buildpack-v1.0.33.1-1.1-a53fa79d.zip
+ANOTHER_RUBY_BUILDPACK   10         true      false    ruby-buildpack-v1.7.41.1-1.1-c4cd5fed.zip
+dotnet-core_buildpack    11         true      false    dotnet-core-buildpack-v2.2.13.1-1.1-cf41131a.zip</pre></div></li><li class="step "><p>
+     Use the <code class="command">cf update-buildpack</code> command to update a
+     buildpack.
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf update-buildpack <em class="replaceable ">ANOTHER_RUBY_BUILDPACK</em> <em class="replaceable ">-i 11</em></pre></div><p>
+     To see all available options, run:
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf update-buildpack -h</pre></div></li><li class="step "><p>
+     Verify the new buildpack has been updated.
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf buildpacks
+Getting buildpacks...
+
+buildpack                position   enabled   locked   filename                                           stack
+staticfile_buildpack     1          true      false    staticfile-buildpack-v1.4.43.1-1.1-53227ab3.zip
+nginx_buildpack          2          true      false    nginx-buildpack-v1.0.15.1-1.1-868e3dbf.zip
+java_buildpack           3          true      false    java-buildpack-v4.20.0.1-7b3efeee.zip
+ruby_buildpack           4          true      false    ruby-buildpack-v1.7.42.1-1.1-897dec18.zip
+nodejs_buildpack         5          true      false    nodejs-buildpack-v1.6.53.1-1.1-ca7738ac.zip
+go_buildpack             6          true      false    go-buildpack-v1.8.42.1-1.1-c93d1f83.zip
+python_buildpack         7          true      false    python-buildpack-v1.6.36.1-1.1-4c0057b7.zip
+php_buildpack            8          true      false    php-buildpack-v4.3.80.1-6.1-613615bf.zip
+binary_buildpack         9          true      false    binary-buildpack-v1.0.33.1-1.1-a53fa79d.zip
+dotnet-core_buildpack    10         true      false    dotnet-core-buildpack-v2.2.13.1-1.1-cf41131a.zip
+ANOTHER_RUBY_BUILDPACK   11         true      false    ruby-buildpack-v1.7.41.1-1.1-c4cd5fed.zip</pre></div></li></ol></div></div></div><div class="sect1 " id="sec-cap-offline-buildpacks"><div class="titlepage"><div><div><h2 class="title"><span class="number">25.5 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Offline Buildpacks</span> <a title="Permalink" class="permalink" href="cha-cap-buildpacks.html#sec-cap-offline-buildpacks">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_admin_buildpacks.xml</li><li><span class="ds-label">ID: </span>sec-cap-offline-buildpacks</li></ul></div></div></div></div><p>
+   An offline, or cached, buildpack packages the runtimes, frameworks, and
+   dependencies needed to run your applications into an archive that is then
+   uploaded to your Cloud Application Platform deployment. When an application is deployed using an
+   offline buildpack, access to the Internet to download dependencies is no
+   longer required. This has the benefit of providing improved staging
+   performance and allows for staging to take place on air-gapped environments.
+  </p><div class="sect2 " id="sec-cap-create-offline-buildpack"><div class="titlepage"><div><div><h3 class="title"><span class="number">25.5.1 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Creating an Offline Buildpack</span> <a title="Permalink" class="permalink" href="cha-cap-buildpacks.html#sec-cap-create-offline-buildpack">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_admin_buildpacks.xml</li><li><span class="ds-label">ID: </span>sec-cap-create-offline-buildpack</li></ul></div></div></div></div><p>
+    Offline buildpacks can be created using the
+    <a class="link" href="https://github.com/SUSE/cf-buildpack-packager-docker" target="_blank">cf-buildpack-packager-docker</a>
+    tool, which is available as a
+    <a class="link" href="https://www.docker.com/" target="_blank">Docker</a> image. The only
+    requirement to use this tool is a system with Docker support.
+   </p><div id="id-1.3.5.15.7.3.3" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important: Disclaimer</h6><p>
+     Some Cloud Foundry buildpacks can reference binaries with proprietary or
+     mutually incompatible open source licenses which cannot be distributed
+     together as offline/cached buildpack archives. Operators who wish to
+     package and maintain offline buildpacks will be responsible for any
+     required licensing or export compliance obligations.
+    </p><p>
+     For automation purposes, you can use the
+     <code class="command">--accept-external-binaries</code> option to accept this
+     disclaimer without the interactive prompt.
+    </p></div><p>
+    <a class="link" href="https://github.com/SUSE/cf-buildpack-packager-docker#usage" target="_blank">Usage</a>
+    of the tool is as follows:
+   </p><div class="verbatim-wrap"><pre class="screen">package [--accept-external-binaries] org [all [stack] | language [tag] [stack]]</pre></div><p>
+    Where:
+   </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+      <em class="replaceable ">org</em> is the Github organization hosting the
+      buildpack repositories, such as
+      <a class="link" href="https://github.com/cloudfoundry" target="_blank">"cloudfoundry"</a>
+      or <a class="link" href="https://github.com/SUSE" target="_blank">"SUSE"</a>
+     </p></li><li class="listitem "><p>
+      A <em class="replaceable ">tag</em> cannot be specified when using
+      <em class="replaceable ">all</em> as the language because the tag is
+      different for each language
+     </p></li><li class="listitem "><p>
+      <em class="replaceable ">tag</em> is not optional if a
+      <em class="replaceable ">stack</em> is specified. To specify the latest
+      release, use <em class="replaceable ">""</em> as the
+      <em class="replaceable ">tag</em>
+     </p></li><li class="listitem "><p>
+      A maximum of one stack can be specified
+     </p></li></ul></div><p>
+    The following example demonstrates packaging an offline Ruby buildpack and
+    uploading it to your Cloud Application Platform deployment to use. The packaged buildpack will be
+    a Zip file placed in the current working directory,
+    <em class="replaceable ">$PWD</em>.
+   </p><div class="procedure "><div class="procedure-contents"><ol class="procedure" type="1"><li class="step "><p>
+      Build the latest released SUSE Ruby buildpack for the SUSE Linux Enterprise 15 stack:
+     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>docker run --interactive --tty --rm -v $PWD:/out splatform/cf-buildpack-packager <em class="replaceable ">SUSE</em> <em class="replaceable ">ruby</em> <em class="replaceable ">""</em> <em class="replaceable ">sle15</em></pre></div></li><li class="step "><p>
+      Verify the archive has been created in your current working directory:
+     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>ls
+<em class="replaceable ">ruby_buildpack-cached-sle15-v1.7.30.1.zip</em></pre></div></li><li class="step "><p>
+      Log into your Cloud Application Platform deployment. Select an organization and space to work
+      with, creating them if needed:
+     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf api --skip-ssl-validation <em class="replaceable ">https://api.example.com</em>
+<code class="prompt user">tux &gt; </code>cf login -u <em class="replaceable ">admin</em> -p <em class="replaceable ">password</em>
+<code class="prompt user">tux &gt; </code>cf create-org <em class="replaceable ">MY_ORG</em>
+<code class="prompt user">tux &gt; </code>cf create-space <em class="replaceable ">MY_SPACE</em> -o <em class="replaceable ">MY_ORG</em>
+<code class="prompt user">tux &gt; </code>cf target -o <em class="replaceable ">MY_ORG</em> -s <em class="replaceable ">MY_SPACE</em></pre></div></li><li class="step "><p>
+      List the currently available buildpacks:
+     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf buildpacks
+Getting buildpacks...
+
+buildpack               position   enabled   locked   filename
+staticfile_buildpack    1          true      false    staticfile_buildpack-v1.4.34.1-1.1-1dd6386a.zip
+java_buildpack          2          true      false    java-buildpack-v4.16.1-e638145.zip
+ruby_buildpack          3          true      false    ruby_buildpack-v1.7.26.1-1.1-c2218d66.zip
+nodejs_buildpack        4          true      false    nodejs_buildpack-v1.6.34.1-3.1-c794e433.zip
+go_buildpack            5          true      false    go_buildpack-v1.8.28.1-1.1-7508400b.zip
+python_buildpack        6          true      false    python_buildpack-v1.6.23.1-1.1-99388428.zip
+php_buildpack           7          true      false    php_buildpack-v4.3.63.1-1.1-2515c4f4.zip
+binary_buildpack        8          true      false    binary_buildpack-v1.0.27.1-3.1-dc23dfe2.zip
+dotnet-core_buildpack   9          true      false    dotnet-core-buildpack-v2.0.3.zip</pre></div></li><li class="step "><p>
+      Upload your packaged offline buildpack to your Cloud Application Platform deployment:
+     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf create-buildpack <em class="replaceable ">RUBY_BUILDPACK_CACHED</em> <em class="replaceable ">/tmp/ruby_buildpack-cached-sle15-v1.7.30.1.zip</em> <em class="replaceable ">1</em> <em class="replaceable ">--enable</em>
+Creating buildpack <em class="replaceable ">RUBY_BUILDPACK_CACHED</em>...
+OK
+
+Uploading buildpack <em class="replaceable ">RUBY_BUILDPACK_CACHED</em>...
+Done uploading
+OK</pre></div></li><li class="step "><p>
+      Verify your buildpack is available:
+     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf buildpacks
+Getting buildpacks...
+
+buildpack               position   enabled   locked   filename
+<em class="replaceable ">RUBY_BUILDPACK_CACHED</em>   1          true      false    ruby_buildpack-cached-sle15-v1.7.30.1.zip
+staticfile_buildpack    2          true      false    staticfile_buildpack-v1.4.34.1-1.1-1dd6386a.zip
+java_buildpack          3          true      false    java-buildpack-v4.16.1-e638145.zip
+ruby_buildpack          4          true      false    ruby_buildpack-v1.7.26.1-1.1-c2218d66.zip
+nodejs_buildpack        5          true      false    nodejs_buildpack-v1.6.34.1-3.1-c794e433.zip
+go_buildpack            6          true      false    go_buildpack-v1.8.28.1-1.1-7508400b.zip
+python_buildpack        7          true      false    python_buildpack-v1.6.23.1-1.1-99388428.zip
+php_buildpack           8          true      false    php_buildpack-v4.3.63.1-1.1-2515c4f4.zip
+binary_buildpack        9          true      false    binary_buildpack-v1.0.27.1-3.1-dc23dfe2.zip
+dotnet-core_buildpack   10         true      false    dotnet-core-buildpack-v2.0.3.zip</pre></div></li><li class="step "><p>
+      Deploy a sample Rails app using the new buildpack:
+     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>git clone <em class="replaceable ">https://github.com/scf-samples/12factor</em>
+<code class="prompt user">tux &gt; </code>cd <em class="replaceable ">12factor</em>
+<code class="prompt user">tux &gt; </code>cf push <em class="replaceable ">12factor</em> -b <em class="replaceable ">RUBY_BUILDPACK_CACHED</em></pre></div></li></ol></div></div><div id="id-1.3.5.15.7.3.10" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.png" /><h6>Warning: Deprecation of <code class="literal">cflinuxfs2</code> and <code class="literal">sle12</code> Stacks</h6><p>
+   As of SUSE Cloud Foundry 2.18.0, since our <code class="literal">cf-deployment</code> version is 9.5
+   , the <code class="literal">cflinuxfs2</code> stack is no longer supported, as was
+   advised in SUSE Cloud Foundry 2.17.1 or Cloud Application Platform 1.4.1. The <code class="literal">cflinuxfs2</code>
+   buildpack is no longer shipped, but if you are upgrading from an earlier
+   version, <code class="literal">cflinuxfs2</code> will not be removed. However, for
+   migration purposes, we encourage all admins to move to
+   <code class="literal">cflinuxfs3</code> or <code class="literal">sle15</code> as newer buildpacks
+   will not work with the deprecated <code class="literal">cflinuxfs2</code>. If you still
+   want to use the older stack, you will need to build an older version of a
+   buildpack to continue for the application to work, but you will be
+   unsupported. (If you are running on <code class="literal">sle12</code>, we will be
+   retiring that stack in a future version so start planning your migration to
+   <code class="literal">sle15</code>. The procedure is described below.)
+  </p><div class="procedure "><div class="procedure-contents"><ul class="procedure"><li class="step "><p>
+     Migrate applications to the new stack using one of the methods listed. Note
+     that both methods will cause application downtime. Downtime can be avoided
+     by following a Blue-Green Deployment strategy. See
+     <a class="link" href="https://docs.cloudfoundry.org/devguide/deploy-apps/blue-green.html" target="_blank">https://docs.cloudfoundry.org/devguide/deploy-apps/blue-green.html</a>
+     for details.
+    </p><p>
+     Note that stack association support is available as of cf CLI v6.39.0.
+    </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+       Option 1 - Migrating applications using the Stack Auditor plugin.
+      </p><p>
+       Stack Auditor rebuilds the application onto the new stack without a
+       change in the application source code. If you want to move to a new stack
+       with updated code, please follow Option 2 below. For additional
+       information about the Stack Auditor plugin, see
+       <a class="link" href="https://docs.cloudfoundry.org/adminguide/stack-auditor.html" target="_blank">https://docs.cloudfoundry.org/adminguide/stack-auditor.html</a>.
+      </p><div class="procedure "><div class="procedure-contents"><ol class="procedure" type="1"><li class="step "><p>
+         Install the Stack Auditor plugin for the cf CLI. For instructions, see
+         <a class="link" href="https://docs.cloudfoundry.org/adminguide/stack-auditor.html#install" target="_blank">https://docs.cloudfoundry.org/adminguide/stack-auditor.html#install</a>.
+        </p></li><li class="step "><p>
+         Identify the stack applications are using. The audit lists all
+         applications in orgs you have access to. To list all applications in
+         your Cloud Application Platform deployment, ensure you are logged in as a user with access
+         to all orgs.
+        </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf audit-stack</pre></div><p>
+         For each application requiring migration, perform the steps below.
+        </p></li><li class="step "><p>
+         If necessary, switch to the org and space the application is deployed
+         to.
+        </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf target ORG SPACE</pre></div></li><li class="step "><p>
+         Change the stack to <code class="literal">sle15</code>.
+        </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf change-stack APP_NAME sle15</pre></div></li><li class="step "><p>
+         Identify all buildpacks associated with the <code class="literal">sle12</code>
+         and <code class="literal">cflinuxfs2</code> stacks.
+        </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf buildpacks</pre></div></li><li class="step "><p>
+         Remove all buildpacks associated with the <code class="literal">sle12</code>
+         and <code class="literal">cflinuxfs2</code> stacks.
+        </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf delete-buildpack BUILDPACK -s sle12
+
+<code class="prompt user">tux &gt; </code>cf delete-buildpack BUILDPACK -s cflinuxfs2</pre></div></li><li class="step "><p>
+         Remove the <code class="literal">sle12</code> and <code class="literal">cflinuxfs2</code>
+         stacks.
+        </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf delete-stack sle12
+
+<code class="prompt user">tux &gt; </code>cf delete-stack cflinuxfs2</pre></div></li></ol></div></div></li><li class="listitem "><p>
+       Option 2 - Migrating applications using the cf CLI.
+      </p><p>
+       Perform the following for all orgs and spaces in your Cloud Application Platform deployment.
+       Ensure you are logged in as a user with access to all orgs.
+      </p><div class="procedure "><div class="procedure-contents"><ol class="procedure" type="1"><li class="step "><p>
+         Target an org and space.
+        </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf target ORG SPACE</pre></div></li><li class="step "><p>
+         Identify the stack an applications in the org and space is using.
+        </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf app APP_NAME</pre></div></li><li class="step "><p>
+         Re-push the app with the <code class="literal">sle15</code> stack using one of
+         the following methods.
+        </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+           Push the application with the stack option, <code class="command">-s</code>
+           passed.
+          </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf push APP_NAME -s sle15</pre></div></li><li class="listitem "><div class="procedure "><div class="procedure-contents"><ol class="procedure" type="1"><li class="step "><p>
+             Update the application manifest file to include
+             <code class="literal">stack: sle15</code>. See
+             <a class="link" href="https://docs.cloudfoundry.org/devguide/deploy-apps/manifest-attributes.html#stack" target="_blank">https://docs.cloudfoundry.org/devguide/deploy-apps/manifest-attributes.html#stack</a>
+             for details.
+            </p><div class="verbatim-wrap"><pre class="screen">---
+  ...
+  stack: sle15</pre></div></li><li class="step "><p>
+              Push the application.
+            </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf push APP_NAME</pre></div></li></ol></div></div></li></ul></div></li><li class="step "><p>
+         Identify all buildpacks associated with the <code class="literal">sle12</code>
+         and <code class="literal">cflinuxfs2</code> stacks.
+        </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf buildpacks</pre></div></li><li class="step "><p>
+         Remove all buildpacks associated with the <code class="literal">sle12</code>
+         and <code class="literal">cflinuxfs2</code> stacks.
+        </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf delete-buildpack BUILDPACK -s sle12
+
+<code class="prompt user">tux &gt; </code>cf delete-buildpack BUILDPACK -s cflinuxfs2</pre></div></li><li class="step "><p>
+         Remove the <code class="literal">sle12</code> and <code class="literal">cflinuxfs2</code>
+         stacks using the CF API. See
+         <a class="link" href="https://apidocs.cloudfoundry.org/7.11.0/#stacks" target="_blank">https://apidocs.cloudfoundry.org/7.11.0/#stacks</a>
+         for details.
+        </p><p>
+         List all stacks then find the GUID of the <code class="literal">sle12</code>
+         <code class="literal">cflinuxfs2</code> stacks.
+        </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf curl /v2/stacks</pre></div><p>
+         Delete the <code class="literal">sle12</code> and <code class="literal">cflinuxfs2</code>
+         stacks.
+        </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf curl -X DELETE /v2/stacks/SLE12_STACK_GUID
+
+<code class="prompt user">tux &gt; </code>cf curl -X DELETE /v2/stacks/CFLINUXFS2_STACK_GUID</pre></div></li></ol></div></div></li></ul></div></li></ul></div></div></div></div></div></div></div><div class="page-bottom"><div id="_bottom-navigation"><a class="nav-link" href="part-cap-user-guide.html"><span class="next-icon">→</span><span class="nav-label"><span class="number">Part IV </span>SUSE Cloud Application Platform User Guide</span></a><a class="nav-link" href="cha-cap-credhub.html"><span class="prev-icon">←</span><span class="nav-label"><span class="number">Chapter 24 </span>Integrating CredHub with SUSE Cloud Application Platform</span></a></div><div class="_share-print"><div class="online-contents share"><strong>Share this page: </strong><span class="share-buttons"><span class="_share-fb bottom-button">Facebook</span><span class="spacer"> • </span><span class="_share-in bottom-button">LinkedIn</span><span class="spacer"> • </span><span class="_share-tw bottom-button">Twitter</span><span class="spacer"> • </span><span class="_share-mail bottom-button">E-Mail</span></span></div><div class="print"><span class="_print-button bottom-button">Print this page</span></div><div class="clearme"></div></div></div></div><div id="_inward"></div></div><div id="_footer-wrap"><div id="_footer"><p>©
+        2021 
+        SUSE</p><ul><li><a href="https://jobs.suse.com/" target="_top">Careers</a></li><li><a href="https://www.suse.com/company/legal/" target="_top">Legal</a></li><li><a href="https://www.suse.com/company/about/" target="_top">About</a></li><li><a href="https://www.suse.com/contact/" target="_top">Contact Us</a></li></ul></div></div></body></html>

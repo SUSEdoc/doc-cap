@@ -1,0 +1,983 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Deploying SUSE Cloud Application Platform on Google Kubernetes Engine (GKE) | Deployment, Administration, and User Guides | SUSE Cloud Application Platform 2.1.0</title><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" /><link rel="stylesheet" type="text/css" href="static/css/style.css" /><link rel="stylesheet" type="text/css" href="static/css/highlight.css" /><meta name="generator" content="DAPS 3.0.0 (https://opensuse.github.io/daps) using SUSE XSL Stylesheets 2.0.17 (based on DocBook XSL Stylesheets 1.79.2) - chunked" /><meta name="product-name" content="SUSE Cloud Application Platform" /><meta name="product-number" content="2.1.0" /><meta name="book-title" content="Deployment, Administration, and User Guides" /><meta name="chapter-title" content="Chapter 7. Deploying SUSE Cloud Application Platform on Google Kubernetes Engine (GKE)" /><meta name="description" content="Before you start deploying SUSE Cloud Application Platform, review the following documents:" /><meta name="tracker-url" content="https://github.com/SUSE/doc-cap/issues/new" /><meta name="tracker-type" content="gh" /><meta name="tracker-gh-assignee" content="btat" /><meta name="tracker-gh-labels" content="bug,low priority" /><link rel="home" href="index.html" title="SUSE Cloud Application Platform 2.1.0 Documentation" /><link rel="up" href="part-cap-deployment.html" title="Part II. Deploying SUSE Cloud Application Platform" /><link rel="prev" href="cha-cap-depl-eks.html" title="Chapter 6. Deploying SUSE Cloud Application Platform on Amazon Elastic Kubernetes Service (EKS)" /><link rel="next" href="cha-cap-install-stratos.html" title="Chapter 8. Installing the Stratos Web Console" />
+<script type="text/javascript">
+
+if ( window.location.protocol.toLowerCase() != 'file:' ) {
+  document.write('<link rel="stylesheet" type="text/css" href="https://static.opensuse.org/fonts/fonts.css"></link>');
+}
+else {
+  document.write('<link rel="stylesheet" type="text/css" href="static/css/fonts-onlylocal.css"></link>');
+}
+
+</script><noscript><link rel="stylesheet" type="text/css" href="https://static.opensuse.org/fonts/fonts.css" /></noscript><script src="static/js/jquery-1.10.2.min.js" type="text/javascript"></script><script src="static/js/script.js" type="text/javascript"></script><script src="static/js/highlight.min.js" type="text/javascript"></script><script>
+
+$(document).ready(function() {
+  $('.verbatim-wrap.highlight').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+});
+hljs.configure({
+  useBR: false
+});
+
+</script></head><body class="draft offline js-off" onload="$('#betawarn-button-wrap').toggle();if (document.cookie.length > 0) {if (document.cookie.indexOf('betawarn=closed') != -1){$('#betawarn').toggle()}};"><div id="betawarn" style="position:fixed;bottom:0;z-index:9025;background-color:#FDE8E8;padding:1em;margin-left:10%;margin-right:10%;display:block;border-top:.75em solid #E11;width:80%"><p style="color:#333;margin:1em 0;padding:0;">This is a draft document that was built and uploaded automatically. It may document beta software and be incomplete or even incorrect. <strong>Use this document at your own risk.</strong></p> <div id="betawarn-button-wrap" style="display:none;margin:0;padding:0;"><a href="#" onclick="$('#betawarn').toggle();var d=new Date();d.setTime(d.getTime()+(0.5*24*60*60*1000));document.cookie='betawarn=closed; expires='+d.toUTCString()+'; path=/'; return false;" style="color:#333;text-decoration:underline;float:left;margin-top:.5em;padding:1em;display:block;background-color:#FABEBE;">I understand this is a draft</a></div></div><div class="bypass-block"><a href="#_content">Jump to content</a><a href="#_bottom-navigation">Jump to page navigation: previous page [access key p]/next page [access key n]</a></div><div id="_outer-wrap"><div id="_white-bg" style="background-color: #FABEBE;"><div id="_header"><div id="_logo"><img src="static/images/logo.png" alt="Logo" /></div><div class="crumbs"><a class="book-link" href="index.html" title="SUSE Cloud Application Platform 2.1.0 Documentation"><span class="book-icon">SUSE Cloud Application Platform 2.1.0 Documentation</span></a><span> › </span><a class="crumb" href="book-cap-guides.html">Deployment, Administration, and User Guides</a><span> › </span><a class="crumb" href="part-cap-deployment.html">Deploying SUSE Cloud Application Platform</a><span> › </span><a class="crumb" href="cha-cap-depl-gke.html">Deploying SUSE Cloud Application Platform on Google Kubernetes Engine (GKE)</a></div><div class="clearme"></div></div></div><div id="_toolbar-wrap"><div id="_toolbar"><div id="_toc-area" class="inactive"><a id="_toc-area-button" class="tool" title="Contents" accesskey="c" href="index.html"><span class="tool-spacer"><span class="toc-icon">Contents</span><span class="clearme"></span></span><span class="tool-label">Contents</span></a><div class="active-contents bubble-corner"></div><div class="active-contents bubble"><div class="bubble-container"><h6>Deployment, Administration, and User Guides</h6><div id="_bubble-toc"><ol><li class="inactive"><a href="preface-deployment.html"><span class="number"> </span><span class="name">About This Guide</span></a></li><li class="inactive"><a href="part-cap-overview.html"><span class="number">I </span><span class="name">Overview of SUSE Cloud Application Platform</span></a><ol><li class="inactive"><a href="cha-cap-overview.html"><span class="number">1 </span><span class="name">About SUSE Cloud Application Platform</span></a></li><li class="inactive"><a href="cha-cap-depl-kube-requirements.html"><span class="number">2 </span><span class="name">Other Kubernetes Systems</span></a></li></ol></li><li class="inactive"><a href="part-cap-deployment.html"><span class="number">II </span><span class="name">Deploying SUSE Cloud Application Platform</span></a><ol><li class="inactive"><a href="cha-cap-depl-notes.html"><span class="number">3 </span><span class="name">Deployment and Administration Notes</span></a></li><li class="inactive"><a href="cha-cap-depl-caasp.html"><span class="number">4 </span><span class="name">Deploying SUSE Cloud Application Platform on SUSE CaaS Platform</span></a></li><li class="inactive"><a href="cha-cap-depl-aks.html"><span class="number">5 </span><span class="name">Deploying SUSE Cloud Application Platform on Microsoft Azure Kubernetes Service (AKS)</span></a></li><li class="inactive"><a href="cha-cap-depl-eks.html"><span class="number">6 </span><span class="name">Deploying SUSE Cloud Application Platform on Amazon Elastic Kubernetes Service (EKS)</span></a></li><li class="inactive"><a href="cha-cap-depl-gke.html"><span class="number">7 </span><span class="name">Deploying SUSE Cloud Application Platform on Google Kubernetes Engine (GKE)</span></a></li><li class="inactive"><a href="cha-cap-install-stratos.html"><span class="number">8 </span><span class="name">Installing the Stratos Web Console</span></a></li><li class="inactive"><a href="cha-cap-depl-eirini.html"><span class="number">9 </span><span class="name">Eirini</span></a></li><li class="inactive"><a href="cha-cap-depl-terraform.html"><span class="number">10 </span><span class="name">Deploying SUSE Cloud Application Platform Using Terraform</span></a></li><li class="inactive"><a href="cha-cap-depl-air-gap-registry.html"><span class="number">11 </span><span class="name">Setting Up a Registry for an Air Gapped Environment</span></a></li><li class="inactive"><a href="cha-cap-depl-private-registry.html"><span class="number">12 </span><span class="name">SUSE Private Registry</span></a></li></ol></li><li class="inactive"><a href="part-cap-administration.html"><span class="number">III </span><span class="name">SUSE Cloud Application Platform Administration</span></a><ol><li class="inactive"><a href="cha-cap-upgrade.html"><span class="number">13 </span><span class="name">Upgrading SUSE Cloud Application Platform</span></a></li><li class="inactive"><a href="cha-cap-configuration-changes.html"><span class="number">14 </span><span class="name">Configuration Changes</span></a></li><li class="inactive"><a href="cha-cap-create-admin-user.html"><span class="number">15 </span><span class="name">Creating Admin Users</span></a></li><li class="inactive"><a href="cha-cap-manage-passwords.html"><span class="number">16 </span><span class="name">Managing Passwords</span></a></li><li class="inactive"><a href="cha-cap-uaa-ui.html"><span class="number">17 </span><span class="name">Accessing the UAA User Interface</span></a></li><li class="inactive"><a href="cha-cap-memory-limits.html"><span class="number">18 </span><span class="name">Container Memory Limits and Requests</span></a></li><li class="inactive"><a href="cha-cap-ccdb-secret-rotation.html"><span class="number">19 </span><span class="name">Cloud Controller Database Secret Rotation</span></a></li><li class="inactive"><a href="cha-cap-secrets-rotation.html"><span class="number">20 </span><span class="name">Rotating Automatically Generated Secrets</span></a></li><li class="inactive"><a href="cha-cap-backup-restore.html"><span class="number">21 </span><span class="name">Backup and Restore</span></a></li><li class="inactive"><a href="cha-cap-service-brokers.html"><span class="number">22 </span><span class="name">Service Brokers</span></a></li><li class="inactive"><a href="cha-cap-app-autoscaler.html"><span class="number">23 </span><span class="name">App-AutoScaler</span></a></li><li class="inactive"><a href="cha-cap-credhub.html"><span class="number">24 </span><span class="name">Integrating CredHub with SUSE Cloud Application Platform</span></a></li><li class="inactive"><a href="cha-cap-buildpacks.html"><span class="number">25 </span><span class="name">Buildpacks</span></a></li></ol></li><li class="inactive"><a href="part-cap-user-guide.html"><span class="number">IV </span><span class="name">SUSE Cloud Application Platform User Guide</span></a><ol><li class="inactive"><a href="cha-cap-cf-cli.html"><span class="number">26 </span><span class="name">Deploying and Managing Applications with the Cloud Foundry Client</span></a></li></ol></li><li class="inactive"><a href="part-cap-troubleshooting.html"><span class="number">V </span><span class="name">Troubleshooting</span></a><ol><li class="inactive"><a href="cha-cap-depl-troubleshooting.html"><span class="number">27 </span><span class="name">Troubleshooting</span></a></li></ol></li><li class="inactive"><a href="bk01apa.html"><span class="number">A </span><span class="name">Appendix</span></a></li><li class="inactive"><a href="bk01apb.html"><span class="number">B </span><span class="name">GNU Licenses</span></a></li></ol></div><div class="clearme"></div></div></div></div><div id="_nav-area" class="inactive"><div class="tool"><span class="nav-inner"><span class="tool-label">Navigation</span><a accesskey="p" class="tool-spacer" title="Chapter 6. Deploying SUSE Cloud Application Platform on Amazon Elastic Kubernetes Service (EKS)" href="cha-cap-depl-eks.html"><span class="prev-icon">←</span></a><a accesskey="n" class="tool-spacer" title="Chapter 8. Installing the Stratos Web Console" href="cha-cap-install-stratos.html"><span class="next-icon">→</span></a></span></div></div></div></div><div id="_fixed-header-wrap" style="background-color: #FABEBE;" class="inactive"><div id="_fixed-header"><div class="crumbs"><a class="book-link" href="index.html" title="SUSE Cloud Application Platform 2.1.0 Documentation"><span class="book-icon">SUSE Cloud Application Platform 2.1.0 Documentation</span></a><span> › </span><a class="crumb" href="book-cap-guides.html">Deployment, Administration, and User Guides</a><span> › </span><a class="crumb" href="part-cap-deployment.html">Deploying SUSE Cloud Application Platform</a><span> › </span><a class="crumb" href="cha-cap-depl-gke.html">Deploying SUSE Cloud Application Platform on Google Kubernetes Engine (GKE)</a></div><div class="buttons"><a class="top-button button" href="#">Top</a><div class="button"><a accesskey="p" class="tool-spacer" title="Chapter 6. Deploying SUSE Cloud Application Platform on Amazon Elastic Kubernetes Service (EKS)" href="cha-cap-depl-eks.html"><span class="prev-icon">←</span></a><a accesskey="n" class="tool-spacer" title="Chapter 8. Installing the Stratos Web Console" href="cha-cap-install-stratos.html"><span class="next-icon">→</span></a></div><div class="clearme"></div></div><div class="clearme"></div></div></div><div id="_content" class="draft "><div class="documentation"><div class="chapter " id="cha-cap-depl-gke"><div class="titlepage"><div><div class="version-info">Applies to  <span class="productname ">SUSE Cloud Application Platform</span> <span class="productnumber ">2.1.0</span></div><div><h2 class="title"><span class="number">7 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Deploying SUSE Cloud Application Platform on Google Kubernetes Engine (GKE)</span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><div class="line"><div class="toc"><dl><dt><span class="sect1"><a href="cha-cap-depl-gke.html#sec-cap-prereqs-gke"><span class="number">7.1 </span><span class="name">Prerequisites</span></a></span></dt><dt><span class="sect1"><a href="cha-cap-depl-gke.html#sec-cap-create-gke-cluster"><span class="number">7.2 </span><span class="name">Creating a GKE cluster</span></a></span></dt><dt><span class="sect1"><a href="cha-cap-depl-gke.html#sec-cap-gke-kubeconfig"><span class="number">7.3 </span><span class="name">Get <code class="literal">kubeconfig</code> File</span></a></span></dt><dt><span class="sect1"><a href="cha-cap-depl-gke.html#id-1.3.4.7.7"><span class="number">7.4 </span><span class="name">Install the Helm Client</span></a></span></dt><dt><span class="sect1"><a href="cha-cap-depl-gke.html#sec-cap-gke-storage"><span class="number">7.5 </span><span class="name">
+  Storage Class
+ </span></a></span></dt><dt><span class="sect1"><a href="cha-cap-depl-gke.html#sec-cap-gke-config"><span class="number">7.6 </span><span class="name">Deployment Configuration</span></a></span></dt><dt><span class="sect1"><a href="cha-cap-depl-gke.html#sec-cap-gke-certificates"><span class="number">7.7 </span><span class="name">
+  Certificates
+ </span></a></span></dt><dt><span class="sect1"><a href="cha-cap-depl-gke.html#sec-cap-gke-ingress"><span class="number">7.8 </span><span class="name">
+  Using an Ingress Controller
+ </span></a></span></dt><dt><span class="sect1"><a href="cha-cap-depl-gke.html#sec-cap-gke-affinity"><span class="number">7.9 </span><span class="name">
+  Affinity and Anti-affinity
+ </span></a></span></dt><dt><span class="sect1"><a href="cha-cap-depl-gke.html#sec-cap-gke-high-availability"><span class="number">7.10 </span><span class="name">
+  High Availability
+ </span></a></span></dt><dt><span class="sect1"><a href="cha-cap-depl-gke.html#sec-cap-gke-external-blobstore"><span class="number">7.11 </span><span class="name">
+  External Blobstore
+ </span></a></span></dt><dt><span class="sect1"><a href="cha-cap-depl-gke.html#sec-cap-gke-external-database"><span class="number">7.12 </span><span class="name">
+  External Database
+ </span></a></span></dt><dt><span class="sect1"><a href="cha-cap-depl-gke.html#sec-cap-addrepo-gke"><span class="number">7.13 </span><span class="name">Add the Kubernetes charts repository</span></a></span></dt><dt><span class="sect1"><a href="cha-cap-depl-gke.html#sec-cap-cap-on-gke"><span class="number">7.14 </span><span class="name">Deploying SUSE Cloud Application Platform</span></a></span></dt><dt><span class="sect1"><a href="cha-cap-depl-gke.html#sec-cap-gke-ldap"><span class="number">7.15 </span><span class="name">
+  LDAP Integration
+ </span></a></span></dt><dt><span class="sect1"><a href="cha-cap-depl-gke.html#sec-cap-gke-add-capacity"><span class="number">7.16 </span><span class="name">Expanding Capacity of a Cloud Application Platform Deployment on Google GKE</span></a></span></dt></dl></div></div><div id="id-1.3.4.7.2" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important</h6><p>
+  Before you start deploying SUSE Cloud Application Platform, review the following documents:
+  </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+        <a class="link" href="https://www.suse.com/releasenotes/x86_64/SUSE-CAP/2.0/" target="_blank">
+        SUSE Cloud Application Platform Release Notes</a>
+      </p></li><li class="listitem "><p>
+        <a class="xref" href="cha-cap-depl-notes.html" title="Chapter 3. Deployment and Administration Notes">Chapter 3, <em>Deployment and Administration Notes</em></a>
+      </p></li></ul></div></div><p>
+  SUSE Cloud Application Platform supports deployment on Google Kubernetes Engine (GKE). This chapter describes the steps
+  to prepare a SUSE Cloud Application Platform deployment on GKE using its integrated network load balancers. See
+  <a class="link" href="https://cloud.google.com/kubernetes-engine/" target="_blank">https://cloud.google.com/kubernetes-engine/</a>
+  for more information on GKE.
+ </p><div class="sect1 " id="sec-cap-prereqs-gke"><div class="titlepage"><div><div><h2 class="title"><span class="number">7.1 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Prerequisites</span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#sec-cap-prereqs-gke">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span>sec-cap-prereqs-gke</li></ul></div></div></div></div><p>
+   The following are required to deploy and use SUSE Cloud Application Platform on GKE:
+  </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+     A Google Cloud Platform (GCP) user account or a service account with the
+     following IAM roles. If you do not have an account, visit
+     <a class="link" href="https://console.cloud.google.com/" target="_blank">https://console.cloud.google.com/</a> to create one.
+    </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+       <code class="literal">compute.admin</code>. For details regarding this role, refer to
+       <a class="link" href="https://cloud.google.com/iam/docs/understanding-roles#compute-engine-roles" target="_blank">https://cloud.google.com/iam/docs/understanding-roles#compute-engine-roles</a>.
+      </p></li><li class="listitem "><p>
+       <code class="literal">container.admin</code>. For details regarding this role, refer to
+       <a class="link" href="https://cloud.google.com/kubernetes-engine/docs/how-to/iam#predefined" target="_blank">https://cloud.google.com/kubernetes-engine/docs/how-to/iam#predefined</a>.
+      </p></li><li class="listitem "><p>
+       <code class="literal">iam.serviceAccountUser</code>. For details regarding this role, refer to
+       <a class="link" href="https://cloud.google.com/kubernetes-engine/docs/how-to/iam#primitive" target="_blank">https://cloud.google.com/kubernetes-engine/docs/how-to/iam#primitive</a>.
+      </p></li></ul></div></li><li class="listitem "><p>
+     Access to a GCP project with the Kubernetes Engine API enabled. If a
+     project needs to be created, refer to
+     <a class="link" href="https://cloud.google.com/apis/docs/getting-started#creating_a_google_project" target="_blank">https://cloud.google.com/apis/docs/getting-started#creating_a_google_project</a>.
+     To enable access to the API, refer to
+     <a class="link" href="https://cloud.google.com/apis/docs/getting-started#enabling_apis" target="_blank">https://cloud.google.com/apis/docs/getting-started#enabling_apis</a>.
+    </p></li><li class="listitem "><p>
+     <code class="command">gcloud</code>, the primary command line interface to Google
+     Cloud Platform. See
+     <a class="link" href="https://cloud.google.com/sdk/gcloud/" target="_blank">https://cloud.google.com/sdk/gcloud/</a> for more
+     information and installation instructions.
+    </p></li><li class="listitem "><p>
+ <code class="command">cf</code>, the Cloud Foundry command line interface. For more information,
+ see <a class="link" href="https://docs.cloudfoundry.org/cf-cli/" target="_blank">https://docs.cloudfoundry.org/cf-cli/</a>.
+</p><p>
+ For SUSE Linux Enterprise and openSUSE systems, install using <code class="command">zypper</code>.
+</p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>sudo zypper install cf-cli</pre></div><p>
+ For SLE, ensure the SUSE Cloud Application Platform Tools Module has been added. Add the
+ module using YaST or SUSEConnect.
+</p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>SUSEConnect --product sle-module-cap-tools/15.1/x86_64</pre></div><p>
+ For other systems, follow the instructions at
+ <a class="link" href="https://docs.cloudfoundry.org/cf-cli/install-go-cli.html" target="_blank">https://docs.cloudfoundry.org/cf-cli/install-go-cli.html</a>.
+</p></li><li class="listitem "><p>
+ <code class="command">kubectl</code>, the Kubernetes command line tool. For more
+ information, refer to
+ <a class="link" href="https://kubernetes.io/docs/reference/kubectl/overview/" target="_blank">https://kubernetes.io/docs/reference/kubectl/overview/</a>.
+</p><p>
+ For SLE 12 SP3 or 15 SP1 systems, install the package
+ <span class="package ">kubernetes-client</span> from the <span class="emphasis"><em>Public Cloud</em></span>
+ module.
+</p><p>
+ For other systems, follow the instructions at
+ <a class="link" href="https://kubernetes.io/docs/tasks/tools/install-kubectl/" target="_blank">https://kubernetes.io/docs/tasks/tools/install-kubectl/</a>.
+</p></li><li class="listitem "><p>
+ <code class="command">jq</code>, a command line JSON processor. See
+ <a class="link" href="https://stedolan.github.io/jq/" target="_blank">https://stedolan.github.io/jq/</a> for more information and
+ installation instructions.
+</p></li><li class="listitem "><p>
+ <code class="command">curl</code>, the Client URL (cURL) command line tool.
+</p></li><li class="listitem "><p>
+ <code class="command">sed</code>, the stream editor.
+</p></li></ul></div></div><div class="sect1 " id="sec-cap-create-gke-cluster"><div class="titlepage"><div><div><h2 class="title"><span class="number">7.2 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Creating a GKE cluster</span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#sec-cap-create-gke-cluster">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span>sec-cap-create-gke-cluster</li></ul></div></div></div></div><p>
+   In order to deploy SUSE Cloud Application Platform, create a cluster that:
+  </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+     Is a <code class="literal">Zonal</code> or <code class="literal">Regional</code> type. Do not
+     use a <code class="literal">Alpha</code> cluster.
+    </p></li><li class="listitem "><p>
+     Uses <code class="literal">Ubuntu</code> as the host operating system. If using the
+     <code class="literal">gcloud</code> CLI, include <code class="command">--image-type=UBUNTU</code>
+     during the cluster creation.
+    </p></li><li class="listitem "><p>
+     Allows access to all Cloud APIs (in order for storage to work correctly).
+	    
+    </p></li><li class="listitem "><p>
+     Has at least 3 nodes of machine type <code class="literal">n1-standard-4</code>. If using the
+     <code class="literal">gcloud</code> CLI, include <code class="command">--machine-type=n1-standard-4</code>
+     and <code class="command">--num-nodes=3</code> during the cluster creation. For details, see
+     <a class="link" href="https://cloud.google.com/compute/docs/machine-types#standard_machine_types" target="_blank">https://cloud.google.com/compute/docs/machine-types#standard_machine_types</a>.
+    </p></li><li class="listitem "><p>
+     Has at least 100 GB local storage per node.
+    </p></li><li class="listitem "><p>
+     (Optional) Uses preemptible nodes to keep costs low. For details, see
+     <a class="link" href="https://cloud.google.com/kubernetes-engine/docs/how-to/preemptible-vms" target="_blank">https://cloud.google.com/kubernetes-engine/docs/how-to/preemptible-vms</a>.
+    </p></li></ul></div><div class="procedure "><div class="procedure-contents"><ol class="procedure" type="1"><li class="step "><p>
+     Set a name for your cluster:
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>export CLUSTER_NAME=<em class="replaceable ">"cap"</em></pre></div></li><li class="step "><p>
+     Set the zone for your cluster:
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>export CLUSTER_ZONE=<em class="replaceable ">"us-west1-a"</em></pre></div></li><li class="step "><p>
+     Set the number of nodes for your cluster:
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>export NODE_COUNT=3</pre></div></li><li class="step "><p>
+     Create the cluster:
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>gcloud container clusters create ${CLUSTER_NAME} \
+--image-type=UBUNTU \
+--machine-type=n1-standard-4 \
+--zone ${CLUSTER_ZONE} \
+--num-nodes=$NODE_COUNT \
+--no-enable-basic-auth \
+--no-issue-client-certificate \
+--no-enable-autoupgrade</pre></div><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+       Specify the <code class="command">--no-enable-basic-auth</code> and
+       <code class="command">--no-issue-client-certificate</code> flags so that
+       <code class="command">kubectl</code> does not use basic or client certificate
+       authentication, but uses OAuth Bearer Tokens instead. Configure the
+       flags to suit your desired authentication mechanism.
+      </p></li><li class="listitem "><p>
+       Specify <code class="command">--no-enable-autoupgrade</code> to disable
+       automatic upgrades.
+      </p></li><li class="listitem "><p>
+       Disable legacy metadata server endpoints using
+       <code class="command">--metadata disable-legacy-endpoints=true</code> as a best
+       practice as indicated in
+       <a class="link" href="https://cloud.google.com/compute/docs/storing-retrieving-metadata#default" target="_blank">https://cloud.google.com/compute/docs/storing-retrieving-metadata#default</a>.
+      </p></li></ul></div></li></ol></div></div></div><div class="sect1 " id="sec-cap-gke-kubeconfig"><div class="titlepage"><div><div><h2 class="title"><span class="number">7.3 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Get <code class="literal">kubeconfig</code> File</span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#sec-cap-gke-kubeconfig">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span>sec-cap-gke-kubeconfig</li></ul></div></div></div></div><p>
+   Get the <code class="literal">kubeconfig</code> file for your cluster.
+  </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>gcloud container clusters get-credentials --zone ${CLUSTER_ZONE:?required} ${CLUSTER_NAME:?required} --project <em class="replaceable ">example-project</em></pre></div></div><div class="sect1 " id="id-1.3.4.7.7"><div class="titlepage"><div><div><h2 class="title"><span class="number">7.4 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Install the Helm Client</span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#id-1.3.4.7.7">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><p>
+   Helm is a Kubernetes package manager used to install and manage SUSE Cloud Application Platform.
+   This requires installing the Helm client, <code class="command">helm</code>, on your
+   remote management workstation. Cloud Application Platform requires Helm 3.
+   For more information regarding Helm, refer to the documentation at
+   <a class="link" href="https://helm.sh/docs/" target="_blank">https://helm.sh/docs/</a>.
+  </p><div id="id-1.3.4.7.7.3" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.png" /><h6>Warning</h6><p>Make sure that you are installing and using Helm 3 and not Helm 2.</p></div><p>
+   If your remote management workstation has the SUSE CaaS Platform package repository,
+   install <code class="command">helm</code> by running
+  </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>sudo zypper install helm3
+<code class="prompt user">tux &gt; </code>sudo update-alternatives --set helm /usr/bin/helm3</pre></div><p>
+   Otherwise, <code class="command">helm</code> can be installed  by referring to the
+   documentation at <a class="link" href="https://helm.sh/docs/intro/install/" target="_blank">https://helm.sh/docs/intro/install/</a>.
+  </p></div><div class="sect1 " id="sec-cap-gke-storage"><div class="titlepage"><div><div><h2 class="title"><span class="number">7.5 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">
+  Storage Class
+ </span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#sec-cap-gke-storage">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span>sec-cap-gke-storage</li></ul></div></div></div></div><p>
+  In some SUSE Cloud Application Platform instance groups, such as <code class="literal">bits</code>,
+  <code class="literal">database</code>, <code class="literal">diego-cell</code>, and
+  <code class="literal">singleton-blobstore</code> require a storage class for persistent
+  data. To learn more about storage classes, see
+  <a class="link" href="https://kubernetes.io/docs/concepts/storage/storage-classes/" target="_blank">https://kubernetes.io/docs/concepts/storage/storage-classes/</a>. 
+ </p><p>
+  By default, SUSE Cloud Application Platform will use the cluster's default storage class. 
+  To designate or change the default storage class, refer to
+  <a class="link" href="https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/" target="_blank">https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/</a>
+  for instructions.
+ </p><p>
+  In some cases, the default and predefined storage classes may not be suitable
+  for certain workloads. If this is the case, operators can define their own
+  custom StorageClass resource according to the specification at 
+  <a class="link" href="https://kubernetes.io/docs/concepts/storage/storage-classes/#the-storageclass-resource" target="_blank">https://kubernetes.io/docs/concepts/storage/storage-classes/#the-storageclass-resource</a>.
+ </p><p>
+  With the storage class defined, run:
+ </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>kubectl create --filename <em class="replaceable ">my-storage-class.yaml</em></pre></div><p>
+  Then verify the storage class is available by running
+ </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>kubectl get storageclass</pre></div><p>
+  If operators do no want to use the default storage class or one does not
+  exist, a storage class <span class="bold"><strong>must</strong></span> be specified by
+  setting the <code class="literal">kube.storage_class</code> value in your
+  <code class="filename">kubecf-config-values.yaml</code> configuration file to the name of the storage class as seen
+  in this example. 
+ </p><div class="verbatim-wrap"><pre class="screen">kube:
+  storage_class: <em class="replaceable ">my-storage-class</em></pre></div></div><div class="sect1 " id="sec-cap-gke-config"><div class="titlepage"><div><div><h2 class="title"><span class="number">7.6 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Deployment Configuration</span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#sec-cap-gke-config">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span>sec-cap-gke-config</li></ul></div></div></div></div><p>
+   The following file, <code class="filename">kubecf-config-values.yaml</code>, provides a
+   minimal example deployment configuration.
+  </p><div id="id-1.3.4.7.9.3" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.png" /><h6>Warning: kubecf-config-values.yaml changes</h6><p>
+    The format of the <code class="filename">kubecf-config-values.yaml</code> file has been restructured completely in
+    Cloud Application Platform 2.x. Do not re-use the Cloud Application Platform 1.x version of the file. Instead, see the
+    default file in the appendix in
+    <a class="xref" href="bk01apa.html#app-kubecf-values-yaml" title="A.1. Complete suse/kubecf values.yaml File">Section A.1, “Complete suse/kubecf values.yaml File”</a> and pick parameters according to
+    your needs.
+  </p></div><div id="id-1.3.4.7.9.4" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.png" /><h6>Warning: Supported Domains</h6><p>
+   When selecting a domain, SUSE Cloud Application Platform expects <code class="literal">system_domain</code> to
+   be either a subdomain or a root domain. Setting <code class="literal">system_domain</code> to
+   a top-level domain, such as <code class="literal">suse</code>, is not supported.
+  </p></div><div class="verbatim-wrap"><pre class="screen">### Example deployment configuration file
+### kubecf-config-values.yaml
+
+system_domain: example.com
+
+credentials:
+  cf_admin_password: <em class="replaceable ">changeme</em>
+  uaa_admin_client_secret: <em class="replaceable ">alsochangeme</em>
+
+### This block is required due to the log-cache issue described below
+properties:
+  log-cache:
+    log-cache:
+      memory_limit_percent: 3
+
+### This block is required due to the log-cache issue described below
+###
+### The value for <code class="literal">key</code> may need to be replaced depending on
+### how notes in your cluster are labeled
+###
+### The value(s) listed under <code class="literal">values</code> may need to be
+### replaced depending on how notes in your cluster are labeled
+operations:
+  inline:
+  - type: replace
+    path: /instance_groups/name=log-cache/env?/bosh/agent/settings/affinity
+    value:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: <em class="replaceable ">kubernetes.io/hostname</em>
+              operator: In
+              values:
+              - <em class="replaceable ">LABEL_VALUE_OF_NODE</em></pre></div><div class="sect2 " id="id-1.3.4.7.9.6"><div class="titlepage"><div><div><h3 class="title"><span class="number">7.6.1 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Log-cache Memory Allocation</span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#id-1.3.4.7.9.6">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><p>
+  The log-cache component currently has a memory allocation issue where the node
+  memory available is reported instead of the one assigned to the container under
+  cgroups. In such a situation, log-cache would start allocating memory based on
+  these values, causing a varying range of issues (OOMKills, performance
+  degradation, etc.). To address this issue, node affinity must be used to tie
+  log-cache to nodes of a uniform size, and then declaring the cache percentage
+  based on that number. A limit of 3% has been identified as sufficient.
+ </p><p>
+  In the node affinity configuration, the values for <code class="literal">key</code> and
+  <code class="literal">values</code> may need to be changed depending on how notes in your
+  cluster are labeled. For more information on labels, see
+  <a class="link" href="https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#built-in-node-labels" target="_blank">https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#built-in-node-labels</a>.
+ </p></div><div class="sect2 " id="id-1.3.4.7.9.7"><div class="titlepage"><div><div><h3 class="title"><span class="number">7.6.2 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Diego Cell Affinities and Tainted Nodes</span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#id-1.3.4.7.9.7">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><p>
+  Note that the <code class="literal">diego-cell</code> pods used by the Diego standard
+  scheduler are
+ </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+    privileged
+   </p></li><li class="listitem "><p>
+    use large local emptyDir volumes (i.e. require node disk storage)
+   </p></li><li class="listitem "><p>
+    and set kernel parameters on the node
+   </p></li></ul></div><p>
+  These things all mean that these pods should not live next to other Kubernetes
+  workloads. They should all be placed on their own
+  <span class="bold"><strong>dedicated nodes</strong></span> instead where possible.
+ </p><p>
+  This can be done by setting affinities and tolerations, as explained in
+the associated tutorial at <a class="link" href="https://kubecf.io/docs/deployment/affinities-and-tolerations/" target="_blank">https://kubecf.io/docs/deployment/affinities-and-tolerations/</a>.
+ </p></div></div><div class="sect1 " id="sec-cap-gke-certificates"><div class="titlepage"><div><div><h2 class="title"><span class="number">7.7 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">
+  Certificates
+ </span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#sec-cap-gke-certificates">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span>sec-cap-gke-certificates</li></ul></div></div></div></div><p>
+  This section describes the process to secure traffic passing through your
+  SUSE Cloud Application Platform deployment. This is achieved by using certificates to set up
+  Transport Layer Security (TLS) for the router component. Providing
+  certificates for the router traffic is optional. In a default deployment,
+  without operator-provided certificates, generated certificates will be used.
+ </p><div class="sect2 " id="id-1.3.4.7.10.3"><div class="titlepage"><div><div><h3 class="title"><span class="number">7.7.1 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Certificate Characteristics</span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#id-1.3.4.7.10.3">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><p>
+   Ensure the certificates you use have the following characteristics:
+  </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+     The certificate is encoded in the PEM format.
+    </p></li><li class="listitem "><p>
+     The certificate is signed by an external Certificate Authority (CA).
+    </p></li><li class="listitem "><p>
+     The certificate's Subject Alternative Names (SAN) include the domain
+     <em class="replaceable ">*.example.com</em>, where <em class="replaceable ">example.com</em>
+     is replaced with the <code class="literal">system_domain</code> in your
+     <code class="filename">kubecf-config-values.yaml</code>.
+    </p></li></ul></div></div><div class="sect2 " id="id-1.3.4.7.10.4"><div class="titlepage"><div><div><h3 class="title"><span class="number">7.7.2 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Deployment Configuration</span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#id-1.3.4.7.10.4">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><p>
+   The certificate used to secure your deployment is passed through the
+   <code class="filename">kubecf-config-values.yaml</code> configuration file. To specify
+   a certificate, set the value of the certificate and its corresponding private
+   key using the <code class="literal">router.tls.crt</code> and
+   <code class="literal">router.tls.key</code> Helm values in the
+   <code class="literal">settings:</code> section.
+  </p><div class="verbatim-wrap"><pre class="screen">settings:
+  router:
+    tls:
+      crt: |
+        -----BEGIN CERTIFICATE-----
+        MIIEEjCCAfoCCQCWC4NErLzy3jANBgkqhkiG9w0BAQsFADBGMQswCQYDVQQGEwJD
+        QTETMBEGA1UECAwKU29tZS1TdGF0ZTEOMAwGA1UECgwFTXlPcmcxEjAQBgNVBAMM
+        CU15Q0Euc2l0ZTAeFw0xODA5MDYxNzA1MTRaFw0yMDAxMTkxNzA1MTRaMFAxCzAJ
+        ...
+        xtNNDwl2rnA+U0Q48uZIPSy6UzSmiNaP3PDR+cOak/mV8s1/7oUXM5ivqkz8pEJo
+        M3KrIxZ7+MbdTvDOh8lQplvFTeGgjmUDd587Gs4JsormqOsGwKd1BLzQbGELryV9
+        1usMOVbUuL8mSKVvgqhbz7vJlW1+zwmrpMV3qgTMoHoJWGx2n5g=
+        -----END CERTIFICATE-----
+      key: |
+        -----BEGIN RSA PRIVATE KEY-----
+        MIIEpAIBAAKCAQEAm4JMchGSqbZuqc4LdryJpX2HnarWPOW0hUkm60DL53f6ehPK
+        T5Dtb2s+CoDX9A0iTjGZWRD7WwjpiiuXUcyszm8y9bJjP3sIcTnHWSgL/6Bb3KN5
+        G5D8GHz7eMYkZBviFvygCqEs1hmfGCVNtgiTbAwgBTNsrmyx2NygnF5uy4KlkgwI
+        ...
+        GORpbQKBgQDB1/nLPjKxBqJmZ/JymBl6iBnhIgVkuUMuvmqES2nqqMI+r60EAKpX
+        M5CD+pq71TuBtbo9hbjy5Buh0+QSIbJaNIOdJxU7idEf200+4anzdaipyCWXdZU+
+        MPdJf40awgSWpGdiSv6hoj0AOm+lf4AsH6yAqw/eIHXNzhWLRvnqgA==
+        -----END RSA PRIVATE KEY----</pre></div></div></div><div class="sect1 " id="sec-cap-gke-ingress"><div class="titlepage"><div><div><h2 class="title"><span class="number">7.8 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">
+  Using an Ingress Controller
+ </span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#sec-cap-gke-ingress">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span>sec-cap-gke-ingress</li></ul></div></div></div></div><p>
+  This section describes how to use an ingress controller
+  (see <a class="link" href="https://kubernetes.io/docs/concepts/services-networking/ingress/" target="_blank">https://kubernetes.io/docs/concepts/services-networking/ingress/</a>)
+  to manage access to the services in the cluster. Using an ingress controller
+  is optional. In a default deployment, load balancers are used instead.
+ </p><p>
+  Note that only the NGINX Ingress Controller has been verified to be
+  compatible with Cloud Application Platform. Other Ingress controller alternatives may work, but
+  compatibility with Cloud Application Platform is not supported.
+ </p><div class="sect2 " id="id-1.3.4.7.11.4"><div class="titlepage"><div><div><h3 class="title"><span class="number">7.8.1 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Install and Configure the NGINX Ingress Controller</span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#id-1.3.4.7.11.4">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><div class="procedure "><div class="procedure-contents"><ol class="procedure" type="1"><li class="step "><p>
+     Create a configuration file with the section below. The file is called
+     <code class="filename">nginx-ingress.yaml</code> in this example. When using
+     Eirini instead of Diego, replace the first line with
+     <code class="literal">2222: "kubecf/eirinix-ssh-proxy:2222"</code>.
+    </p><div class="verbatim-wrap"><pre class="screen">tcp:
+  2222: "kubecf/scheduler:2222"
+  20000: "kubecf/tcp-router:20000"
+  20001: "kubecf/tcp-router:20001"
+  20002: "kubecf/tcp-router:20002"
+  20003: "kubecf/tcp-router:20003"
+  20004: "kubecf/tcp-router:20004"
+  20005: "kubecf/tcp-router:20005"
+  20006: "kubecf/tcp-router:20006"
+  20007: "kubecf/tcp-router:20007"
+  20008: "kubecf/tcp-router:20008"</pre></div></li><li class="step "><p>
+     Create the namespace.
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>kubectl create namespace <em class="replaceable ">nginx-ingress</em></pre></div></li><li class="step "><p>
+     Install the NGINX Ingress Controller.
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>helm install <em class="replaceable ">nginx-ingress</em> suse/nginx-ingress \
+--namespace <em class="replaceable ">nginx-ingress</em> \
+--values <em class="replaceable ">nginx-ingress.yaml</em></pre></div></li><li class="step "><p>
+     Monitor the progess of the deployment:
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>watch --color 'kubectl get pods --namespace <em class="replaceable ">nginx-ingress</em>'</pre></div></li><li class="step "><p>
+     After the deployment completes, the Ingress controller service will be deployed
+     with either an external IP or a hostname. 
+    </p><p>
+     Find the external IP or hostname.
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>kubectl get services nginx-ingress-controller --namespace nginx-ingress</pre></div><p>
+     You will get output similar to the following.
+    </p><div class="verbatim-wrap"><pre class="screen">NAME                       TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)
+nginx-ingress-controller   LoadBalancer   <em class="replaceable ">10.63.248.70</em>   <em class="replaceable ">35.233.191.177</em>   80:30344/TCP,443:31386/TCP</pre></div></li><li class="step "><p>
+     Set up DNS records corresponding to the controller service IP or hostname
+     and map it to the <code class="literal">system_domain</code> defined in your
+     <code class="filename">kubecf-config-values.yaml</code>.
+    </p></li><li class="step "><p>
+     Obtain a PEM formatted certificate that is associated with the
+     <code class="literal">system_domain</code> defined in your <code class="filename">kubecf-config-values.yaml</code>
+    </p></li><li class="step "><p>
+     In your <code class="filename">kubecf-config-values.yaml</code> configuration file, enable the ingress feature and
+     set the <code class="literal">tls.crt</code> and <code class="literal">tls.key</code> for the
+     certificate from the previous step.
+    </p><div class="verbatim-wrap"><pre class="screen">features:
+  ingress:
+    enabled: true
+    tls:
+      crt: |
+        -----BEGIN CERTIFICATE-----
+        MIIE8jCCAtqgAwIBAgIUT/Yu/Sv8AUl5zHXXEKCy5RKJqmYwDQYJKoZIhvcMOQMM
+        [...]
+        xC8x/+zB7XlvcRJRio6kk670+25ABP==
+        -----END CERTIFICATE-----
+      key: |
+        -----BEGIN RSA PRIVATE KEY-----
+        MIIE8jCCAtqgAwIBAgIUSI02lj2b2ImLy/zMrjNgW5d8EygwQSVJKoZIhvcYEGAW
+        [...]
+        to2WV7rPMb9W9fd2vVUXKKHTc+PiNg==
+        -----END RSA PRIVATE KEY-----</pre></div></li></ol></div></div></div></div><div class="sect1 " id="sec-cap-gke-affinity"><div class="titlepage"><div><div><h2 class="title"><span class="number">7.9 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">
+  Affinity and Anti-affinity
+ </span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#sec-cap-gke-affinity">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span>sec-cap-gke-affinity</li></ul></div></div></div></div><div id="id-1.3.4.7.12.2" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important</h6><p>
+   This feature requires SUSE Cloud Application Platform 2.0.1 or newer.
+  </p></div><p>
+  Operators can set affinity/anti-affinity rules to restrict how the scheduler
+  determines the placement of a given pod on a given node. This can be
+  achieved through node affinity/anti-affinity, where placement is determined
+  by node labels (see
+  <a class="link" href="https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity" target="_blank">https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity</a>),
+  or pod affinity/anti-affinity, where pod placement is determined by labels
+  on pods that are already running on the node (see
+  <a class="link" href="https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity" target="_blank">https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity</a>). 
+ </p><p>
+  In SUSE Cloud Application Platform, a default configuration will have following
+  affinity/anti-affinity rules already in place:
+ </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+    Instance groups have anti-affinity against themselves. This applies to all
+    instance groups, including <code class="literal">database</code>, but not to the
+    <code class="literal">bits</code>, <code class="literal">eirini</code>, and
+    <code class="literal">eirini-extensions</code> subcharts.
+   </p></li><li class="listitem "><p>
+    The <code class="literal">diego-cell</code> and <code class="literal">router</code> instance
+    groups have anti-affinity against each other.
+   </p></li></ul></div><p>
+  Note that to ensure an optimal spread of the pods across worker nodes we
+  recommend running 5 or more worker nodes to satisfy both of the default
+  anti-affinity constraints. An operator can also specify custom affinity rules
+  via the
+  <code class="literal">sizing.<em class="replaceable ">instance-group</em>.affinity</code>
+  helm parameter and any affinity rules specified here will overwrite the
+  default rule, not merge with it.
+ </p><div class="sect2 " id="id-1.3.4.7.12.7"><div class="titlepage"><div><div><h3 class="title"><span class="number">7.9.1 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Configuring Rules</span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#id-1.3.4.7.12.7">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><p>
+   To add or override affinity/anti-affinity settings, add a
+   <code class="literal">sizing.INSTANCE_GROUP.affinity</code> block to your
+   <code class="filename">kubecf-config-values.yaml</code>. Repeat as necessary for each instance group where
+   affinity/anti-affinity settings need to be applied. For information on
+   the available fields and valid values within the <code class="literal">affinity:</code>
+   block, see
+   <a class="link" href="https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity" target="_blank">https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity</a>.
+   Repeat as necessary for each instance group where affinity/anti-affinity
+   settings need to be applied.
+  </p><p>
+   Example 1, node affinity.
+  </p><p>
+   Using this configuration, the Kubernetes scheduler would place both the
+   <code class="literal">asactors</code> and <code class="literal">asapi</code> instance groups on a
+   node with a label where the key is
+   <code class="literal">topology.kubernetes.io/zone</code> and the value is
+   <code class="literal">0</code>.
+  </p><div class="verbatim-wrap"><pre class="screen">sizing:
+   asactors:
+     affinity:
+       nodeAffinity:
+         requiredDuringSchedulingIgnoredDuringExecution:
+           nodeSelectorTerms:
+           - matchExpressions:
+             - key: topology.kubernetes.io/zone
+               operator: In
+               values:
+               - 0
+   asapi:
+     affinity:
+       nodeAffinity:
+         requiredDuringSchedulingIgnoredDuringExecution:
+           nodeSelectorTerms:
+           - matchExpressions:
+             - key: topology.kubernetes.io/zone
+               operator: In
+               values:
+               - 0</pre></div><p>
+   Example 2, pod anti-affinity.
+  </p><div class="verbatim-wrap"><pre class="screen">sizing:
+  api:
+    affinity:
+      podAntiAffinity:
+        preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 100
+          podAffinityTerm:
+            labelSelector:
+              matchExpressions:
+              - key: quarks.cloudfoundry.org/quarks-statefulset-name
+                operator: In
+                values:
+                - sample_group
+            topologyKey: kubernetes.io/hostname
+  database:
+    affinity:
+      podAntiAffinity:
+        preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 100
+          podAffinityTerm:
+            labelSelector:
+              matchExpressions:
+              - key: quarks.cloudfoundry.org/quarks-statefulset-name
+                operator: In
+                values:
+                - sample_group
+            topologyKey: kubernetes.io/hostname</pre></div><p>
+   Example 1 above uses <code class="literal">topology.kubernetes.io/zone</code> as its
+   label, which is one of the standard labels that get attached to nodes by
+   default. The list of standard labels can be found at
+   <a class="link" href="https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#built-in-node-labels" target="_blank">https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#built-in-node-labels</a>. 
+  </p><p>
+   In addition to the standard labels, custom labels can be specified as in
+   Example 2. To use custom labels, following the process described in this
+   section <a class="link" href="https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector" target="_blank">https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector</a>.
+  </p></div></div><div class="sect1 " id="sec-cap-gke-high-availability"><div class="titlepage"><div><div><h2 class="title"><span class="number">7.10 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">
+  High Availability
+ </span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#sec-cap-gke-high-availability">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span>sec-cap-gke-high-availability</li></ul></div></div></div></div><div class="sect2 " id="id-1.3.4.7.13.2"><div class="titlepage"><div><div><h3 class="title"><span class="number">7.10.1 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Configuring Cloud Application Platform for High Availability</span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#id-1.3.4.7.13.2">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><p>
+   High availability mode is optional. In a default deployment, SUSE Cloud Application Platform is
+   deployed in single availability mode.
+  </p><p>
+   There are two ways to make your SUSE Cloud Application Platform deployment highly available.
+   The first method is to set the <code class="literal">high_availability</code> parameter
+   in your deployment configuration file to <code class="literal">true</code>. The second
+   method is to create custom configuration files with your own sizing values.
+  </p><div class="sect3 " id="id-1.3.4.7.13.2.4"><div class="titlepage"><div><div><h4 class="title"><span class="number">7.10.1.1 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Finding Default and Allowable Sizing Values</span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#id-1.3.4.7.13.2.4">#</a></h4><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><p>
+    The <code class="literal">sizing:</code> section in the Helm
+    <code class="filename">values.yaml</code> files for the <code class="literal">kubecf</code> chart
+    describes which roles can be scaled, and the scaling options for each role.
+    You may use <code class="command">helm inspect</code> to read the
+    <code class="literal">sizing:</code> section in the Helm chart:
+   </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>helm show suse/kubecf | less +/sizing:</pre></div><p>
+    Another way is to use Perl to extract the information for each role from
+    the <code class="literal">sizing:</code> section.
+   </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>helm inspect values suse/kubecf | \
+perl -ne '/^sizing/..0 and do { print $.,":",$_ if /^ [a-z]/ || /high avail|scale|count/ }'</pre></div><p>
+    The default <code class="filename">values.yaml</code> files are also included in
+    this guide at <a class="xref" href="bk01apa.html#app-kubecf-values-yaml" title="A.1. Complete suse/kubecf values.yaml File">Section A.1, “Complete suse/kubecf values.yaml File”</a>.
+   </p></div><div class="sect3 " id="id-1.3.4.7.13.2.5"><div class="titlepage"><div><div><h4 class="title"><span class="number">7.10.1.2 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Using the <code class="literal">high_availability</code> Helm Property</span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#id-1.3.4.7.13.2.5">#</a></h4><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><p>
+    One way to make your SUSE Cloud Application Platform deployment highly available is
+    to use the <code class="literal">high_availability</code> Helm property. In your
+    <code class="filename">kubecf-config-values.yaml</code>, set this property to
+    <code class="literal">true</code>. This changes the size of all roles to the minimum
+    required for a highly available deployment. Your configuration file,
+    <code class="filename">kubecf-config-values.yaml</code>, should include the following.
+   </p><div class="verbatim-wrap"><pre class="screen">high_availability: true</pre></div><div id="id-1.3.4.7.13.2.5.4" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important: Sizing Priority</h6><p>
+   When sizing values are specified, it takes precedence over the <code class="literal">high_availability</code> property.
+  </p></div></div><div class="sect3 " id="id-1.3.4.7.13.2.6"><div class="titlepage"><div><div><h4 class="title"><span class="number">7.10.1.3 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Using Custom Sizing Configurations</span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#id-1.3.4.7.13.2.6">#</a></h4><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><p>
+    Another method to make your SUSE Cloud Application Platform deployment highly available is           
+    to explicitly configure the instance count of an instance group.
+   </p><div id="id-1.3.4.7.13.2.6.3" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important: Sizing Priority</h6><p>
+   When sizing values are specified, it takes precedence over the <code class="literal">high_availability</code> property.
+  </p></div><p>
+    To see the full list of configurable instance groups, refer to default
+    KubeCF <code class="filename">values.yaml</code> file in the appendix at
+    <a class="xref" href="bk01apa.html#app-kubecf-values-yaml" title="A.1. Complete suse/kubecf values.yaml File">Section A.1, “Complete suse/kubecf values.yaml File”</a>.
+   </p><p>
+    The following is an example High Availability configuration. The example values are not meant to be
+    copied, as these depend on your particular deployment and requirements.
+   </p><div class="verbatim-wrap"><pre class="screen">sizing:
+  adapter:
+    instances: 2
+  api:
+    instances: 2
+  asactors:
+    instances: 2
+  asapi:
+    instances: 2
+  asmetrics:
+    instances: 2
+  asnozzle:
+    instances: 2
+  auctioneer:
+    instances: 2
+  bits:
+    instances: 2
+  cc_worker:
+    instances: 2
+  credhub:
+    instances: 2
+  database:
+    instances: 1
+  diego_api:
+    instances: 2
+  diego_cell:
+    instances: 2
+  doppler:
+    instances: 2
+  eirini:
+    instances: 3
+  log_api:
+    instances: 2
+  nats:
+    instances: 2
+  router:
+    instances: 2
+  routing_api:
+    instances: 2
+  scheduler:
+    instances: 2
+  uaa:
+    instances: 2
+  tcp_router:
+    instances: 2</pre></div></div></div></div><div class="sect1 " id="sec-cap-gke-external-blobstore"><div class="titlepage"><div><div><h2 class="title"><span class="number">7.11 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">
+  External Blobstore
+ </span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#sec-cap-gke-external-blobstore">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span>sec-cap-gke-external-blobstore</li></ul></div></div></div></div><p>
+  Cloud Foundry Application Runtime (CFAR) uses a blobstore (see
+  <a class="link" href="https://docs.cloudfoundry.org/concepts/cc-blobstore.html" target="_blank">https://docs.cloudfoundry.org/concepts/cc-blobstore.html</a>)
+  to store the source code that developers push, stage, and run. This section
+  explains how to configure an external blobstore for the Cloud Controller
+  component of your SUSE Cloud Application Platform deployment. Using an external blobstore is
+  optional. In a default deployment, an internal blobstore is used.
+ </p><p>
+  SUSE Cloud Application Platform relies on <code class="filename">ops files</code> (see
+  <a class="link" href="https://github.com/cloudfoundry/cf-deployment/blob/master/operations/README.md" target="_blank">https://github.com/cloudfoundry/cf-deployment/blob/master/operations/README.md</a>)
+  provided by cf-deployment (see <a class="link" href="https://github.com/cloudfoundry/cf-deployment" target="_blank">https://github.com/cloudfoundry/cf-deployment</a>)
+  releases for external blobstore configurations. The default configuration for
+  the blobstore is <code class="literal">singleton</code>.
+ </p><div class="sect2 " id="id-1.3.4.7.14.4"><div class="titlepage"><div><div><h3 class="title"><span class="number">7.11.1 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Configuration</span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#id-1.3.4.7.14.4">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><p>
+   Currently SUSE Cloud Application Platform supports Amazon Simple Storage Service (Amazon S3,
+   see <a class="link" href="https://aws.amazon.com/s3/" target="_blank">https://aws.amazon.com/s3/</a>) as an external blobstore. 
+  </p><div class="procedure "><div class="procedure-contents"><ol class="procedure" type="1"><li class="step "><p>
+     Using the Amazon S3 service, create four buckets. A bucket should be
+     created for app packages, buildpacks, droplets, and resources. For
+     instructions on how to create Amazone S3 buckets, see
+     <a class="link" href="https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html" target="_blank">https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html</a>.
+    </p></li><li class="step "><p>
+     To grant proper access to the create buckets, configure an additional IAM
+     role as described in the first step of <a class="link" href="https://docs.cloudfoundry.org/deploying/common/cc-blobstore-config.html#fog-aws-iam" target="_blank">https://docs.cloudfoundry.org/deploying/common/cc-blobstore-config.html#fog-aws-iam</a>.
+    </p></li><li class="step "><p>
+     Set the following in your <code class="filename">kubecf-config-values.yaml</code> file and replace the
+     example values.
+    </p><div class="verbatim-wrap"><pre class="screen">features:
+  blobstore:
+    provider: s3
+    s3:
+      aws_region: <em class="replaceable ">"us-east-1"</em>
+      blobstore_access_key_id:  <em class="replaceable ">AWS-ACCESS-KEY-ID</em>
+      blobstore_secret_access_key: <em class="replaceable ">AWS-SECRET-ACCESS-KEY&gt;</em>
+      # User provided value for the blobstore admin password.
+      blobstore_admin_users_password: <em class="replaceable ">PASSWORD</em>
+      # The following values are used as S3 bucket names. The buckets are automatically created if not present.
+      app_package_directory_key: <em class="replaceable ">APP-BUCKET-NAME</em>
+      buildpack_directory_key: <em class="replaceable ">BUILDPACK-BUCKET-NAME</em>
+      droplet_directory_key: <em class="replaceable ">DROPLET-BUCKET-NAME</em>
+      resource_directory_key: <em class="replaceable ">RESOURCE-BUCKET-NAME</em></pre></div></li></ol></div></div></div></div><div class="sect1 " id="sec-cap-gke-external-database"><div class="titlepage"><div><div><h2 class="title"><span class="number">7.12 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">
+  External Database
+ </span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#sec-cap-gke-external-database">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span>sec-cap-gke-external-database</li></ul></div></div></div></div><p>
+  SUSE Cloud Application Platform can be configured to use an external database system, such as a
+  data service offered by a cloud service provider or an existing high
+  availability database server. In a default deployment, an internal single
+  availability database is used.
+ </p><p>
+  To configure your deployment to use an external database, please follow the
+  instructions below.
+ </p><p>
+  The current SUSE Cloud Application Platform release is compatible with the following types and
+  versions of external databases:
+ </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+    MySQL 5.7
+   </p></li></ul></div><div class="sect2 " id="id-1.3.4.7.15.6"><div class="titlepage"><div><div><h3 class="title"><span class="number">7.12.1 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Configuration</span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#id-1.3.4.7.15.6">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><p>
+   This section describes how to enable and configure your deployment to connect
+   to an external database. The configuration options are specified through
+   Helm values inside the <code class="filename">kubecf-config-values.yaml</code>. The
+   deployment and configuration of the external database itself is the
+   responsibility of the operator and beyond the scope of this documentation. It
+   is assumed the external database has been deployed and accessible.
+  </p><div id="id-1.3.4.7.15.6.3" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important: Configuration during Initial Install Only</h6><p>
+    Configuration of SUSE Cloud Application Platform to use an external database
+    <span class="bold"><strong>must</strong></span> be done during the initial
+    installation and cannot be changed afterwards.
+   </p></div><p>
+    All the databases listed in the config snippet below need to exist before
+    installing KubeCF. One way of doing that is manually running
+    <code class="literal">CREATE DATABASE IF NOT EXISTS
+    <em class="replaceable ">database-name</em></code> for each database.
+  </p><p>
+   The following snippet of the <code class="filename">kubecf-config-values.yaml</code>
+   contains an example of an external database configuration.
+  </p><div class="verbatim-wrap"><pre class="screen">features:
+  embedded_database:
+    enabled: false
+  external_database:
+    enabled: true
+    require_ssl: false
+    ca_cert: ~
+    type: mysql
+    host: <em class="replaceable ">hostname</em>
+    port: <em class="replaceable ">3306</em>
+    databases:
+      uaa:
+        name: uaa
+        password: <em class="replaceable ">root</em>
+        username: <em class="replaceable ">root</em>
+      cc:
+        name: cloud_controller
+        password: <em class="replaceable ">root</em>
+        username: <em class="replaceable ">root</em>
+      bbs:
+        name: diego
+        password: <em class="replaceable ">root</em>
+        username: <em class="replaceable ">root</em>
+      routing_api:
+        name: routing-api
+        password: <em class="replaceable ">root</em>
+        username: <em class="replaceable ">root</em>
+      policy_server:
+        name: network_policy
+        password: <em class="replaceable ">root</em>
+        username: <em class="replaceable ">root</em>
+      silk_controller:
+        name: network_connectivity
+        password: <em class="replaceable ">root</em>
+        username: <em class="replaceable ">root</em>
+      locket: 
+        name: locket
+        password: <em class="replaceable ">root</em>
+        username: <em class="replaceable ">root</em>
+      credhub:        
+        name: credhub
+        password: <em class="replaceable ">root</em>
+        username: <em class="replaceable ">root</em></pre></div></div></div><div class="sect1 " id="sec-cap-addrepo-gke"><div class="titlepage"><div><div><h2 class="title"><span class="number">7.13 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Add the Kubernetes charts repository</span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#sec-cap-addrepo-gke">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span>sec-cap-addrepo-gke</li></ul></div></div></div></div><p>
+   Download the SUSE Kubernetes charts repository with Helm:
+  </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>helm repo add <em class="replaceable ">suse</em> https://kubernetes-charts.suse.com/</pre></div><p>
+   You may replace the example <em class="replaceable ">suse</em> name with any
+   name. Verify with <code class="command">helm</code>:
+  </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>helm repo list
+NAME       URL
+stable     https://kubernetes-charts.storage.googleapis.com
+local      http://127.0.0.1:8879/charts
+suse       https://kubernetes-charts.suse.com/</pre></div><p>
+   List your chart names, as you will need these for some operations:
+  </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>helm search repo <em class="replaceable ">suse</em>
+NAME                            CHART VERSION        APP VERSION    DESCRIPTION
+suse/cf-operator                6.1.17+0.gec409fd7    2.1.0          A Helm chart for cf-operator, the k8s operator ....
+suse/console                    4.2.0                2.1.0          A Helm chart for deploying SUSE Stratos Console
+suse/kubecf                     2.5.8                2.1.0          A Helm chart for KubeCF
+suse/metrics                    1.3.0                2.1.0          A Helm chart for Stratos Metrics
+suse/minibroker                 1.1.0                               A minibroker for your minikube
+suse/nginx-ingress              0.28.4               0.15.0         An nginx Ingress controller that uses ConfigMap to store ...
+...</pre></div></div><div class="sect1 " id="sec-cap-cap-on-gke"><div class="titlepage"><div><div><h2 class="title"><span class="number">7.14 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Deploying SUSE Cloud Application Platform</span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#sec-cap-cap-on-gke">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span>sec-cap-cap-on-gke</li></ul></div></div></div></div><p>
+   This section describes how to deploy SUSE Cloud Application Platform on Google GKE, and how to
+   configure your DNS records.
+  </p><div id="id-1.3.4.7.17.3" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.png" /><h6>Warning: KubeCF and cf-operator versions</h6><p>
+   KubeCF and cf-operator interoperate closely. Before you deploy a
+   specific version combination, make sure they were confirmed to work. For more
+   information see <a class="xref" href="cha-cap-depl-notes.html#cha-cap-depl-notes-releases" title="3.4. Releases and Associated Versions">Section 3.4, “Releases and Associated Versions”</a>.
+  </p></div><div class="sect2 " id="sec-cap-gke-deploy-operator"><div class="titlepage"><div><div><h3 class="title"><span class="number">7.14.1 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">
+  Deploy the Operator
+ </span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#sec-cap-gke-deploy-operator">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span>sec-cap-gke-deploy-operator</li></ul></div></div></div></div><div class="procedure "><div class="procedure-contents"><ol class="procedure" type="1"><li class="step "><p>
+    First, create the namespace for the operator.
+   </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>kubectl create namespace <em class="replaceable ">cf-operator</em></pre></div></li><li class="step "><p>
+    Install the operator.
+   </p><p>
+    The value of <code class="literal">global.operator.watchNamespace</code> indicates the
+    namespace the operator will monitor for a KubeCF deployment. This
+    namespace should be separate from the namespace used by the operator. In
+    this example, this means KubeCF will be deployed into a namespace called
+    <code class="literal">kubecf</code>.
+   </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>helm install <em class="replaceable ">cf-operator</em> suse/cf-operator \
+--namespace <em class="replaceable ">cf-operator</em> \
+--set "global.singleNamespace.name=<em class="replaceable ">kubecf</em>" \
+--version 6.1.17+0.gec409fd7</pre></div></li><li class="step "><p>
+    Wait until cf-operator is successfully deployed before proceeding. Monitor
+    the status of your cf-operator deployment using the
+    <code class="command">watch</code> command.
+   </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>watch --color 'kubectl get pods --namespace <em class="replaceable ">cf-operator</em>'</pre></div></li></ol></div></div></div><div class="sect2 " id="sec-cap-gke-deploy-kubecf"><div class="titlepage"><div><div><h3 class="title"><span class="number">7.14.2 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Deploy KubeCF</span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#sec-cap-gke-deploy-kubecf">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span>sec-cap-gke-deploy-kubecf</li></ul></div></div></div></div><div class="procedure "><div class="procedure-contents"><ol class="procedure" type="1"><li class="step "><p>
+   Use Helm to deploy KubeCF.
+  </p><p>
+   Note that you <span class="bold"><strong>do not</strong></span> need to manually create
+   the namespace for KubeCF.
+  </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>helm install <em class="replaceable ">kubecf</em> suse/kubecf \
+--namespace <em class="replaceable ">kubecf</em> \
+--values <em class="replaceable ">kubecf-config-values.yaml</em> \
+--version 2.5.8</pre></div></li><li class="step "><p>
+  Monitor the status of your KubeCF deployment using the
+  <code class="command">watch</code> command.
+ </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>watch --color 'kubectl get pods --namespace kubecf'</pre></div></li><li class="step "><p>
+   Find the value of <code class="literal">EXTERNAL-IP</code> for each of the public
+   services.
+  </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>kubectl get service --namespace <em class="replaceable ">kubecf</em> router-public
+
+<code class="prompt user">tux &gt; </code>kubectl get service --namespace <em class="replaceable ">kubecf</em> tcp-router-public
+
+<code class="prompt user">tux &gt; </code>kubectl get service --namespace <em class="replaceable ">kubecf</em> ssh-proxy-public</pre></div></li><li class="step "><p>
+      Create DNS A records for the public services.
+     </p><ol type="a" class="substeps "><li class="step "><p>
+    For the <code class="literal">router-public</code> service, create a record
+    mapping the <code class="literal">EXTERNAL-IP</code> value to <code class="literal">&lt;system_domain&gt;</code>.
+   </p></li><li class="step "><p>
+    For the <code class="literal">router-public</code> service, create a record
+    mapping the <code class="literal">EXTERNAL-IP</code> value to <code class="literal">*.&lt;system_domain&gt;</code>.
+   </p></li><li class="step "><p>
+    For the <code class="literal">tcp-router-public</code> service, create a record
+    mapping the <code class="literal">EXTERNAL-IP</code> value to <code class="literal">tcp.&lt;system_domain&gt;</code>.
+   </p></li><li class="step "><p>
+    For the <code class="literal">ssh-proxy-public</code> service, create a record
+    mapping the <code class="literal">EXTERNAL-IP</code> value to <code class="literal">ssh.&lt;system_domain&gt;</code>.
+   </p></li></ol></li><li class="step "><p>
+      When all pods are fully ready, verify your deployment. See <a class="xref" href="cha-cap-depl-notes.html#sec-pod-status" title="3.2. Status of Pods during Deployment">Section 3.2, “Status of Pods during Deployment”</a> for more information.
+     </p><p>
+  Connect and authenticate to the cluster.
+ </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf api --skip-ssl-validation "https://api.&lt;system_domain&gt;"
+
+# Use the cf_admin_password set in kubecf-config-values.yaml
+<code class="prompt user">tux &gt; </code>cf auth admin <em class="replaceable ">changeme</em></pre></div></li></ol></div></div></div></div><div class="sect1 " id="sec-cap-gke-ldap"><div class="titlepage"><div><div><h2 class="title"><span class="number">7.15 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">
+  LDAP Integration
+ </span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#sec-cap-gke-ldap">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span>sec-cap-gke-ldap</li></ul></div></div></div></div><p>
+  SUSE Cloud Application Platform can be integrated with
+  <a class="link" href="https://docs.cloudfoundry.org/uaa/identity-providers.html" target="_blank">identity
+  providers</a> to help manage authentication of users. Integrating
+  SUSE Cloud Application Platform with other identity providers is optional. In a default
+  deployment, a built-in UAA server (<a class="link" href="https://docs.cloudfoundry.org/uaa/uaa-overview.html" target="_blank">https://docs.cloudfoundry.org/uaa/uaa-overview.html</a>)
+  is used to manage user accounts and authentication.
+ </p><p>
+  The Lightweight Directory Access Protocol (LDAP) is an example of an identity provider that
+  Cloud Application Platform integrates with. This section describes the necessary components and
+  steps in order to configure the integration. See
+  <a class="link" href="https://github.com/cloudfoundry/uaa/blob/master/docs/UAA-LDAP.md" target="_blank">User
+  Account and Authentication LDAP Integration</a> for more information. 
+ </p><div class="sect2 " id="id-1.3.4.7.18.4"><div class="titlepage"><div><div><h3 class="title"><span class="number">7.15.1 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Prerequisites</span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#id-1.3.4.7.18.4">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><p>
+   The following prerequisites are required in order to complete an LDAP
+   integration with SUSE Cloud Application Platform.
+  </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+ <code class="command">cf</code>, the Cloud Foundry command line interface. For more information,
+ see <a class="link" href="https://docs.cloudfoundry.org/cf-cli/" target="_blank">https://docs.cloudfoundry.org/cf-cli/</a>.
+</p><p>
+ For SUSE Linux Enterprise and openSUSE systems, install using <code class="command">zypper</code>.
+</p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>sudo zypper install cf-cli</pre></div><p>
+ For SLE, ensure the SUSE Cloud Application Platform Tools Module has been added. Add the
+ module using YaST or SUSEConnect.
+</p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>SUSEConnect --product sle-module-cap-tools/15.1/x86_64</pre></div><p>
+ For other systems, follow the instructions at
+ <a class="link" href="https://docs.cloudfoundry.org/cf-cli/install-go-cli.html" target="_blank">https://docs.cloudfoundry.org/cf-cli/install-go-cli.html</a>.
+</p></li><li class="listitem "><p>
+ <code class="command">uaac</code>, the Cloud Foundry <code class="literal">uaa</code> command line client
+ (UAAC). See
+ <a class="link" href="https://docs.cloudfoundry.org/uaa/uaa-user-management.html" target="_blank">https://docs.cloudfoundry.org/uaa/uaa-user-management.html</a>
+ for more information and installation instructions.
+</p><p>
+ On SUSE Linux Enterprise systems, ensure the <code class="literal">ruby-devel</code> and <code class="literal">gcc-c++</code>
+ packages have been installed before installing the <code class="literal">cf-uaac</code> gem.
+</p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>sudo zypper install ruby-devel gcc-c++</pre></div></li><li class="listitem "><p>
+     An LDAP server and the credentials for a user/service account with
+     permissions to search the directory.
+    </p></li></ul></div></div><div class="sect2 " id="id-1.3.4.7.18.5"><div class="titlepage"><div><div><h3 class="title"><span class="number">7.15.2 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Example LDAP Integration</span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#id-1.3.4.7.18.5">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><p>
+   Run the following commands to complete the integration of your Cloud Application Platform
+   deployment and LDAP server.
+  </p><div class="procedure "><div class="procedure-contents"><ol class="procedure" type="1"><li class="step "><p>
+ Use UAAC to target your <code class="literal">uaa</code> server.
+</p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>uaac target --skip-ssl-validation <em class="replaceable ">https://uaa.example.com</em></pre></div></li><li class="step "><p>
+ Authenticate to the <code class="literal">uaa</code> server as
+ <code class="literal">admin</code> using the
+ <code class="literal">uaa_admin_client_secret</code> set in your
+ <code class="filename">kubecf-config-values.yaml</code> file.
+</p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>uaac token client get admin --secret <em class="replaceable ">PASSWORD</em></pre></div></li><li class="step "><p>
+     List the current identity providers.
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>uaac curl /identity-providers --insecure</pre></div></li><li class="step "><p>
+     From the output, locate the default <code class="literal">ldap</code> entry and take
+     note of its <code class="literal">id</code>. The entry will be similar to the
+     following.
+    </p><div class="verbatim-wrap"><pre class="screen">{
+  "type": "ldap",
+  "config": "{\"emailDomain\":null,\"additionalConfiguration\":null,\"providerDescription\":null,\"externalGroupsWhitelist\":[],\"attributeMappings\":{},\"addShadowUserOnLogin\":true,\"storeCustomAttributes\":true,\"ldapProfileFile\":\"ldap/ldap-search-and-bind.xml\",\"baseUrl\":\"ldap://localhost:389/\",\"referral\":null,\"skipSSLVerification\":false,\"userDNPattern\":null,\"userDNPatternDelimiter\":null,\"bindUserDn\":\"cn=admin,dc=test,dc=com\",\"userSearchBase\":\"dc=test,dc=com\",\"userSearchFilter\":\"cn={0}\",\"passwordAttributeName\":null,\"passwordEncoder\":null,\"localPasswordCompare\":null,\"mailAttributeName\":\"mail\",\"mailSubstitute\":null,\"mailSubstituteOverridesLdap\":false,\"ldapGroupFile\":null,\"groupSearchBase\":null,\"groupSearchFilter\":null,\"groupsIgnorePartialResults\":null,\"autoAddGroups\":true,\"groupSearchSubTree\":true,\"maxGroupSearchDepth\":10,\"groupRoleAttribute\":null,\"tlsConfiguration\":\"none\"}",
+  "id": "53gc6671-2996-407k-b085-2346e216a1p0",
+  "originKey": "ldap",
+  "name": "UAA LDAP Provider",
+  "version": 3,
+  "created": 946684800000,
+  "last_modified": 1602208214000,
+  "active": false,
+  "identityZoneId": "uaa"
+},</pre></div></li><li class="step "><p>
+     Delete the default <code class="literal">ldap</code> identity provider. If the
+     default entry is not removed, adding another identity provider of type
+     <code class="literal">ldap</code> will result in a <code class="literal">409 Conflict</code>
+     response. Replace the example <code class="literal">id</code> with one found in the
+     previous step.
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>uaac curl /identity-providers/<em class="replaceable ">53gc6671-2996-407k-b085-2346e216a1p0</em> \
+    --request DELETE \
+    --insecure</pre></div></li><li class="step "><p>
+     Create your own LDAP identity provider. A <code class="literal">201 Created</code>
+     response will be returned when the identity provider is successfully
+     created. See the
+     <a class="link" href="http://docs.cloudfoundry.org/api/uaa/version/4.21.0/index.html#ldap" target="_blank">UAA
+     API Reference</a> and
+     <a class="link" href="https://github.com/cloudfoundry/uaa/blob/4.21.0/docs/UAA-LDAP.md" target="_blank">Cloud Foundry
+     UAA-LDAP Documentation</a>for information regarding the request
+     parameters and additional options available to configure your identity
+     provider.
+    </p><p>
+     The following is an example of a <code class="literal">uaac curl</code> command and
+     its request parameters used to create an identity provider. Specify the
+     parameters according to your LDAP server's credentials and directory
+     structure. Ensure the user specifed in the <code class="literal">bindUserDn</code>
+     has permissions to search the directory.
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>uaac curl /identity-providers?rawConfig=true \
+    --request POST \
+    --insecure \
+    --header 'Content-Type: application/json' \
+    --data '{
+  "type" : "ldap",
+  "config" : {
+    "ldapProfileFile" : "ldap/ldap-search-and-bind.xml",
+    "baseUrl" : "<em class="replaceable ">ldap://ldap.example.com:389</em>",
+    "bindUserDn" : "<em class="replaceable ">cn=admin,dc=example,dc=com</em>",
+    "bindPassword" : "<em class="replaceable ">password</em>",
+    "userSearchBase" : "<em class="replaceable ">dc=example,dc=com</em>",
+    "userSearchFilter" : "<em class="replaceable ">uid</em>={0}",
+    "ldapGroupFile" : "ldap/ldap-groups-map-to-scopes.xml",
+    "groupSearchBase" : "<em class="replaceable ">dc=example,dc=com</em>",
+    "groupSearchFilter" : "<em class="replaceable ">member</em>={0}"
+  },
+  "originKey" : "ldap",
+  "name" : "<em class="replaceable ">My LDAP Server</em>",
+  "active" : true
+  }'</pre></div></li><li class="step "><p>
+     Verify the LDAP identify provider has been created. The output should now
+     contain an entry for the <code class="literal">ldap</code> type you created.
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>uaac curl /identity-providers --insecure</pre></div></li><li class="step "><p>
+     Use the cf CLI to target your SUSE Cloud Application Platform deployment.
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf api --skip-ssl-validation https://api.example.com</pre></div></li><li class="step "><p>
+     Log in as an administrator.
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf login
+API endpoint: https://api.example.com
+
+Email&gt; admin
+
+Password&gt;
+Authenticating...
+OK</pre></div></li><li class="step "><p>
+     Create users associated with your LDAP identity provider.
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf create-user <em class="replaceable ">username</em> --origin ldap
+Creating user username...
+OK
+
+TIP: Assign roles with 'cf set-org-role' and 'cf set-space-role'.</pre></div></li><li class="step "><p>
+     Assign the user a role. Roles define the permissions a user has for a
+     given org or space and a user can be assigned multiple roles. See
+     <a class="link" href="https://docs.cloudfoundry.org/concepts/roles.html" target="_blank">Orgs,
+     Spaces, Roles, and Permissions</a> for available roles and their
+     corresponding permissions. The following example assumes that an org named
+     <em class="replaceable ">Org</em> and a space named
+     <em class="replaceable ">Space</em> have already been created.
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf set-space-role <em class="replaceable ">username</em> <em class="replaceable ">Org</em> <em class="replaceable ">Space</em> <em class="replaceable ">SpaceDeveloper</em>
+Assigning role RoleSpaceDeveloper to user username in org Org / space Space as admin...
+OK
+<code class="prompt user">tux &gt; </code>cf set-org-role <em class="replaceable ">username</em> Org OrgManager
+Assigning role OrgManager to user username in org Org as admin...
+OK</pre></div></li><li class="step "><p>
+     Verify the user can log into your SUSE Cloud Application Platform deployment using their
+     associated LDAP server credentials.
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf login
+API endpoint: https://api.example.com
+
+Email&gt; username
+
+Password&gt;
+Authenticating...
+OK
+
+
+
+API endpoint:   https://api.example.com (API version: 2.115.0)
+User:           username@ldap.example.com</pre></div></li></ol></div></div></div></div><div class="sect1 " id="sec-cap-gke-add-capacity"><div class="titlepage"><div><div><h2 class="title"><span class="number">7.16 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Expanding Capacity of a Cloud Application Platform Deployment on Google GKE</span> <a title="Permalink" class="permalink" href="cha-cap-depl-gke.html#sec-cap-gke-add-capacity">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span>sec-cap-gke-add-capacity</li></ul></div></div></div></div><p>
+   If the current capacity of your Cloud Application Platform deployment is insufficient for your
+   workloads, you can expand the capacity using the procedure in this section.
+  </p><p>
+   These instructions assume you have followed the procedure in
+   <a class="xref" href="cha-cap-depl-gke.html" title="Chapter 7. Deploying SUSE Cloud Application Platform on Google Kubernetes Engine (GKE)">Chapter 7, <em>Deploying SUSE Cloud Application Platform on Google Kubernetes Engine (GKE)</em></a> and have a running Cloud Application Platform deployment on
+   Microsoft AKS. The instructions below will use environment variables defined in
+   <a class="xref" href="cha-cap-depl-gke.html#sec-cap-create-gke-cluster" title="7.2. Creating a GKE cluster">Section 7.2, “Creating a GKE cluster”</a>.
+  </p><div class="procedure "><div class="procedure-contents"><ol class="procedure" type="1"><li class="step "><p>
+     Get the most recently created node in the cluster.
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>RECENT_VM_NODE=$(gcloud compute instances list --filter=name~${CLUSTER_NAME:?required} --format json | jq --raw-output '[sort_by(.creationTimestamp) | .[].creationTimestamp ] | last | .[0:19] | strptime("%Y-%m-%dT%H:%M:%S") | mktime')</pre></div></li><li class="step "><p>
+     
+     Increase the Kubernetes node count in the cluster. Replace the example value
+     with the number of nodes required for your workload.
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>gcloud container clusters resize $CLUSTER_NAME \
+--num-nodes <em class="replaceable ">5</em></pre></div></li><li class="step "><p>
+     Verify the new nodes are in a <code class="literal">Ready</code> state before proceeding.
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>kubectl get nodes</pre></div></li><li class="step "><p>
+     Add or update the following in your
+     <code class="filename">kubecf-config-values.yaml</code> file to increase the number of
+     <code class="literal">diego-cell</code> in your Cloud Application Platform deployment. Replace the
+     example value with the number required by your workflow.
+    </p><div class="verbatim-wrap"><pre class="screen">sizing:
+  diego_cell:
+    instances: <em class="replaceable ">5</em></pre></div></li><li class="step "><p>
+     Perform a <code class="command">helm upgrade</code> to apply the change.
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>helm upgrade kubecf suse/kubecf \
+--namespace <em class="replaceable ">kubecf</em> \
+--values kubecf-config-values.yaml \
+--version 2.5.8</pre></div></li><li class="step "><p>
+     Monitor progress of the additional <code class="literal">diego-cell</code> pods:
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>watch --color 'kubectl get pods --namespace kubecf'</pre></div></li></ol></div></div></div></div></div><div class="page-bottom"><div id="_bottom-navigation"><a class="nav-link" href="cha-cap-install-stratos.html"><span class="next-icon">→</span><span class="nav-label"><span class="number">Chapter 8 </span>Installing the Stratos Web Console</span></a><a class="nav-link" href="cha-cap-depl-eks.html"><span class="prev-icon">←</span><span class="nav-label"><span class="number">Chapter 6 </span>Deploying SUSE Cloud Application Platform on Amazon Elastic Kubernetes Service (EKS)</span></a></div><div class="_share-print"><div class="online-contents share"><strong>Share this page: </strong><span class="share-buttons"><span class="_share-fb bottom-button">Facebook</span><span class="spacer"> • </span><span class="_share-in bottom-button">LinkedIn</span><span class="spacer"> • </span><span class="_share-tw bottom-button">Twitter</span><span class="spacer"> • </span><span class="_share-mail bottom-button">E-Mail</span></span></div><div class="print"><span class="_print-button bottom-button">Print this page</span></div><div class="clearme"></div></div></div></div><div id="_inward"></div></div><div id="_footer-wrap"><div id="_footer"><p>©
+        2021 
+        SUSE</p><ul><li><a href="https://jobs.suse.com/" target="_top">Careers</a></li><li><a href="https://www.suse.com/company/legal/" target="_top">Legal</a></li><li><a href="https://www.suse.com/company/about/" target="_top">About</a></li><li><a href="https://www.suse.com/contact/" target="_top">Contact Us</a></li></ul></div></div></body></html>

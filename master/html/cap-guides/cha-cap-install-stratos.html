@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Installing the Stratos Web Console | Deployment, Administration, and User Guides | SUSE Cloud Application Platform 2.1.0</title><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" /><link rel="stylesheet" type="text/css" href="static/css/style.css" /><link rel="stylesheet" type="text/css" href="static/css/highlight.css" /><meta name="generator" content="DAPS 3.0.0 (https://opensuse.github.io/daps) using SUSE XSL Stylesheets 2.0.17 (based on DocBook XSL Stylesheets 1.79.2) - chunked" /><meta name="product-name" content="SUSE Cloud Application Platform" /><meta name="product-number" content="2.1.0" /><meta name="book-title" content="Deployment, Administration, and User Guides" /><meta name="chapter-title" content="Chapter 8. Installing the Stratos Web Console" /><meta name="description" content="The Stratos user interface (UI) is a modern web-based management application for Cloud Foundry. It provides a graphical management console for both developers and system administrators." /><meta name="tracker-url" content="https://github.com/SUSE/doc-cap/issues/new" /><meta name="tracker-type" content="gh" /><meta name="tracker-gh-assignee" content="btat" /><meta name="tracker-gh-labels" content="bug,low priority" /><link rel="home" href="index.html" title="SUSE Cloud Application Platform 2.1.0 Documentation" /><link rel="up" href="part-cap-deployment.html" title="Part II. Deploying SUSE Cloud Application Platform" /><link rel="prev" href="cha-cap-depl-gke.html" title="Chapter 7. Deploying SUSE Cloud Application Platform on Google Kubernetes Engine (GKE)" /><link rel="next" href="cha-cap-depl-eirini.html" title="Chapter 9. Eirini" />
+<script type="text/javascript">
+
+if ( window.location.protocol.toLowerCase() != 'file:' ) {
+  document.write('<link rel="stylesheet" type="text/css" href="https://static.opensuse.org/fonts/fonts.css"></link>');
+}
+else {
+  document.write('<link rel="stylesheet" type="text/css" href="static/css/fonts-onlylocal.css"></link>');
+}
+
+</script><noscript><link rel="stylesheet" type="text/css" href="https://static.opensuse.org/fonts/fonts.css" /></noscript><script src="static/js/jquery-1.10.2.min.js" type="text/javascript"></script><script src="static/js/script.js" type="text/javascript"></script><script src="static/js/highlight.min.js" type="text/javascript"></script><script>
+
+$(document).ready(function() {
+  $('.verbatim-wrap.highlight').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+});
+hljs.configure({
+  useBR: false
+});
+
+</script></head><body class="draft offline js-off" onload="$('#betawarn-button-wrap').toggle();if (document.cookie.length > 0) {if (document.cookie.indexOf('betawarn=closed') != -1){$('#betawarn').toggle()}};"><div id="betawarn" style="position:fixed;bottom:0;z-index:9025;background-color:#FDE8E8;padding:1em;margin-left:10%;margin-right:10%;display:block;border-top:.75em solid #E11;width:80%"><p style="color:#333;margin:1em 0;padding:0;">This is a draft document that was built and uploaded automatically. It may document beta software and be incomplete or even incorrect. <strong>Use this document at your own risk.</strong></p> <div id="betawarn-button-wrap" style="display:none;margin:0;padding:0;"><a href="#" onclick="$('#betawarn').toggle();var d=new Date();d.setTime(d.getTime()+(0.5*24*60*60*1000));document.cookie='betawarn=closed; expires='+d.toUTCString()+'; path=/'; return false;" style="color:#333;text-decoration:underline;float:left;margin-top:.5em;padding:1em;display:block;background-color:#FABEBE;">I understand this is a draft</a></div></div><div class="bypass-block"><a href="#_content">Jump to content</a><a href="#_bottom-navigation">Jump to page navigation: previous page [access key p]/next page [access key n]</a></div><div id="_outer-wrap"><div id="_white-bg" style="background-color: #FABEBE;"><div id="_header"><div id="_logo"><img src="static/images/logo.png" alt="Logo" /></div><div class="crumbs"><a class="book-link" href="index.html" title="SUSE Cloud Application Platform 2.1.0 Documentation"><span class="book-icon">SUSE Cloud Application Platform 2.1.0 Documentation</span></a><span> › </span><a class="crumb" href="book-cap-guides.html">Deployment, Administration, and User Guides</a><span> › </span><a class="crumb" href="part-cap-deployment.html">Deploying SUSE Cloud Application Platform</a><span> › </span><a class="crumb" href="cha-cap-install-stratos.html">Installing the Stratos Web Console</a></div><div class="clearme"></div></div></div><div id="_toolbar-wrap"><div id="_toolbar"><div id="_toc-area" class="inactive"><a id="_toc-area-button" class="tool" title="Contents" accesskey="c" href="index.html"><span class="tool-spacer"><span class="toc-icon">Contents</span><span class="clearme"></span></span><span class="tool-label">Contents</span></a><div class="active-contents bubble-corner"></div><div class="active-contents bubble"><div class="bubble-container"><h6>Deployment, Administration, and User Guides</h6><div id="_bubble-toc"><ol><li class="inactive"><a href="preface-deployment.html"><span class="number"> </span><span class="name">About This Guide</span></a></li><li class="inactive"><a href="part-cap-overview.html"><span class="number">I </span><span class="name">Overview of SUSE Cloud Application Platform</span></a><ol><li class="inactive"><a href="cha-cap-overview.html"><span class="number">1 </span><span class="name">About SUSE Cloud Application Platform</span></a></li><li class="inactive"><a href="cha-cap-depl-kube-requirements.html"><span class="number">2 </span><span class="name">Other Kubernetes Systems</span></a></li></ol></li><li class="inactive"><a href="part-cap-deployment.html"><span class="number">II </span><span class="name">Deploying SUSE Cloud Application Platform</span></a><ol><li class="inactive"><a href="cha-cap-depl-notes.html"><span class="number">3 </span><span class="name">Deployment and Administration Notes</span></a></li><li class="inactive"><a href="cha-cap-depl-caasp.html"><span class="number">4 </span><span class="name">Deploying SUSE Cloud Application Platform on SUSE CaaS Platform</span></a></li><li class="inactive"><a href="cha-cap-depl-aks.html"><span class="number">5 </span><span class="name">Deploying SUSE Cloud Application Platform on Microsoft Azure Kubernetes Service (AKS)</span></a></li><li class="inactive"><a href="cha-cap-depl-eks.html"><span class="number">6 </span><span class="name">Deploying SUSE Cloud Application Platform on Amazon Elastic Kubernetes Service (EKS)</span></a></li><li class="inactive"><a href="cha-cap-depl-gke.html"><span class="number">7 </span><span class="name">Deploying SUSE Cloud Application Platform on Google Kubernetes Engine (GKE)</span></a></li><li class="inactive"><a href="cha-cap-install-stratos.html"><span class="number">8 </span><span class="name">Installing the Stratos Web Console</span></a></li><li class="inactive"><a href="cha-cap-depl-eirini.html"><span class="number">9 </span><span class="name">Eirini</span></a></li><li class="inactive"><a href="cha-cap-depl-terraform.html"><span class="number">10 </span><span class="name">Deploying SUSE Cloud Application Platform Using Terraform</span></a></li><li class="inactive"><a href="cha-cap-depl-air-gap-registry.html"><span class="number">11 </span><span class="name">Setting Up a Registry for an Air Gapped Environment</span></a></li><li class="inactive"><a href="cha-cap-depl-private-registry.html"><span class="number">12 </span><span class="name">SUSE Private Registry</span></a></li></ol></li><li class="inactive"><a href="part-cap-administration.html"><span class="number">III </span><span class="name">SUSE Cloud Application Platform Administration</span></a><ol><li class="inactive"><a href="cha-cap-upgrade.html"><span class="number">13 </span><span class="name">Upgrading SUSE Cloud Application Platform</span></a></li><li class="inactive"><a href="cha-cap-configuration-changes.html"><span class="number">14 </span><span class="name">Configuration Changes</span></a></li><li class="inactive"><a href="cha-cap-create-admin-user.html"><span class="number">15 </span><span class="name">Creating Admin Users</span></a></li><li class="inactive"><a href="cha-cap-manage-passwords.html"><span class="number">16 </span><span class="name">Managing Passwords</span></a></li><li class="inactive"><a href="cha-cap-uaa-ui.html"><span class="number">17 </span><span class="name">Accessing the UAA User Interface</span></a></li><li class="inactive"><a href="cha-cap-memory-limits.html"><span class="number">18 </span><span class="name">Container Memory Limits and Requests</span></a></li><li class="inactive"><a href="cha-cap-ccdb-secret-rotation.html"><span class="number">19 </span><span class="name">Cloud Controller Database Secret Rotation</span></a></li><li class="inactive"><a href="cha-cap-secrets-rotation.html"><span class="number">20 </span><span class="name">Rotating Automatically Generated Secrets</span></a></li><li class="inactive"><a href="cha-cap-backup-restore.html"><span class="number">21 </span><span class="name">Backup and Restore</span></a></li><li class="inactive"><a href="cha-cap-service-brokers.html"><span class="number">22 </span><span class="name">Service Brokers</span></a></li><li class="inactive"><a href="cha-cap-app-autoscaler.html"><span class="number">23 </span><span class="name">App-AutoScaler</span></a></li><li class="inactive"><a href="cha-cap-credhub.html"><span class="number">24 </span><span class="name">Integrating CredHub with SUSE Cloud Application Platform</span></a></li><li class="inactive"><a href="cha-cap-buildpacks.html"><span class="number">25 </span><span class="name">Buildpacks</span></a></li></ol></li><li class="inactive"><a href="part-cap-user-guide.html"><span class="number">IV </span><span class="name">SUSE Cloud Application Platform User Guide</span></a><ol><li class="inactive"><a href="cha-cap-cf-cli.html"><span class="number">26 </span><span class="name">Deploying and Managing Applications with the Cloud Foundry Client</span></a></li></ol></li><li class="inactive"><a href="part-cap-troubleshooting.html"><span class="number">V </span><span class="name">Troubleshooting</span></a><ol><li class="inactive"><a href="cha-cap-depl-troubleshooting.html"><span class="number">27 </span><span class="name">Troubleshooting</span></a></li></ol></li><li class="inactive"><a href="bk01apa.html"><span class="number">A </span><span class="name">Appendix</span></a></li><li class="inactive"><a href="bk01apb.html"><span class="number">B </span><span class="name">GNU Licenses</span></a></li></ol></div><div class="clearme"></div></div></div></div><div id="_nav-area" class="inactive"><div class="tool"><span class="nav-inner"><span class="tool-label">Navigation</span><a accesskey="p" class="tool-spacer" title="Chapter 7. Deploying SUSE Cloud Application Platform on Google Kubernetes Engine (GKE)" href="cha-cap-depl-gke.html"><span class="prev-icon">←</span></a><a accesskey="n" class="tool-spacer" title="Chapter 9. Eirini" href="cha-cap-depl-eirini.html"><span class="next-icon">→</span></a></span></div></div></div></div><div id="_fixed-header-wrap" style="background-color: #FABEBE;" class="inactive"><div id="_fixed-header"><div class="crumbs"><a class="book-link" href="index.html" title="SUSE Cloud Application Platform 2.1.0 Documentation"><span class="book-icon">SUSE Cloud Application Platform 2.1.0 Documentation</span></a><span> › </span><a class="crumb" href="book-cap-guides.html">Deployment, Administration, and User Guides</a><span> › </span><a class="crumb" href="part-cap-deployment.html">Deploying SUSE Cloud Application Platform</a><span> › </span><a class="crumb" href="cha-cap-install-stratos.html">Installing the Stratos Web Console</a></div><div class="buttons"><a class="top-button button" href="#">Top</a><div class="button"><a accesskey="p" class="tool-spacer" title="Chapter 7. Deploying SUSE Cloud Application Platform on Google Kubernetes Engine (GKE)" href="cha-cap-depl-gke.html"><span class="prev-icon">←</span></a><a accesskey="n" class="tool-spacer" title="Chapter 9. Eirini" href="cha-cap-depl-eirini.html"><span class="next-icon">→</span></a></div><div class="clearme"></div></div><div class="clearme"></div></div></div><div id="_content" class="draft "><div class="documentation"><div class="chapter " id="cha-cap-install-stratos"><div class="titlepage"><div><div class="version-info">Applies to  <span class="productname ">SUSE Cloud Application Platform</span> <span class="productnumber ">2.1.0</span></div><div><h2 class="title"><span class="number">8 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Installing the Stratos Web Console</span> <a title="Permalink" class="permalink" href="cha-cap-install-stratos.html#">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_stratos.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><div class="line"><div class="toc"><dl><dt><span class="sect1"><a href="cha-cap-install-stratos.html#sec-cap-stratos-prod"><span class="number">8.1 </span><span class="name">Deploy Stratos on SUSE® CaaS Platform</span></a></span></dt><dt><span class="sect1"><a href="cha-cap-install-stratos.html#sec-cap-stratos-eks"><span class="number">8.2 </span><span class="name">Deploy Stratos on Amazon EKS</span></a></span></dt><dt><span class="sect1"><a href="cha-cap-install-stratos.html#sec-cap-stratos-aks"><span class="number">8.3 </span><span class="name">Deploy Stratos on Microsoft AKS</span></a></span></dt><dt><span class="sect1"><a href="cha-cap-install-stratos.html#sec-cap-stratos-gke"><span class="number">8.4 </span><span class="name">Deploy Stratos on Google GKE</span></a></span></dt><dt><span class="sect1"><a href="cha-cap-install-stratos.html#sec-cap-stratos-upgrade"><span class="number">8.5 </span><span class="name">Upgrading Stratos</span></a></span></dt><dt><span class="sect1"><a href="cha-cap-install-stratos.html#sec-cap-stratos-metrics"><span class="number">8.6 </span><span class="name">Stratos Metrics</span></a></span></dt></dl></div></div><p>
+   The Stratos user interface (UI) is a modern web-based management application
+   for Cloud Foundry. It provides a graphical management console for both
+   developers and system administrators.
+  </p><div class="sect1 " id="sec-cap-stratos-prod"><div class="titlepage"><div><div><h2 class="title"><span class="number">8.1 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Deploy Stratos on SUSE® CaaS Platform</span> <a title="Permalink" class="permalink" href="cha-cap-install-stratos.html#sec-cap-stratos-prod">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_stratos.xml</li><li><span class="ds-label">ID: </span>sec-cap-stratos-prod</li></ul></div></div></div></div><p>
+      The steps in this section describe how to install Stratos on SUSE® CaaS Platform
+      without an external load balancer, instead mapping a worker node to your
+      SUSE Cloud Application Platform domain as described in
+      <a class="xref" href="cha-cap-depl-caasp.html#sec-cap-caasp-config" title="4.5. Deployment Configuration">Section 4.5, “Deployment Configuration”</a>. These instructions assume you
+      have followed the procedure in <a class="xref" href="cha-cap-depl-caasp.html" title="Chapter 4. Deploying SUSE Cloud Application Platform on SUSE CaaS Platform">Chapter 4, <em>Deploying SUSE Cloud Application Platform on SUSE CaaS Platform</em></a>,
+      have deployed <code class="literal">kubecf</code> successfully, and have created a
+      default storage class.
+ </p><p>
+   If you are using SUSE Enterprise Storage as your storage back-end, copy the secret into the
+   Stratos namespace:
+  </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>kubectl get secret ceph-secret-admin --output json --namespace default | \
+sed 's/"namespace": "default"/"namespace": "stratos"/' | kubectl create --filename -</pre></div><p>
+   You should already have the Stratos charts when you downloaded the SUSE
+   charts repository (see <a class="xref" href="cha-cap-depl-caasp.html#sec-cap-addrepo-caasp" title="4.12. Add the Kubernetes Charts Repository">Section 4.12, “Add the Kubernetes Charts Repository”</a>). Search your
+   Helm repository to verify that you have the <code class="literal">suse/console</code>
+   chart:
+  </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>helm search repo <em class="replaceable ">suse</em>
+NAME                            CHART VERSION        APP VERSION    DESCRIPTION
+suse/cf-operator                6.1.17+0.gec409fd7    2.1.0          A Helm chart for cf-operator, the k8s operator ....
+suse/console                    4.2.0                2.1.0          A Helm chart for deploying SUSE Stratos Console
+suse/kubecf                     2.5.8                2.1.0          A Helm chart for KubeCF
+suse/metrics                    1.3.0                2.1.0          A Helm chart for Stratos Metrics
+suse/minibroker                 1.1.0                               A minibroker for your minikube
+suse/nginx-ingress              0.28.4               0.15.0         An nginx Ingress controller that uses ConfigMap to store ...
+...</pre></div><p>
+   Create a YAML file, called <code class="filename">stratos-config-values.yaml</code> in this
+   example, and use it to make configurations to the Stratos Helm chart.
+  </p><div class="verbatim-wrap"><pre class="screen">### example Stratos deployment configuration file
+### stratos-config-values.yaml
+
+console:
+  # Use local admin user instead of UAA
+  localAdminPassword: <em class="replaceable ">changeme</em></pre></div><div id="id-1.3.4.8.3.9" class="admonition note normal"><img class="symbol" alt="Note" title="Note" src="static/images/icon-note.png" /><h6>Note: Technology Preview Features</h6><p>
+  Some Stratos releases may include features as part of a technology preview.
+  Technology preview features are for evaluation purposes only and
+  <span class="bold"><strong>not</strong></span> supported for production use. To see the
+  technology preview features available for a given release, refer to
+  <a class="link" href="https://github.com/SUSE/stratos/blob/master/CHANGELOG.md" target="_blank">https://github.com/SUSE/stratos/blob/master/CHANGELOG.md</a>.
+ </p><p>
+  To enable technology preview features, add the
+  <code class="literal">console.techPreview</code> Helm value to your
+  <code class="filename">stratos-config-values.yaml</code> and set it to
+  <code class="literal">true</code>.
+ </p><div class="verbatim-wrap"><pre class="screen">### example Stratos deployment configuration file                        
+### stratos-config-values.yaml
+                                                                                 
+console:
+  techPreview: true</pre></div></div><p>
+   Create a namespace for your Stratos deployment.
+  </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>kubectl create namespace <em class="replaceable ">stratos</em></pre></div><p>
+   Deploy Stratos using Helm.
+  </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>helm install <em class="replaceable ">susecf-console</em> suse/console \
+--namespace <em class="replaceable ">stratos</em> \
+--values stratos-config-values.yaml</pre></div><p>
+  You can monitor the status of your <code class="literal">stratos</code> deployment with
+  the <code class="command">watch</code> command:
+ </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>watch --color 'kubectl get pods --namespace stratos'</pre></div><p>
+  When <code class="literal">stratos</code> is successfully deployed, the following is
+  observed:
+ </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+    For the <code class="literal">volume-migration</code> pod, the
+    <code class="literal">STATUS</code> is <code class="literal">Completed</code> and the
+    <code class="literal">READY</code> column is at <code class="literal">0/1</code>.
+   </p></li><li class="listitem "><p>
+    All other pods have a <code class="literal">Running</code> <code class="literal">STATUS</code>
+    and a <code class="literal">READY</code> value of <code class="literal">n/n</code>.
+   </p></li></ul></div><p>
+  Press <span class="keycap">Ctrl</span><span class="key-connector">–</span><span class="keycap">C</span> to
+  exit the <code class="command">watch</code> command.
+ </p><p>
+   When the <code class="literal">stratos</code> deployment completes, query with Helm
+   to view your release information:
+  </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>helm status susecf-console
+LAST DEPLOYED: Wed Mar 27 06:51:36 2019
+NAMESPACE: stratos
+STATUS: DEPLOYED
+
+RESOURCES:
+==&gt; v1/Secret
+NAME                           TYPE    DATA  AGE
+susecf-console-secret          Opaque  2     3h
+susecf-console-mariadb-secret  Opaque  2     3h
+
+==&gt; v1/PersistentVolumeClaim
+NAME                                  STATUS  VOLUME                                    CAPACITY  ACCESSMODES  STORAGECLASS  AGE
+susecf-console-upgrade-volume         Bound   pvc-711380d4-5097-11e9-89eb-fa163e15acf0  20Mi      RWO          persistent    3h
+susecf-console-encryption-key-volume  Bound   pvc-711b5275-5097-11e9-89eb-fa163e15acf0  20Mi      RWO          persistent    3h
+console-mariadb                       Bound   pvc-7122200c-5097-11e9-89eb-fa163e15acf0  1Gi       RWO          persistent    3h
+
+==&gt; v1/Service
+NAME                    CLUSTER-IP      EXTERNAL-IP                                                PORT(S)   AGE
+susecf-console-mariadb  172.24.137.195  &lt;none&gt;                                                     3306/TCP  3h
+susecf-console-ui-ext   172.24.80.22    10.86.101.115,172.28.0.31,172.28.0.36,172.28.0.7,172.28.0.22  8443/TCP  3h
+
+==&gt; v1beta1/Deployment
+NAME        DESIRED  CURRENT  UP-TO-DATE  AVAILABLE  AGE
+stratos-db  1        1        1           1          3h
+
+==&gt; v1beta1/StatefulSet
+NAME     DESIRED  CURRENT  AGE
+stratos  1        1        3h</pre></div><p>
+  Find the external IP address with
+  <code class="command">kubectl get service susecf-console-ui-ext --namespace stratos</code> to access your new Stratos Web console, for example https://10.86.101.115:8443, or use the
+          domain you created for it, and its port, for example
+          https://example.com:8443. Proceed past the warnings about the self-signed
+   certificates and log in as <code class="literal">admin</code> with the password you
+   created in stratos-config-values.yaml
+  </p><div class="figure" id="id-1.3.4.8.3.22"><div class="figure-contents"><div class="mediaobject"><a xmlns="" href="images/stratos.png" target="_blank"><img src="images/stratos.png" width="" alt="Stratos UI Cloud Foundry Console" /></a></div></div><div class="figure-title-wrap"><h6 class="figure-title"><span class="number">Figure 8.1: </span><span class="name">Stratos UI Cloud Foundry Console </span><a title="Permalink" class="permalink" href="cha-cap-install-stratos.html#id-1.3.4.8.3.22">#</a></h6></div></div><div class="sect2 " id="sec-cap-stratos-caasp-connect"><div class="titlepage"><div><div><h3 class="title"><span class="number">8.1.1 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Connecting SUSE® CaaS Platform to Stratos</span> <a title="Permalink" class="permalink" href="cha-cap-install-stratos.html#sec-cap-stratos-caasp-connect">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_stratos.xml</li><li><span class="ds-label">ID: </span>sec-cap-stratos-caasp-connect</li></ul></div></div></div></div><p>
+    Stratos can show information from your SUSE® CaaS Platform environment.
+   </p><p>
+    To enable this, you must register and connect your SUSE® CaaS Platform environment
+    with Stratos.
+   </p><p>
+    In the Stratos UI, go to <span class="guimenu ">Endpoints</span> in the left-hand side
+    navigation and click on the <span class="guimenu ">+</span> icon in the top-right of
+    the view - you should be shown the "Register new Endpoint" view.
+   </p><div class="procedure "><div class="procedure-contents"><ol class="procedure" type="1"><li class="step "><p>
+      In the Stratos UI, go to <span class="guimenu ">Endpoints</span> in the left-hand side
+      navigation and click on the <span class="guimenu ">+</span> icon in the top-right of
+      the view.
+     </p></li><li class="step "><p>
+      On the <code class="literal">Register a new Endpoint</code> view, click the
+      <code class="literal">SUSE CaaS Platform</code> button.
+     </p></li><li class="step "><p>
+      Enter a memorable name for your SUSE® CaaS Platform environment in the <span class="guimenu ">Name</span>
+      field. For example, <em class="replaceable ">my-endpoint</em>.
+     </p></li><li class="step "><p>
+      Enter the URL of the API server for your Kubernetes environment in the
+      <span class="guimenu ">Endpoint Address</span> field. Run <code class="command">kubectl cluster-info</code>
+      and use the value of <code class="literal">Kubernetes master</code> as the URL.
+     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>kubectl cluster-info</pre></div></li><li class="step "><p>
+      Activate the <span class="guimenu ">Skip SSL validation for the endpoint</span> check box
+      if using self-signed certificates.
+     </p></li><li class="step "><p>
+      Click <span class="guimenu ">Register</span>.
+     </p></li><li class="step "><p>
+      Activate the <span class="guimenu ">Connect to my-endpoint now (optional).</span> check box.
+     </p></li><li class="step "><p>
+      Provide a valid <code class="filename">kubeconfig</code> file for your SUSE® CaaS Platform environment.
+     </p></li><li class="step "><p>
+      Click <span class="guimenu ">Connect</span>.
+     </p></li><li class="step "><p>
+      In the Stratos UI, go to <span class="guimenu ">Kubernetes</span> in the left-hand side
+      navigation. Information for your SUSE® CaaS Platform environment should now be
+      displayed as in the following figure.
+     </p></li></ol></div></div><div class="figure" id="stratos-kubernetes-view-caasp-png"><div class="figure-contents"><div class="mediaobject"><a xmlns="" href="images/stratos-kubernetes-view-caasp.png" target="_blank"><img src="images/stratos-kubernetes-view-caasp.png" width="" alt="Kubernetes Environment Information on Stratos" /></a></div></div><div class="figure-title-wrap"><h6 class="figure-title"><span class="number">Figure 8.2: </span><span class="name">Kubernetes Environment Information on Stratos </span><a title="Permalink" class="permalink" href="cha-cap-install-stratos.html#stratos-kubernetes-view-caasp-png">#</a></h6></div></div></div></div><div class="sect1 " id="sec-cap-stratos-eks"><div class="titlepage"><div><div><h2 class="title"><span class="number">8.2 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Deploy Stratos on Amazon EKS</span> <a title="Permalink" class="permalink" href="cha-cap-install-stratos.html#sec-cap-stratos-eks">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_stratos.xml</li><li><span class="ds-label">ID: </span>sec-cap-stratos-eks</li></ul></div></div></div></div><p>
+   Before deploying Stratos, ensure <code class="literal">kubecf</code> has been successfully
+   deployed on Amazon EKS (see <a class="xref" href="cha-cap-depl-eks.html" title="Chapter 6. Deploying SUSE Cloud Application Platform on Amazon Elastic Kubernetes Service (EKS)">Chapter 6, <em>Deploying SUSE Cloud Application Platform on Amazon Elastic Kubernetes Service (EKS)</em></a>).
+  </p><p>
+   Configure a scoped storage class for your Stratos deployment. Create a configuration
+   file, called <code class="filename">scoped-storage-class.yaml</code> in this example,
+   using the following as a template. Specify the region you are using as the
+   <code class="literal">zone</code> and be sure to include the letter (for example, the
+   letter <code class="literal">a</code> in <code class="literal">us-west-2a</code>) identifier to indicate
+   the Availability Zone used:
+  </p><div class="verbatim-wrap"><pre class="screen">kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: <em class="replaceable ">gp2scoped</em>
+provisioner: kubernetes.io/aws-ebs
+parameters:
+  type: gp2
+  zone: <em class="replaceable ">"us-west-2a"</em>
+reclaimPolicy: Retain
+mountOptions:
+  - debug</pre></div><p>
+   Create the storage class using the <code class="filename">scoped-storage-class.yaml</code>
+   configuration file:
+  </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>kubectl create --filename <em class="replaceable ">scoped-storage-class.yaml</em></pre></div><p>
+   Verify the storage class has been created:
+  </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>kubectl get storageclass
+NAME            PROVISIONER             AGE
+gp2 (default)   kubernetes.io/aws-ebs   1d
+gp2scoped       kubernetes.io/aws-ebs   1d</pre></div><p>
+   Create a YAML file, called <code class="filename">stratos-config-values.yaml</code> in this
+   example, and use it to make configurations to the Stratos Helm chart.
+  </p><div class="verbatim-wrap"><pre class="screen">### example Stratos deployment configuration file
+### stratos-config-values.yaml
+
+console:
+  # Use local admin user instead of UAA
+  localAdminPassword: <em class="replaceable ">changeme</em>
+
+services:
+  loadbalanced: true
+
+kube:
+  storage_class:
+    persistent: gp2scoped</pre></div><div id="id-1.3.4.8.4.11" class="admonition note normal"><img class="symbol" alt="Note" title="Note" src="static/images/icon-note.png" /><h6>Note: Technology Preview Features</h6><p>
+  Some Stratos releases may include features as part of a technology preview.
+  Technology preview features are for evaluation purposes only and
+  <span class="bold"><strong>not</strong></span> supported for production use. To see the
+  technology preview features available for a given release, refer to
+  <a class="link" href="https://github.com/SUSE/stratos/blob/master/CHANGELOG.md" target="_blank">https://github.com/SUSE/stratos/blob/master/CHANGELOG.md</a>.
+ </p><p>
+  To enable technology preview features, add the
+  <code class="literal">console.techPreview</code> Helm value to your
+  <code class="filename">stratos-config-values.yaml</code> and set it to
+  <code class="literal">true</code>.
+ </p><div class="verbatim-wrap"><pre class="screen">### example Stratos deployment configuration file                        
+### stratos-config-values.yaml
+                                                                                 
+console:
+  techPreview: true</pre></div></div><p>
+   Create a namespace for your Stratos deployment.
+  </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>kubectl create namespace <em class="replaceable ">stratos</em></pre></div><p>
+   Deploy Stratos using Helm.
+  </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>helm install <em class="replaceable ">susecf-console</em> suse/console
+\
+--namespace <em class="replaceable ">stratos</em> \
+--values stratos-config-values.yaml</pre></div><p>
+  You can monitor the status of your <code class="literal">stratos</code> deployment with
+  the <code class="command">watch</code> command:
+ </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>watch --color 'kubectl get pods --namespace stratos'</pre></div><p>
+  When <code class="literal">stratos</code> is successfully deployed, the following is
+  observed:
+ </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+    For the <code class="literal">volume-migration</code> pod, the
+    <code class="literal">STATUS</code> is <code class="literal">Completed</code> and the
+    <code class="literal">READY</code> column is at <code class="literal">0/1</code>.
+   </p></li><li class="listitem "><p>
+    All other pods have a <code class="literal">Running</code> <code class="literal">STATUS</code>
+    and a <code class="literal">READY</code> value of <code class="literal">n/n</code>.
+   </p></li></ul></div><p>
+  Press <span class="keycap">Ctrl</span><span class="key-connector">–</span><span class="keycap">C</span> to
+  exit the <code class="command">watch</code> command.
+ </p><p>
+   Obtain the host name of the service exposed through the public load balancer:
+  </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>kubectl get service susecf-console-ui-ext --namespace stratos</pre></div><p>
+   Use this host name to create a CNAME record. After the record is created,
+   access the console in a web browser by navigating to the domain mapped to the
+   host name of the service retrieved from the
+   <code class="command">kubectl get service</code> step. Upon successfully logging in,
+   you should see something similar to the following figure.
+  </p><div class="figure" id="id-1.3.4.8.4.24"><div class="figure-contents"><div class="mediaobject"><a xmlns="" href="images/stratos.png" target="_blank"><img src="images/stratos.png" width="" alt="Stratos UI Cloud Foundry Console" /></a></div></div><div class="figure-title-wrap"><h6 class="figure-title"><span class="number">Figure 8.3: </span><span class="name">Stratos UI Cloud Foundry Console </span><a title="Permalink" class="permalink" href="cha-cap-install-stratos.html#id-1.3.4.8.4.24">#</a></h6></div></div><div class="sect2 " id="sec-cap-stratos-eks-connect"><div class="titlepage"><div><div><h3 class="title"><span class="number">8.2.1 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Connecting Amazon EKS to Stratos</span> <a title="Permalink" class="permalink" href="cha-cap-install-stratos.html#sec-cap-stratos-eks-connect">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_stratos.xml</li><li><span class="ds-label">ID: </span>sec-cap-stratos-eks-connect</li></ul></div></div></div></div><p>
+    Stratos can show information from your Amazon EKS environment.
+   </p><p>
+    To enable this, you must register and connect your Amazon EKS environment
+    with Stratos.
+   </p><p>
+    In the Stratos UI, go to <span class="guimenu ">Endpoints</span> in the left-hand side
+    navigation and click on the <span class="guimenu ">+</span> icon in the top-right of
+    the view - you should be shown the "Register new Endpoint" view.
+   </p><div class="procedure "><div class="procedure-contents"><ol class="procedure" type="1"><li class="step "><p>
+      In the Stratos UI, go to <span class="guimenu ">Endpoints</span> in the left-hand side
+      navigation and click on the <span class="guimenu ">+</span> icon in the top-right of
+      the view.
+     </p></li><li class="step "><p>
+      On the <code class="literal">Register a new Endpoint</code> view, click the
+      <code class="literal">Amazon EKS</code> button.
+     </p></li><li class="step "><p>
+      Enter a memorable name for your Amazon EKS environment in the <span class="guimenu ">Name</span>
+      field. For example, <em class="replaceable ">my-endpoint</em>.
+     </p></li><li class="step "><p>
+      Enter the URL of the API server for your Kubernetes environment in the
+      <span class="guimenu ">Endpoint Address</span> field. Run <code class="command">kubectl cluster-info</code>
+      and use the value of <code class="literal">Kubernetes master</code> as the URL.
+     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>kubectl cluster-info</pre></div></li><li class="step "><p>
+      Activate the <span class="guimenu ">Skip SSL validation for the endpoint</span> check box
+      if using self-signed certificates.
+     </p></li><li class="step "><p>
+      Click <span class="guimenu ">Register</span>.
+     </p></li><li class="step "><p>
+      Activate the <span class="guimenu ">Connect to my-endpoint now (optional).</span> check box.
+     </p></li><li class="step "><p>
+      Enter the name of your Amazon EKS cluster in the <span class="guimenu ">Cluster</span>
+      field.
+     </p></li><li class="step "><p>
+      Enter your AWS Access Key ID in the <span class="guimenu ">Access Key ID</span>
+      field.
+     </p></li><li class="step "><p>
+      Enter your AWS Secret Access Key in the <span class="guimenu ">Secret Access Key</span>
+      field.
+     </p></li><li class="step "><p>
+      Click <span class="guimenu ">Connect</span>.
+     </p></li><li class="step "><p>
+      In the Stratos UI, go to <span class="guimenu ">Kubernetes</span> in the left-hand side
+      navigation. Information for your Amazon EKS environment should now be displayed
+      as in the following figure.
+     </p></li></ol></div></div><div class="figure" id="id-1.3.4.8.4.25.6"><div class="figure-contents"><div class="mediaobject"><a xmlns="" href="images/stratos-kubernetes-view.png" target="_blank"><img src="images/stratos-kubernetes-view.png" width="" alt="Kubernetes Environment Information on Stratos" /></a></div></div><div class="figure-title-wrap"><h6 class="figure-title"><span class="number">Figure 8.4: </span><span class="name">Kubernetes Environment Information on Stratos </span><a title="Permalink" class="permalink" href="cha-cap-install-stratos.html#id-1.3.4.8.4.25.6">#</a></h6></div></div></div></div><div class="sect1 " id="sec-cap-stratos-aks"><div class="titlepage"><div><div><h2 class="title"><span class="number">8.3 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Deploy Stratos on Microsoft AKS</span> <a title="Permalink" class="permalink" href="cha-cap-install-stratos.html#sec-cap-stratos-aks">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_stratos.xml</li><li><span class="ds-label">ID: </span>sec-cap-stratos-aks</li></ul></div></div></div></div><p>
+   Before deploying Stratos, ensure <code class="literal">kubecf</code> has been successfully
+   deployed on Microsoft AKS (see <a class="xref" href="cha-cap-depl-aks.html" title="Chapter 5. Deploying SUSE Cloud Application Platform on Microsoft Azure Kubernetes Service (AKS)">Chapter 5, <em>Deploying SUSE Cloud Application Platform on Microsoft Azure Kubernetes Service (AKS)</em></a>).
+  </p><p>
+   Create a YAML file, called <code class="filename">stratos-config-values.yaml</code> in this
+   example, and use it to make configurations to the Stratos Helm chart.
+  </p><div class="verbatim-wrap"><pre class="screen">### example Stratos deployment configuration file
+### stratos-config-values.yaml
+
+console:
+  # Use local admin user instead of UAA
+  localAdminPassword: <em class="replaceable ">changeme</em>
+
+services:
+  loadbalanced: true</pre></div><div id="id-1.3.4.8.5.5" class="admonition note normal"><img class="symbol" alt="Note" title="Note" src="static/images/icon-note.png" /><h6>Note: Technology Preview Features</h6><p>
+  Some Stratos releases may include features as part of a technology preview.
+  Technology preview features are for evaluation purposes only and
+  <span class="bold"><strong>not</strong></span> supported for production use. To see the
+  technology preview features available for a given release, refer to
+  <a class="link" href="https://github.com/SUSE/stratos/blob/master/CHANGELOG.md" target="_blank">https://github.com/SUSE/stratos/blob/master/CHANGELOG.md</a>.
+ </p><p>
+  To enable technology preview features, add the
+  <code class="literal">console.techPreview</code> Helm value to your
+  <code class="filename">stratos-config-values.yaml</code> and set it to
+  <code class="literal">true</code>.
+ </p><div class="verbatim-wrap"><pre class="screen">### example Stratos deployment configuration file                        
+### stratos-config-values.yaml
+                                                                                 
+console:
+  techPreview: true</pre></div></div><p>
+   Create a namespace for your Stratos deployment.
+  </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>kubectl create namespace <em class="replaceable ">stratos</em></pre></div><p>
+   Deploy Stratos using Helm.
+  </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>helm install <em class="replaceable ">susecf-console</em> suse/console
+\
+--namespace <em class="replaceable ">stratos</em> \
+--values stratos-config-values.yaml</pre></div><p>
+  You can monitor the status of your <code class="literal">stratos</code> deployment with
+  the <code class="command">watch</code> command:
+ </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>watch --color 'kubectl get pods --namespace stratos'</pre></div><p>
+  When <code class="literal">stratos</code> is successfully deployed, the following is
+  observed:
+ </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+    For the <code class="literal">volume-migration</code> pod, the
+    <code class="literal">STATUS</code> is <code class="literal">Completed</code> and the
+    <code class="literal">READY</code> column is at <code class="literal">0/1</code>.
+   </p></li><li class="listitem "><p>
+    All other pods have a <code class="literal">Running</code> <code class="literal">STATUS</code>
+    and a <code class="literal">READY</code> value of <code class="literal">n/n</code>.
+   </p></li></ul></div><p>
+  Press <span class="keycap">Ctrl</span><span class="key-connector">–</span><span class="keycap">C</span> to
+  exit the <code class="command">watch</code> command.
+ </p><p>
+   Obtain the IP address of the service exposed through the public load balancer:
+  </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>kubectl get service susecf-console-ui-ext --namespace stratos</pre></div><p>
+   Use this IP address to create an A record. After the record is created,     
+   access the console in a web browser by navigating to the domain mapped to the 
+   IP address of the service retrieved from the                                   
+   <code class="command">kubectl get service</code> step. Upon successfully logging in,    
+   you should see something similar to the following figure.
+  </p><div class="figure" id="id-1.3.4.8.5.18"><div class="figure-contents"><div class="mediaobject"><a xmlns="" href="images/stratos.png" target="_blank"><img src="images/stratos.png" width="" alt="Stratos UI Cloud Foundry Console" /></a></div></div><div class="figure-title-wrap"><h6 class="figure-title"><span class="number">Figure 8.5: </span><span class="name">Stratos UI Cloud Foundry Console </span><a title="Permalink" class="permalink" href="cha-cap-install-stratos.html#id-1.3.4.8.5.18">#</a></h6></div></div><div class="sect2 " id="sec-cap-stratos-aks-connect"><div class="titlepage"><div><div><h3 class="title"><span class="number">8.3.1 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Connecting Microsoft AKS to Stratos</span> <a title="Permalink" class="permalink" href="cha-cap-install-stratos.html#sec-cap-stratos-aks-connect">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_stratos.xml</li><li><span class="ds-label">ID: </span>sec-cap-stratos-aks-connect</li></ul></div></div></div></div><p>
+    Stratos can show information from your Microsoft AKS environment.
+   </p><p>
+    To enable this, you must register and connect your Microsoft AKS environment
+    with Stratos.
+   </p><p>
+    In the Stratos UI, go to <span class="guimenu ">Endpoints</span> in the left-hand side
+    navigation and click on the <span class="guimenu ">+</span> icon in the top-right of
+    the view - you should be shown the "Register new Endpoint" view.
+   </p><div class="procedure "><div class="procedure-contents"><ol class="procedure" type="1"><li class="step "><p>
+      In the Stratos UI, go to <span class="guimenu ">Endpoints</span> in the left-hand side
+      navigation and click on the <span class="guimenu ">+</span> icon in the top-right of
+      the view.
+     </p></li><li class="step "><p>
+      On the <code class="literal">Register a new Endpoint</code> view, click the
+      <code class="literal">Azure AKS</code> button.
+     </p></li><li class="step "><p>
+      Enter a memorable name for your Microsoft AKS environment in the <span class="guimenu ">Name</span>
+      field. For example, <em class="replaceable ">my-endpoint</em>.
+     </p></li><li class="step "><p>
+      Enter the URL of the API server for your Kubernetes environment in the
+      <span class="guimenu ">Endpoint Address</span> field. Run <code class="command">kubectl cluster-info</code>
+      and use the value of <code class="literal">Kubernetes master</code> as the URL.
+     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>kubectl cluster-info</pre></div></li><li class="step "><p>
+      Activate the <span class="guimenu ">Skip SSL validation for the endpoint</span> check box
+      if using self-signed certificates.
+     </p></li><li class="step "><p>
+      Click <span class="guimenu ">Register</span>.
+     </p></li><li class="step "><p>
+      Activate the <span class="guimenu ">Connect to my-endpoint now (optional).</span> check box.
+     </p></li><li class="step "><p>
+      Provide a valid <code class="filename">kubeconfig</code> file for your Microsoft AKS environment.
+     </p></li><li class="step "><p>
+      Click <span class="guimenu ">Connect</span>.
+     </p></li><li class="step "><p>
+      In the Stratos UI, go to <span class="guimenu ">Kubernetes</span> in the left-hand side
+      navigation. Information for your Microsoft AKS environment should now be displayed
+      as in the following figure.
+     </p></li></ol></div></div><div class="figure" id="id-1.3.4.8.5.19.6"><div class="figure-contents"><div class="mediaobject"><a xmlns="" href="images/stratos-kubernetes-view.png" target="_blank"><img src="images/stratos-kubernetes-view.png" width="" alt="Kubernetes Environment Information on Stratos" /></a></div></div><div class="figure-title-wrap"><h6 class="figure-title"><span class="number">Figure 8.6: </span><span class="name">Kubernetes Environment Information on Stratos </span><a title="Permalink" class="permalink" href="cha-cap-install-stratos.html#id-1.3.4.8.5.19.6">#</a></h6></div></div></div></div><div class="sect1 " id="sec-cap-stratos-gke"><div class="titlepage"><div><div><h2 class="title"><span class="number">8.4 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Deploy Stratos on Google GKE</span> <a title="Permalink" class="permalink" href="cha-cap-install-stratos.html#sec-cap-stratos-gke">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_stratos.xml</li><li><span class="ds-label">ID: </span>sec-cap-stratos-gke</li></ul></div></div></div></div><p>
+   Before deploying Stratos, ensure <code class="literal">kubecf</code> has been successfully
+   deployed on Google GKE (see <a class="xref" href="cha-cap-depl-gke.html" title="Chapter 7. Deploying SUSE Cloud Application Platform on Google Kubernetes Engine (GKE)">Chapter 7, <em>Deploying SUSE Cloud Application Platform on Google Kubernetes Engine (GKE)</em></a>).
+  </p><p>
+   Create a YAML file, called <code class="filename">stratos-config-values.yaml</code> in this
+   example, and use it to make configurations to the Stratos Helm chart.
+  </p><div class="verbatim-wrap"><pre class="screen">### example Stratos deployment configuration file
+### stratos-config-values.yaml
+
+console:
+  # Use local admin user instead of UAA
+  localAdminPassword: <em class="replaceable ">changeme</em>
+
+services:
+  loadbalanced: true</pre></div><div id="id-1.3.4.8.6.5" class="admonition note normal"><img class="symbol" alt="Note" title="Note" src="static/images/icon-note.png" /><h6>Note: Technology Preview Features</h6><p>
+  Some Stratos releases may include features as part of a technology preview.
+  Technology preview features are for evaluation purposes only and
+  <span class="bold"><strong>not</strong></span> supported for production use. To see the
+  technology preview features available for a given release, refer to
+  <a class="link" href="https://github.com/SUSE/stratos/blob/master/CHANGELOG.md" target="_blank">https://github.com/SUSE/stratos/blob/master/CHANGELOG.md</a>.
+ </p><p>
+  To enable technology preview features, add the
+  <code class="literal">console.techPreview</code> Helm value to your
+  <code class="filename">stratos-config-values.yaml</code> and set it to
+  <code class="literal">true</code>.
+ </p><div class="verbatim-wrap"><pre class="screen">### example Stratos deployment configuration file                        
+### stratos-config-values.yaml
+                                                                                 
+console:
+  techPreview: true</pre></div></div><p>
+   Create a namespace for your Stratos deployment.
+  </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>kubectl create namespace <em class="replaceable ">stratos</em></pre></div><p>
+   Deploy Stratos using Helm.
+  </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>helm install <em class="replaceable ">susecf-console</em> suse/console
+\
+--namespace <em class="replaceable ">stratos</em> \
+--values stratos-config-values.yaml</pre></div><p>
+  You can monitor the status of your <code class="literal">stratos</code> deployment with
+  the <code class="command">watch</code> command:
+ </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>watch --color 'kubectl get pods --namespace stratos'</pre></div><p>
+  When <code class="literal">stratos</code> is successfully deployed, the following is
+  observed:
+ </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+    For the <code class="literal">volume-migration</code> pod, the
+    <code class="literal">STATUS</code> is <code class="literal">Completed</code> and the
+    <code class="literal">READY</code> column is at <code class="literal">0/1</code>.
+   </p></li><li class="listitem "><p>
+    All other pods have a <code class="literal">Running</code> <code class="literal">STATUS</code>
+    and a <code class="literal">READY</code> value of <code class="literal">n/n</code>.
+   </p></li></ul></div><p>
+  Press <span class="keycap">Ctrl</span><span class="key-connector">–</span><span class="keycap">C</span> to
+  exit the <code class="command">watch</code> command.
+ </p><p>
+   Obtain the IP address of the service exposed through the public load balancer:
+  </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>kubectl get service susecf-console-ui-ext --namespace stratos</pre></div><p>
+   Use this IP address to create an A record. After the record is created,     
+   access the console in a web browser by navigating to the domain mapped to the 
+   IP address of the service retrieved from the                                   
+   <code class="command">kubectl get service</code> step. Upon successfully logging in,    
+   you should see something similar to the following figure.
+  </p><div class="figure" id="id-1.3.4.8.6.18"><div class="figure-contents"><div class="mediaobject"><a xmlns="" href="images/stratos.png" target="_blank"><img src="images/stratos.png" width="" alt="Stratos UI Cloud Foundry Console" /></a></div></div><div class="figure-title-wrap"><h6 class="figure-title"><span class="number">Figure 8.7: </span><span class="name">Stratos UI Cloud Foundry Console </span><a title="Permalink" class="permalink" href="cha-cap-install-stratos.html#id-1.3.4.8.6.18">#</a></h6></div></div><div class="sect2 " id="sec-cap-stratos-gke-connect"><div class="titlepage"><div><div><h3 class="title"><span class="number">8.4.1 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Connecting Google GKE to Stratos</span> <a title="Permalink" class="permalink" href="cha-cap-install-stratos.html#sec-cap-stratos-gke-connect">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_stratos.xml</li><li><span class="ds-label">ID: </span>sec-cap-stratos-gke-connect</li></ul></div></div></div></div><p>
+    Stratos can show information from your Google GKE environment.
+   </p><p>
+    To enable this, you must register and connect your Google GKE environment
+    with Stratos.
+   </p><p>
+    In the Stratos UI, go to <span class="guimenu ">Endpoints</span> in the left-hand side
+    navigation and click on the <span class="guimenu ">+</span> icon in the top-right of
+    the view - you should be shown the "Register new Endpoint" view.
+   </p><div class="procedure "><div class="procedure-contents"><ol class="procedure" type="1"><li class="step "><p>
+      In the Stratos UI, go to <span class="guimenu ">Endpoints</span> in the left-hand side
+      navigation and click on the <span class="guimenu ">+</span> icon in the top-right of
+      the view.
+     </p></li><li class="step "><p>
+      On the <code class="literal">Register a new Endpoint</code> view, click the
+      <code class="literal">Google Kubernetes Engine</code> button.
+     </p></li><li class="step "><p>
+      Enter a memorable name for your Microsoft AKS environment in the <span class="guimenu ">Name</span>
+      field. For example, <em class="replaceable ">my-endpoint</em>.
+     </p></li><li class="step "><p>
+      Enter the URL of the API server for your Kubernetes environment in the
+      <span class="guimenu ">Endpoint Address</span> field. Run <code class="command">kubectl cluster-info</code>
+      and use the value of <code class="literal">Kubernetes master</code> as the URL.
+     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>kubectl cluster-info</pre></div></li><li class="step "><p>
+      Activate the <span class="guimenu ">Skip SSL validation for the endpoint</span> check box
+      if using self-signed certificates.
+     </p></li><li class="step "><p>
+      Click <span class="guimenu ">Register</span>.
+     </p></li><li class="step "><p>
+      Activate the <span class="guimenu ">Connect to my-endpoint now (optional).</span> check box.
+     </p></li><li class="step "><p>
+      Provide a valid <code class="filename">Application Default Credentials</code> file for your
+      Google GKE environment. Generate the file using the command below. The command saves the
+      credentials to a file named <code class="filename">application_default_credentials.json</code>
+      and outputs the path of the file.
+     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>gcloud auth application-default login</pre></div></li><li class="step "><p>
+      Click <span class="guimenu ">Connect</span>.
+     </p></li><li class="step "><p>
+      In the Stratos UI, go to <span class="guimenu ">Kubernetes</span> in the left-hand side
+      navigation. Information for your Google GKE environment should now be displayed
+      as in the following figure.
+     </p></li></ol></div></div><div class="figure" id="id-1.3.4.8.6.19.6"><div class="figure-contents"><div class="mediaobject"><a xmlns="" href="images/stratos-kubernetes-view.png" target="_blank"><img src="images/stratos-kubernetes-view.png" width="" alt="Kubernetes Environment Information on Stratos" /></a></div></div><div class="figure-title-wrap"><h6 class="figure-title"><span class="number">Figure 8.8: </span><span class="name">Kubernetes Environment Information on Stratos </span><a title="Permalink" class="permalink" href="cha-cap-install-stratos.html#id-1.3.4.8.6.19.6">#</a></h6></div></div></div></div><div class="sect1 " id="sec-cap-stratos-upgrade"><div class="titlepage"><div><div><h2 class="title"><span class="number">8.5 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Upgrading Stratos</span> <a title="Permalink" class="permalink" href="cha-cap-install-stratos.html#sec-cap-stratos-upgrade">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_stratos.xml</li><li><span class="ds-label">ID: </span>sec-cap-stratos-upgrade</li></ul></div></div></div></div><p>
+   For instructions to upgrade Stratos, follow the process described in
+   <a class="xref" href="cha-cap-upgrade.html" title="Chapter 13. Upgrading SUSE Cloud Application Platform">Chapter 13, <em>Upgrading SUSE Cloud Application Platform</em></a>. Take note that <code class="literal">kubecf</code> is
+   upgraded prior to upgrading Stratos.
+  </p></div><div class="sect1 " id="sec-cap-stratos-metrics"><div class="titlepage"><div><div><h2 class="title"><span class="number">8.6 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Stratos Metrics</span> <a title="Permalink" class="permalink" href="cha-cap-install-stratos.html#sec-cap-stratos-metrics">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_stratos.xml</li><li><span class="ds-label">ID: </span>sec-cap-stratos-metrics</li></ul></div></div></div></div><p>
+   Stratos Metrics provides a Helm chart for deploying Prometheus (see
+   <a class="link" href="https://prometheus.io/" target="_blank">https://prometheus.io/</a>) and the following metrics
+   exporters to Kubernetes:
+  </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+     Cloud Foundry Firehose Exporter (enabled by default)
+    </p></li><li class="listitem "><p>
+     Cloud Foundry Exporter (disabled by default)
+    </p></li><li class="listitem "><p>
+     Kubernetes State Metrics Exporter (disabled by default)
+    </p></li></ul></div><p>
+   The Stratos Metrics Helm chart deploys a Prometheus server and the
+   configured Exporters and fronts the Prometheus server with an nginx server
+   to provide authenticated access to Prometheus (currently basic authentication
+   over HTTPS).
+  </p><p>
+   When required by configuration, it also contains an initialization script
+   that will setup users in the UAA that have correct scopes/permissions to be
+   able to read data from the Cloud Foundry Firehose and/or API.
+  </p><p>
+   Lastly, the Helm chart generates a small metadata file in the root of the
+   nginx server that is used by Stratos to determine which Cloud Foundry and Kubernetes
+   clusters the Prometheus server is providing Metrics for.
+  </p><p>
+   To learn more about Stratos Metrics and its full list of configuration
+   options, see <a class="link" href="https://github.com/SUSE/stratos-metrics" target="_blank">https://github.com/SUSE/stratos-metrics</a>.
+  </p><div class="sect2 " id="sec-cap-stratos-metrics-exporter-config"><div class="titlepage"><div><div><h3 class="title"><span class="number">8.6.1 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Exporter Configuration</span> <a title="Permalink" class="permalink" href="cha-cap-install-stratos.html#sec-cap-stratos-metrics-exporter-config">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_stratos.xml</li><li><span class="ds-label">ID: </span>sec-cap-stratos-metrics-exporter-config</li></ul></div></div></div></div><div class="sect3 " id="sec-cap-stratos-metrics-exporter-config-firehose"><div class="titlepage"><div><div><h4 class="title"><span class="number">8.6.1.1 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Firehose Exporter</span> <a title="Permalink" class="permalink" href="cha-cap-install-stratos.html#sec-cap-stratos-metrics-exporter-config-firehose">#</a></h4><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_stratos.xml</li><li><span class="ds-label">ID: </span>sec-cap-stratos-metrics-exporter-config-firehose</li></ul></div></div></div></div><p>
+     This exporter can be enabled/disabled via the Helm value
+     <code class="literal">firehoseExporter.enabled</code>. By default this exporter is
+     enabled.
+    </p><p>
+You must provide the following Helm chart values for this Exporter to work correctly:
+    </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+       <code class="literal">cloudFoundry.apiEndpoint</code> - API Endpoint of the Cloud Foundry
+       API Server
+      </p></li><li class="listitem "><p>
+       <code class="literal">cloudFoundry.uaaAdminClient</code> - Admin client of the UAA
+       used by the Cloud Foundry server
+      </p></li><li class="listitem "><p>
+       <code class="literal">cloudFoundry.uaaAdminClientSecret</code> - Admin client
+       secret of the UAA used by the Cloud Foundry server
+      </p></li><li class="listitem "><p>
+       <code class="literal">cloudFoundry.skipSslVerification</code> - Whether to skip SSL
+       verification when communicating with Cloud Foundry and the UAA APIs
+      </p></li></ul></div><p>
+     You can scale the firehose nozzle in Stratos Metrics by specifying the
+     following override:
+    </p><div class="verbatim-wrap"><pre class="screen">firehoseExporter:
+  instances: 1</pre></div><p>
+     Please note, the number of firehose nozzles should be proportional to the
+     number of Traffic Controllers in your Cloud Foundry (see docs at
+     <a class="link" href="https://docs.cloudfoundry.org/loggregator/log-ops-guide.html" target="_blank">https://docs.cloudfoundry.org/loggregator/log-ops-guide.html</a>).
+     Otherwise, Loggregator will not split the firehose between the nozzles.
+    </p></div><div class="sect3 " id="sec-cap-stratos-metrics-exporter-config-cloud-foundry"><div class="titlepage"><div><div><h4 class="title"><span class="number">8.6.1.2 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Cloud Foundry Exporter</span> <a title="Permalink" class="permalink" href="cha-cap-install-stratos.html#sec-cap-stratos-metrics-exporter-config-cloud-foundry">#</a></h4><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_stratos.xml</li><li><span class="ds-label">ID: </span>sec-cap-stratos-metrics-exporter-config-cloud-foundry</li></ul></div></div></div></div><p>
+     This exporter can be enabled/disabled via the Helm value
+     <code class="literal">cfExporter.enabled</code>. By default this exporter is
+     disabled.
+    </p><p>
+     You must provide the following Helm chart values for this Exporter to
+     work correctly:
+    </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+       <code class="literal">cloudFoundry.apiEndpoint</code> - API Endpoint of the Cloud Foundry
+       API Server
+      </p></li><li class="listitem "><p>
+       <code class="literal">cloudFoundry.uaaAdminClient</code> - Admin client of the UAA
+       used by the Cloud Foundry server
+      </p></li><li class="listitem "><p>
+       <code class="literal">cloudFoundry.uaaAdminClientSecret</code> - Admin client
+       secret of the UAA used by the Cloud Foundry server
+      </p></li><li class="listitem "><p>
+       <code class="literal">cloudFoundry.skipSslVerification</code> - Whether to skip SSL
+       verification when communicating with Cloud Foundry and the UAA APIs
+      </p></li></ul></div></div><div class="sect3 " id="sec-cap-stratos-metrics-exporter-config-kubernetes"><div class="titlepage"><div><div><h4 class="title"><span class="number">8.6.1.3 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Kubernetes Monitoring</span> <a title="Permalink" class="permalink" href="cha-cap-install-stratos.html#sec-cap-stratos-metrics-exporter-config-kubernetes">#</a></h4><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_stratos.xml</li><li><span class="ds-label">ID: </span>sec-cap-stratos-metrics-exporter-config-kubernetes</li></ul></div></div></div></div><p>
+     This exporter can be enabled/disabled via the Helm value
+     <code class="literal">prometheus.kubeStateMetrics.enabled</code>. By default this
+     exporter is disabled.
+    </p><p>
+     You must provide the following Helm chart values for this Exporter to
+     work correctly:
+    </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+       <code class="literal">kubernetes.apiEndpoint</code> - The API Endpoint of the
+       Kubernetes API Server
+      </p></li></ul></div></div></div><div class="sect2 " id="sec-cap-stratos-metrics-install"><div class="titlepage"><div><div><h3 class="title"><span class="number">8.6.2 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Install Stratos Metrics with Helm</span> <a title="Permalink" class="permalink" href="cha-cap-install-stratos.html#sec-cap-stratos-metrics-install">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_stratos.xml</li><li><span class="ds-label">ID: </span>sec-cap-stratos-metrics-install</li></ul></div></div></div></div><p>
+    In order to display metrics data with Stratos, you need to deploy the
+    <code class="literal">stratos-metrics</code> Helm chart. As with othe examples in
+    this guide, a YAML file is defined to change configurations of the Helm
+    chart.
+   </p><p>
+    Create a new YAML file. In this example, it is named
+    <code class="filename">stratos-metrics-values.yaml</code> and it contains
+    configuration options specific to Stratos Metrics.
+   </p><p>
+    The following is an example <code class="filename">stratos-metrics-values.yaml</code>
+    file.
+   </p><div class="verbatim-wrap"><pre class="screen">cloudFoundry:
+  apiEndpoint: <em class="replaceable ">https://api.example.com</em>
+  uaaAdminClient: admin
+  uaaAdminClientSecret: <em class="replaceable ">password</em>
+  skipSslVerification: "true"
+env:
+  DOPPLER_PORT: 443
+kubernetes:
+  apiEndpoint: <em class="replaceable ">kube_server_address.example.com</em>
+metrics:
+  username: <em class="replaceable ">username</em>
+  password: <em class="replaceable ">password</em>
+prometheus:
+  kubeStateMetrics:
+    enabled: true
+  server:
+    storageClass: <em class="replaceable ">"persistent"</em>
+services:
+  loadbalanced: true</pre></div><p>
+    where:
+   </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+      <code class="literal">kubernetes.apiEndpoint</code> is the same URL that you used
+      when registering your Kubernetes environment with Stratos (the Kubernetes API
+      Server URL).
+     </p></li><li class="listitem "><p>
+      <code class="literal">prometheus.server.storageClass</code> is the storage class to
+      be used by Stratos Metrics. If a storage class is not assigned, the
+      default storage class will be used. If a storage class is not specified
+      and there is no default storage class, the <code class="literal">prometheus</code>
+      pod will fail to start.
+     </p></li><li class="listitem "><p>
+      <code class="literal">metrics.username</code> is the username used to authenticate
+      with the nginx server that fronts Prometheus. This username is also used
+      during the <a class="xref" href="cha-cap-install-stratos.html#sec-cap-stratos-metrics-connect" title="8.6.3. Connecting Stratos Metrics">Section 8.6.3, “Connecting Stratos Metrics”</a>) process.
+     </p></li><li class="listitem "><p>
+      <code class="literal">metrics.password</code> is the password used to authenticate
+      with the nginx server that fronts Prometheus. This password is also used
+      during the <a class="xref" href="cha-cap-install-stratos.html#sec-cap-stratos-metrics-connect" title="8.6.3. Connecting Stratos Metrics">Section 8.6.3, “Connecting Stratos Metrics”</a>) process.
+      Ensure a secure password is chosen.
+     </p></li><li class="listitem "><p>
+      <code class="literal">services.loadbalanced</code> is set to <code class="literal">true</code>
+      if your Kubernetes deployment supports automatic configuration of a load
+      balancer (for example, AKS, EKS, and GKE).
+     </p></li></ul></div><p>
+    If you are using SUSE Enterprise Storage, you must copy the Ceph admin secret to the
+    <code class="literal">metrics</code> namespace:
+   </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>kubectl get secret ceph-secret-admin --output json --namespace default | \
+sed 's/"namespace": "default"/"namespace": "metrics"/' | kubectl create --filename -</pre></div><p>
+    Install Metrics with:
+   </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>kubectl create namespace <em class="replaceable ">metrics</em>
+
+<code class="prompt user">tux &gt; </code>helm install <em class="replaceable ">susecf-metrics</em> suse/metrics \
+--namespace <em class="replaceable ">metrics</em> \
+--values kubecf-config-values.yaml \
+--values stratos-metrics-values.yaml</pre></div><p>
+    Monitor progress:
+   </p><div class="verbatim-wrap"><pre class="screen">$ watch --color 'kubectl get pods --namespace metrics'</pre></div><p>
+    When all statuses show <code class="literal">Ready</code>, press <span class="keycap">Ctrl</span><span class="key-connector">–</span><span class="keycap">C</span> to exit and to
+    view your release information.
+   </p></div><div class="sect2 " id="sec-cap-stratos-metrics-connect"><div class="titlepage"><div><div><h3 class="title"><span class="number">8.6.3 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Connecting Stratos Metrics</span> <a title="Permalink" class="permalink" href="cha-cap-install-stratos.html#sec-cap-stratos-metrics-connect">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_stratos.xml</li><li><span class="ds-label">ID: </span>sec-cap-stratos-metrics-connect</li></ul></div></div></div></div><p>
+    When Stratos Metrics is connected to Stratos, additional views are enabled
+    that show metrics metadata that has been ingested into the Stratos Metrics
+    Prometheus server.
+   </p><p>
+    To enable this, you must register and connect your Stratos Metrics instance
+    with Stratos.
+   </p><p>
+    In the Stratos UI, go to <span class="guimenu ">Endpoints</span> in the left-hand side
+    navigation and click on the <span class="guimenu ">+</span> icon in the top-right of
+    the view - you should be shown the "Register new Endpoint" view. Next:
+   </p><div class="procedure "><div class="procedure-contents"><ol class="procedure" type="1"><li class="step "><p>
+      Select Metrics from the <span class="guimenu ">Endpoint Type</span> dropdown.
+     </p></li><li class="step "><p>
+      Enter a memorable name for your environment in the
+      <span class="guimenu ">Name</span> field.
+     </p></li><li class="step "><p>
+      Enter the <span class="guimenu ">Endpoint Address</span>. Use the following to find
+      the endpoint value.
+     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>kubectl get service susecf-metrics-metrics-nginx --namespace metrics</pre></div><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+	For Microsoft AKS, Amazon EKS, and Google GKE deployments which use a load balancer, the
+	output will be similar to the following:
+       </p><div class="verbatim-wrap"><pre class="screen">NAME                           TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)         AGE
+susecf-metrics-metrics-nginx   LoadBalancer   10.0.202.180   52.170.253.229   443:30263/TCP   21h</pre></div><p>
+        Preprend <code class="literal">https://</code> to the public IP of the load
+        balancer, and enter it into the <span class="guimenu ">Endpoint Address</span>
+        field. Using the values from the example above,
+        <code class="literal">https://52.170.253.229</code> is entered as the endpoint
+        address.
+       </p></li><li class="listitem "><p>
+        For SUSE CaaS Platform deployments which do not use a load balancer, the output
+	will be similar to the following:
+       </p><div class="verbatim-wrap"><pre class="screen">NAME                           TYPE       CLUSTER-IP       EXTERNAL-IP               PORT(S)         AGE
+susecf-metrics-metrics-nginx   NodePort   172.28.107.209   10.86.101.115,172.28.0.31 443:30685/TCP   21h</pre></div><p>
+        Prepend <code class="literal">https://</code> to the external IP of your node,
+	followed by the <code class="literal">nodePort</code>, and enter it into the
+        <span class="guimenu ">Endpoint Address</span> field. Using the values from the
+        example above, <code class="literal">https://10.86.101.115:30685</code> is entered
+        as the endpoint address.
+       </p></li></ul></div></li><li class="step "><p>
+      Check the <span class="guimenu ">Skip SSL validation for the endpoint</span>
+      checkbox if using self-signed certificates.
+     </p></li><li class="step "><p>
+      Click <span class="guimenu ">Finish</span>.
+     </p></li></ol></div></div><p>
+    The view will refresh to show the new endpoint in the disconnected state.
+    Next you will need to connect to this endpoint.
+   </p><p>
+    In the table of endpoints, click the overflow menu icon alongside the
+    endpoint that you added above, then:
+   </p><div class="procedure "><div class="procedure-contents"><ol class="procedure" type="1"><li class="step "><p>
+      Click on <span class="guimenu ">Connect</span> in the dropdown menu.
+     </p></li><li class="step "><p>
+      Enter the username for your Stratos Metrics instance. This will be the
+      <code class="literal">metrics.username</code> defined in your
+      <code class="filename">stratos-metrics-values.yaml</code> file.
+     </p></li><li class="step "><p>
+      Enter the password for your Stratos Metrics instance. This will be the
+      <code class="literal">metrics.password</code> defined in your
+      <code class="filename">stratos-metrics-values.yaml</code> file.
+     </p></li><li class="step "><p>
+      Click <span class="guimenu ">Connect</span>.
+     </p></li></ol></div></div><p>
+    Once connected, you should see that the name of your Metrics endpoint is a
+    hyperlink and clicking on it should show basic metadata about the Stratos
+    Metrics endpoint.
+   </p><p>
+    Metrics data and views should now be available in the Stratos UI, for
+    example:
+   </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+      On the <span class="guimenu ">Instances</span> tab for an Application, the table
+      should show an additional Cell column to indicate which Diego Cell the
+      instance is running on. This should be clickable to navigate to a Cell
+      view showing Cell information and metrics.
+     </p><div class="figure" id="stratos-app-instances-metrics-png"><div class="figure-contents"><div class="mediaobject"><a xmlns="" href="images/stratos-app-instances-metrics.png" target="_blank"><img src="images/stratos-app-instances-metrics.png" width="" alt="Cell Column on Application Instance Tab after Connecting Stratos Metrics" /></a></div></div><div class="figure-title-wrap"><h6 class="figure-title"><span class="number">Figure 8.9: </span><span class="name">Cell Column on Application Instance Tab after Connecting Stratos Metrics </span><a title="Permalink" class="permalink" href="cha-cap-install-stratos.html#stratos-app-instances-metrics-png">#</a></h6></div></div></li><li class="listitem "><p>
+      On the view for an Application there should be a new Metrics tab that
+      shows Application metrics.
+     </p><div class="figure" id="stratos-app-metrics-tab-png"><div class="figure-contents"><div class="mediaobject"><a xmlns="" href="images/stratos-app-metrics-tab.png" target="_blank"><img src="images/stratos-app-metrics-tab.png" width="" alt="Application Metrics Tab after Connecting Stratos Metrics" /></a></div></div><div class="figure-title-wrap"><h6 class="figure-title"><span class="number">Figure 8.10: </span><span class="name">Application Metrics Tab after Connecting Stratos Metrics </span><a title="Permalink" class="permalink" href="cha-cap-install-stratos.html#stratos-app-metrics-tab-png">#</a></h6></div></div></li><li class="listitem "><p>
+      On the Kubernetes views, views such as the Node view should show an
+      additional <span class="guimenu ">Metrics</span> tab with metric information.
+     </p><div class="figure" id="stratos-kubernetes-node-metrics-png"><div class="figure-contents"><div class="mediaobject"><a xmlns="" href="images/stratos-kubernetes-node-metrics.png" target="_blank"><img src="images/stratos-kubernetes-node-metrics.png" width="" alt="Node Metrics on the Stratos Kubernetes View" /></a></div></div><div class="figure-title-wrap"><h6 class="figure-title"><span class="number">Figure 8.11: </span><span class="name">Node Metrics on the Stratos Kubernetes View </span><a title="Permalink" class="permalink" href="cha-cap-install-stratos.html#stratos-kubernetes-node-metrics-png">#</a></h6></div></div></li></ul></div></div></div></div></div><div class="page-bottom"><div id="_bottom-navigation"><a class="nav-link" href="cha-cap-depl-eirini.html"><span class="next-icon">→</span><span class="nav-label"><span class="number">Chapter 9 </span>Eirini</span></a><a class="nav-link" href="cha-cap-depl-gke.html"><span class="prev-icon">←</span><span class="nav-label"><span class="number">Chapter 7 </span>Deploying SUSE Cloud Application Platform on Google Kubernetes Engine (GKE)</span></a></div><div class="_share-print"><div class="online-contents share"><strong>Share this page: </strong><span class="share-buttons"><span class="_share-fb bottom-button">Facebook</span><span class="spacer"> • </span><span class="_share-in bottom-button">LinkedIn</span><span class="spacer"> • </span><span class="_share-tw bottom-button">Twitter</span><span class="spacer"> • </span><span class="_share-mail bottom-button">E-Mail</span></span></div><div class="print"><span class="_print-button bottom-button">Print this page</span></div><div class="clearme"></div></div></div></div><div id="_inward"></div></div><div id="_footer-wrap"><div id="_footer"><p>©
+        2021 
+        SUSE</p><ul><li><a href="https://jobs.suse.com/" target="_top">Careers</a></li><li><a href="https://www.suse.com/company/legal/" target="_top">Legal</a></li><li><a href="https://www.suse.com/company/about/" target="_top">About</a></li><li><a href="https://www.suse.com/contact/" target="_top">Contact Us</a></li></ul></div></div></body></html>
