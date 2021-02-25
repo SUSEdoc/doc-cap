@@ -62,7 +62,8 @@ hljs.configure({
 <code class="prompt user">tux &gt; </code>helm install <em class="replaceable ">minibroker</em> suse/minibroker \
 --namespace <em class="replaceable ">minibroker</em> \
 --set "deployServiceCatalog=false" \
---set "defaultNamespace=minibroker"</pre></div><p>                                                                        
+--set "defaultNamespace=minibroker" \
+--values minibroker-values.yaml</pre></div><p>                                                                        
       If you are using SUSE Enterprise Storage, you must copy the Ceph admin secret to the           
       <code class="literal">minibroker</code> namespace:                                        
      </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>kubectl get secret ceph-secret-admin --output json
