@@ -47,7 +47,7 @@ hljs.configure({
     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf install-plugin -r <em class="replaceable ">CF-Community</em> app-autoscaler-plugin</pre></div><p>
       If the plugin repo is not found, add it first:
     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>cf add-plugin-repo <em class="replaceable ">CF-Community</em> https://plugins.cloudfoundry.org</pre></div></li></ul></div></div><div class="sect1 " id="sec-cap-enable-app-autoscaler"><div class="titlepage"><div><div><h2 class="title"><span class="number">23.2 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Enabling and Disabling the App-AutoScaler Service</span> <a title="Permalink" class="permalink" href="cha-cap-app-autoscaler.html#sec-cap-enable-app-autoscaler">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_admin_app_autoscaler.xml</li><li><span class="ds-label">ID: </span>sec-cap-enable-app-autoscaler</li></ul></div></div></div></div><p>
-   App-AutoScaler is disabled by default. To enable it, add the following the following
+   App-AutoScaler is disabled by default. To enable it, add the following
    block to your <code class="filename">kubecf-config-values.yaml</code> file.
   </p><div class="verbatim-wrap"><pre class="screen">features:
   autoscaler:
