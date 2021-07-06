@@ -3,11 +3,8 @@
 <script type="text/javascript">
 
 if ( window.location.protocol.toLowerCase() != 'file:' ) {
-  document.write('<link rel="stylesheet" type="text/css" href="https://static.opensuse.org/fonts/fonts.css"></link>');
-}
-else {
-  document.write('<link rel="stylesheet" type="text/css" href="static/css/fonts-onlylocal.css"></link>');
-}
+  document.write('<link rel="stylesheet" type="text/css" href="https://documentation.suse.com/docserv/res/fonts/poppins/poppins.css"></link>');
+};
 
 </script><noscript><link rel="stylesheet" type="text/css" href="https://static.opensuse.org/fonts/fonts.css" /></noscript><script src="static/js/jquery-1.10.2.min.js" type="text/javascript"></script><script src="static/js/script.js" type="text/javascript"></script><script src="static/js/highlight.min.js" type="text/javascript"></script><script>
 
@@ -20,11 +17,11 @@ hljs.configure({
   useBR: false
 });
 
-</script></head><body class="draft single offline js-off" onload="$('#betawarn-button-wrap').toggle();if (document.cookie.length > 0) {if (document.cookie.indexOf('betawarn=closed') != -1){$('#betawarn').toggle()}};"><div id="betawarn" style="position:fixed;bottom:0;z-index:9025;background-color:#FDE8E8;padding:1em;margin-left:10%;margin-right:10%;display:block;border-top:.75em solid #E11;width:80%"><p style="color:#333;margin:1em 0;padding:0;">This is a draft document that was built and uploaded automatically. It may document beta software and be incomplete or even incorrect. <strong>Use this document at your own risk.</strong></p> <div id="betawarn-button-wrap" style="display:none;margin:0;padding:0;"><a href="#" onclick="$('#betawarn').toggle();var d=new Date();d.setTime(d.getTime()+(0.5*24*60*60*1000));document.cookie='betawarn=closed; expires='+d.toUTCString()+'; path=/'; return false;" style="color:#333;text-decoration:underline;float:left;margin-top:.5em;padding:1em;display:block;background-color:#FABEBE;">I understand this is a draft</a></div></div><div class="bypass-block"><a href="#_content">Jump to content</a></div><div id="_outer-wrap"><div id="_white-bg" style="background-color: #E11;"><div id="_header"><div id="_logo"><img src="static/images/logo.png" alt="Logo" /></div><div class="crumbs inactive"><a class="single-crumb" href="#book-cap-guides" accesskey="c"><span class="single-contents-icon"></span>Deployment, Administration, and User Guides</a><div class="bubble-corner active-contents"></div></div><div class="clearme"></div></div></div><div id="_fixed-header-wrap" style="background-color: #E11;" class="inactive"><div id="_fixed-header"><div class="crumbs inactive"><a class="single-crumb" href="#book-cap-guides" accesskey="c"><span class="single-contents-icon"></span>Show Contents: Deployment, Administration, and User Guides</a></div><div class="buttons"><a class="top-button button" href="#">Top</a><div class="clearme"></div></div><div class="clearme"></div></div><div class="active-contents bubble"><div class="bubble-container"><div id="_bubble-toc"><ol><li class="inactive"><a href="#preface-deployment"><span class="number"> </span><span class="name">About This Guide</span></a></li><li class="inactive"><a href="#part-cap-overview"><span class="number">I </span><span class="name">Overview of SUSE Cloud Application Platform</span></a><ol><li class="inactive"><a href="#cha-cap-overview"><span class="number">1 </span><span class="name">About SUSE Cloud Application Platform</span></a></li><li class="inactive"><a href="#cha-cap-depl-kube-requirements"><span class="number">2 </span><span class="name">Other Kubernetes Systems</span></a></li></ol></li><li class="inactive"><a href="#part-cap-deployment"><span class="number">II </span><span class="name">Deploying SUSE Cloud Application Platform</span></a><ol><li class="inactive"><a href="#cha-cap-depl-notes"><span class="number">3 </span><span class="name">Deployment and Administration Notes</span></a></li><li class="inactive"><a href="#cha-cap-depl-caasp"><span class="number">4 </span><span class="name">Deploying SUSE Cloud Application Platform on SUSE CaaS Platform</span></a></li><li class="inactive"><a href="#cha-cap-depl-aks"><span class="number">5 </span><span class="name">Deploying SUSE Cloud Application Platform on Microsoft Azure Kubernetes Service (AKS)</span></a></li><li class="inactive"><a href="#cha-cap-depl-eks"><span class="number">6 </span><span class="name">Deploying SUSE Cloud Application Platform on Amazon Elastic Kubernetes Service (EKS)</span></a></li><li class="inactive"><a href="#cha-cap-depl-gke"><span class="number">7 </span><span class="name">Deploying SUSE Cloud Application Platform on Google Kubernetes Engine (GKE)</span></a></li><li class="inactive"><a href="#cha-cap-install-stratos"><span class="number">8 </span><span class="name">Installing the Stratos Web Console</span></a></li><li class="inactive"><a href="#cha-cap-depl-eirini"><span class="number">9 </span><span class="name">Eirini</span></a></li><li class="inactive"><a href="#cha-cap-depl-terraform"><span class="number">10 </span><span class="name">Deploying SUSE Cloud Application Platform Using Terraform</span></a></li><li class="inactive"><a href="#cha-cap-depl-air-gap-registry"><span class="number">11 </span><span class="name">Setting Up a Registry for an Air Gapped Environment</span></a></li><li class="inactive"><a href="#cha-cap-depl-private-registry"><span class="number">12 </span><span class="name">SUSE Private Registry</span></a></li></ol></li><li class="inactive"><a href="#part-cap-administration"><span class="number">III </span><span class="name">SUSE Cloud Application Platform Administration</span></a><ol><li class="inactive"><a href="#cha-cap-upgrade"><span class="number">13 </span><span class="name">Upgrading SUSE Cloud Application Platform</span></a></li><li class="inactive"><a href="#cha-cap-configuration-changes"><span class="number">14 </span><span class="name">Configuration Changes</span></a></li><li class="inactive"><a href="#cha-cap-create-admin-user"><span class="number">15 </span><span class="name">Creating Admin Users</span></a></li><li class="inactive"><a href="#cha-cap-manage-passwords"><span class="number">16 </span><span class="name">Managing Passwords</span></a></li><li class="inactive"><a href="#cha-cap-uaa-ui"><span class="number">17 </span><span class="name">Accessing the UAA User Interface</span></a></li><li class="inactive"><a href="#cha-cap-memory-limits"><span class="number">18 </span><span class="name">Container Memory Limits and Requests</span></a></li><li class="inactive"><a href="#cha-cap-ccdb-secret-rotation"><span class="number">19 </span><span class="name">Cloud Controller Database Secret Rotation</span></a></li><li class="inactive"><a href="#cha-cap-secrets-rotation"><span class="number">20 </span><span class="name">Rotating Automatically Generated Secrets</span></a></li><li class="inactive"><a href="#cha-cap-backup-restore"><span class="number">21 </span><span class="name">Backup and Restore</span></a></li><li class="inactive"><a href="#cha-cap-service-brokers"><span class="number">22 </span><span class="name">Service Brokers</span></a></li><li class="inactive"><a href="#cha-cap-app-autoscaler"><span class="number">23 </span><span class="name">App-AutoScaler</span></a></li><li class="inactive"><a href="#cha-cap-credhub"><span class="number">24 </span><span class="name">Integrating CredHub with SUSE Cloud Application Platform</span></a></li><li class="inactive"><a href="#cha-cap-buildpacks"><span class="number">25 </span><span class="name">Buildpacks</span></a></li></ol></li><li class="inactive"><a href="#part-cap-user-guide"><span class="number">IV </span><span class="name">SUSE Cloud Application Platform User Guide</span></a><ol><li class="inactive"><a href="#cha-cap-cf-cli"><span class="number">26 </span><span class="name">Deploying and Managing Applications with the Cloud Foundry Client</span></a></li></ol></li><li class="inactive"><a href="#part-cap-troubleshooting"><span class="number">V </span><span class="name">Troubleshooting</span></a><ol><li class="inactive"><a href="#cha-cap-depl-troubleshooting"><span class="number">27 </span><span class="name">Troubleshooting</span></a></li></ol></li><li class="inactive"><a href="#id-1.3.8"><span class="number">A </span><span class="name">Appendix</span></a></li><li class="inactive"><a href="#id-1.3.9"><span class="number">B </span><span class="name">GNU Licenses</span></a></li></ol></div><div class="clearme"></div></div></div></div><div id="_toc-bubble-wrap"></div><div id="_content" class="draft "><div class="documentation"><div xml:lang="en" class="book" id="book-cap-guides" lang="en"><div class="titlepage"><div><h6 class="version-info"><span class="productname ">SUSE Cloud Application Platform</span> <span class="productnumber ">2.1.1</span></h6><div><h1 class="title"><em class="citetitle ">Deployment, Administration, and User Guide</em>s</h1></div><div class="abstract "><p>
+</script></head><body class="draft single offline js-off" onload="$('#betawarn-button-wrap').toggle();if (document.cookie.length > 0) {if (document.cookie.indexOf('betawarn=closed') != -1){$('#betawarn').toggle()}};"><div id="betawarn" style="position:fixed;bottom:0;z-index:9025;background-color:#FDE8E8;padding:1em;margin-left:10%;margin-right:10%;display:block;border-top:.75em solid #E11;width:80%"><p style="color:#333;margin:1em 0;padding:0;">This is a draft document that was built and uploaded automatically. It may document beta software and be incomplete or even incorrect. <strong>Use this document at your own risk.</strong></p> <div id="betawarn-button-wrap" style="display:none;margin:0;padding:0;"><a href="#" onclick="$('#betawarn').toggle();var d=new Date();d.setTime(d.getTime()+(0.5*24*60*60*1000));document.cookie='betawarn=closed; expires='+d.toUTCString()+'; path=/'; return false;" style="color:#333;text-decoration:underline;float:left;margin-top:.5em;padding:1em;display:block;background-color:#FABEBE;">I understand this is a draft</a></div></div><div class="bypass-block"><a href="#_content">Jump to content</a></div><div id="_outer-wrap"><div id="_white-bg" style="background-color: #E11;"><div id="_header"><div id="_logo"><img src="static/images/logo.svg" alt="Logo" /></div><div class="crumbs inactive"><a class="single-crumb" href="#book-cap-guides" accesskey="c"><span class="single-contents-icon"></span>Deployment, Administration, and User Guides</a><div class="bubble-corner active-contents"></div></div><div class="clearme"></div></div></div><div id="_fixed-header-wrap" style="background-color: #E11;" class="inactive"><div id="_fixed-header"><div class="crumbs inactive"><a class="single-crumb" href="#book-cap-guides" accesskey="c"><span class="single-contents-icon"></span>Show Contents: Deployment, Administration, and User Guides</a></div><div class="buttons"><a class="top-button button" href="#">Top</a><div class="clearme"></div></div><div class="clearme"></div></div><div class="active-contents bubble"><div class="bubble-container"><div id="_bubble-toc"><ol><li class="inactive"><a href="#preface-deployment"><span class="number"> </span><span class="name">About This Guide</span></a></li><li class="inactive"><a href="#part-cap-overview"><span class="number">I </span><span class="name">Overview of SUSE Cloud Application Platform</span></a><ol><li class="inactive"><a href="#cha-cap-overview"><span class="number">1 </span><span class="name">About SUSE Cloud Application Platform</span></a></li><li class="inactive"><a href="#cha-cap-depl-kube-requirements"><span class="number">2 </span><span class="name">Other Kubernetes Systems</span></a></li></ol></li><li class="inactive"><a href="#part-cap-deployment"><span class="number">II </span><span class="name">Deploying SUSE Cloud Application Platform</span></a><ol><li class="inactive"><a href="#cha-cap-depl-notes"><span class="number">3 </span><span class="name">Deployment and Administration Notes</span></a></li><li class="inactive"><a href="#cha-cap-depl-caasp"><span class="number">4 </span><span class="name">Deploying SUSE Cloud Application Platform on SUSE CaaS Platform</span></a></li><li class="inactive"><a href="#cha-cap-depl-aks"><span class="number">5 </span><span class="name">Deploying SUSE Cloud Application Platform on Microsoft Azure Kubernetes Service (AKS)</span></a></li><li class="inactive"><a href="#cha-cap-depl-eks"><span class="number">6 </span><span class="name">Deploying SUSE Cloud Application Platform on Amazon Elastic Kubernetes Service (EKS)</span></a></li><li class="inactive"><a href="#cha-cap-depl-gke"><span class="number">7 </span><span class="name">Deploying SUSE Cloud Application Platform on Google Kubernetes Engine (GKE)</span></a></li><li class="inactive"><a href="#cha-cap-install-stratos"><span class="number">8 </span><span class="name">Installing the Stratos Web Console</span></a></li><li class="inactive"><a href="#cha-cap-depl-eirini"><span class="number">9 </span><span class="name">Eirini</span></a></li><li class="inactive"><a href="#cha-cap-depl-terraform"><span class="number">10 </span><span class="name">Deploying SUSE Cloud Application Platform Using Terraform</span></a></li><li class="inactive"><a href="#cha-cap-depl-air-gap-registry"><span class="number">11 </span><span class="name">Setting Up a Registry for an Air Gapped Environment</span></a></li><li class="inactive"><a href="#cha-cap-depl-private-registry"><span class="number">12 </span><span class="name">SUSE Private Registry</span></a></li></ol></li><li class="inactive"><a href="#part-cap-administration"><span class="number">III </span><span class="name">SUSE Cloud Application Platform Administration</span></a><ol><li class="inactive"><a href="#cha-cap-upgrade"><span class="number">13 </span><span class="name">Upgrading SUSE Cloud Application Platform</span></a></li><li class="inactive"><a href="#cha-cap-configuration-changes"><span class="number">14 </span><span class="name">Configuration Changes</span></a></li><li class="inactive"><a href="#cha-cap-create-admin-user"><span class="number">15 </span><span class="name">Creating Admin Users</span></a></li><li class="inactive"><a href="#cha-cap-manage-passwords"><span class="number">16 </span><span class="name">Managing Passwords</span></a></li><li class="inactive"><a href="#cha-cap-uaa-ui"><span class="number">17 </span><span class="name">Accessing the UAA User Interface</span></a></li><li class="inactive"><a href="#cha-cap-memory-limits"><span class="number">18 </span><span class="name">Container Memory Limits and Requests</span></a></li><li class="inactive"><a href="#cha-cap-ccdb-secret-rotation"><span class="number">19 </span><span class="name">Cloud Controller Database Secret Rotation</span></a></li><li class="inactive"><a href="#cha-cap-secrets-rotation"><span class="number">20 </span><span class="name">Rotating Automatically Generated Secrets</span></a></li><li class="inactive"><a href="#cha-cap-backup-restore"><span class="number">21 </span><span class="name">Backup and Restore</span></a></li><li class="inactive"><a href="#cha-cap-service-brokers"><span class="number">22 </span><span class="name">Service Brokers</span></a></li><li class="inactive"><a href="#cha-cap-app-autoscaler"><span class="number">23 </span><span class="name">App-AutoScaler</span></a></li><li class="inactive"><a href="#cha-cap-credhub"><span class="number">24 </span><span class="name">Integrating CredHub with SUSE Cloud Application Platform</span></a></li><li class="inactive"><a href="#cha-cap-buildpacks"><span class="number">25 </span><span class="name">Buildpacks</span></a></li></ol></li><li class="inactive"><a href="#part-cap-user-guide"><span class="number">IV </span><span class="name">SUSE Cloud Application Platform User Guide</span></a><ol><li class="inactive"><a href="#cha-cap-cf-cli"><span class="number">26 </span><span class="name">Deploying and Managing Applications with the Cloud Foundry Client</span></a></li></ol></li><li class="inactive"><a href="#part-cap-troubleshooting"><span class="number">V </span><span class="name">Troubleshooting</span></a><ol><li class="inactive"><a href="#cha-cap-depl-troubleshooting"><span class="number">27 </span><span class="name">Troubleshooting</span></a></li></ol></li><li class="inactive"><a href="#id-1.3.8"><span class="number">A </span><span class="name">Appendix</span></a></li><li class="inactive"><a href="#id-1.3.9"><span class="number">B </span><span class="name">GNU Licenses</span></a></li></ol></div><div class="clearme"></div></div></div></div><div id="_toc-bubble-wrap"></div><div id="_content" class="draft "><div class="documentation"><div xml:lang="en" class="book" id="book-cap-guides" lang="en"><div class="titlepage"><div><h6 class="version-info"><span class="productname ">SUSE Cloud Application Platform</span> <span class="productnumber ">2.1.1</span></h6><div><h1 class="title"><em class="citetitle ">Deployment, Administration, and User Guide</em>s</h1></div><div class="abstract "><p>
     Introducing SUSE Cloud Application Platform, a software platform for cloud-native application
     deployment based on KubeCF and Kubernetes.
    </p></div><div class="authorgroup"><div><span class="imprint-label">Authors: </span><span class="firstname ">Carla</span> <span class="surname ">Schroder</span>, <span class="firstname ">Billy</span> <span class="surname ">Tat</span>, <span class="firstname ">Claudia-Amelia</span> <span class="surname ">Marin</span>, and <span class="firstname ">Lukas</span> <span class="surname ">Kucharczyk</span></div></div><div class="date"><span class="imprint-label">Publication Date: </span>
-June 15, 2021
+July 06, 2021
 </div></div></div><div class="toc"><dl><dt><span class="preface"><a href="#preface-deployment"><span class="name">About This Guide</span></a></span></dt><dd><dl><dt><span class="sect1"><a href="#id-1.3.2.6"><span class="name">Required Background</span></a></span></dt><dt><span class="sect1"><a href="#id-1.3.2.7"><span class="name">Available Documentation</span></a></span></dt><dt><span class="sect1"><a href="#id-1.3.2.8"><span class="name">Feedback</span></a></span></dt><dt><span class="sect1"><a href="#id-1.3.2.9"><span class="name">Documentation Conventions</span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-support-statement"><span class="name">Support Statement for SUSE Cloud Application Platform</span></a></span></dt><dt><span class="sect1"><a href="#id-1.3.2.11"><span class="name">About the Making of This Documentation</span></a></span></dt></dl></dd><dt><span class="part"><a href="#part-cap-overview"><span class="number">I </span><span class="name">Overview of SUSE Cloud Application Platform</span></a></span></dt><dd><dl><dt><span class="chapter"><a href="#cha-cap-overview"><span class="number">1 </span><span class="name">About SUSE Cloud Application Platform</span></a></span></dt><dd><dl><dt><span class="sect1"><a href="#sec-cap-overview"><span class="number">1.1 </span><span class="name">SUSE Cloud Application Platform Overview</span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-architecture"><span class="number">1.2 </span><span class="name">SUSE Cloud Application Platform Architecture</span></a></span></dt></dl></dd><dt><span class="chapter"><a href="#cha-cap-depl-kube-requirements"><span class="number">2 </span><span class="name">Other Kubernetes Systems</span></a></span></dt><dd><dl><dt><span class="sect1"><a href="#sec-cap-changes-kube-reqs"><span class="number">2.1 </span><span class="name">Kubernetes Requirements</span></a></span></dt></dl></dd></dl></dd><dt><span class="part"><a href="#part-cap-deployment"><span class="number">II </span><span class="name">Deploying SUSE Cloud Application Platform</span></a></span></dt><dd><dl><dt><span class="chapter"><a href="#cha-cap-depl-notes"><span class="number">3 </span><span class="name">Deployment and Administration Notes</span></a></span></dt><dd><dl><dt><span class="sect1"><a href="#id-1.3.4.3.3"><span class="number">3.1 </span><span class="name">Important Changes</span></a></span></dt><dt><span class="sect1"><a href="#sec-pod-status"><span class="number">3.2 </span><span class="name">Status of Pods during Deployment</span></a></span></dt><dt><span class="sect1"><a href="#id-1.3.4.3.5"><span class="number">3.3 </span><span class="name">Length of Release Names</span></a></span></dt><dt><span class="sect1"><a href="#cha-cap-depl-notes-releases"><span class="number">3.4 </span><span class="name">Releases and Associated Versions</span></a></span></dt></dl></dd><dt><span class="chapter"><a href="#cha-cap-depl-caasp"><span class="number">4 </span><span class="name">Deploying SUSE Cloud Application Platform on SUSE CaaS Platform</span></a></span></dt><dd><dl><dt><span class="sect1"><a href="#sec-cap-prereqs-caasp"><span class="number">4.1 </span><span class="name">Prerequisites</span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-create-caasp-cluster"><span class="number">4.2 </span><span class="name">Creating a SUSE CaaS Platform Cluster</span></a></span></dt><dt><span class="sect1"><a href="#id-1.3.4.4.6"><span class="number">4.3 </span><span class="name">Install the Helm Client</span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-caasp-storage"><span class="number">4.4 </span><span class="name">Storage Class</span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-caasp-config"><span class="number">4.5 </span><span class="name">Deployment Configuration</span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-caasp-certificates"><span class="number">4.6 </span><span class="name">
   Certificates
  </span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-caasp-ingress"><span class="number">4.7 </span><span class="name">
@@ -213,16 +210,16 @@ June 15, 2021
     Commands that can be run by non-privileged users.
    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code><code class="command">command</code></pre></div></li><li class="listitem "><p>
     Notices
-   </p><div id="id-1.3.2.9.4.13.2" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.png" /><h6>Warning: Warning Notice</h6><p>
+   </p><div id="id-1.3.2.9.4.13.2" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.svg" /><h6>Warning: Warning Notice</h6><p>
      Vital information you must be aware of before proceeding. Warns you about
      security issues, potential loss of data, damage to hardware, or physical
      hazards.
-    </p></div><div id="id-1.3.2.9.4.13.3" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important: Important Notice</h6><p>
+    </p></div><div id="id-1.3.2.9.4.13.3" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.svg" /><h6>Important: Important Notice</h6><p>
      Important information you should be aware of before proceeding.
-    </p></div><div id="id-1.3.2.9.4.13.4" class="admonition note normal"><img class="symbol" alt="Note" title="Note" src="static/images/icon-note.png" /><h6>Note: Note Notice</h6><p>
+    </p></div><div id="id-1.3.2.9.4.13.4" class="admonition note normal"><img class="symbol" alt="Note" title="Note" src="static/images/icon-note.svg" /><h6>Note: Note Notice</h6><p>
      Additional information, for example about differences in software
      versions.
-    </p></div><div id="id-1.3.2.9.4.13.5" class="admonition tip normal"><img class="symbol" alt="Tip" title="Tip" src="static/images/icon-tip.png" /><h6>Tip: Tip Notice</h6><p>
+    </p></div><div id="id-1.3.2.9.4.13.5" class="admonition tip normal"><img class="symbol" alt="Tip" title="Tip" src="static/images/icon-tip.svg" /><h6>Tip: Tip Notice</h6><p>
      Helpful information, like a guideline or a piece of practical advice.
     </p></div></li></ul></div></div><div class="sect1 " id="sec-cap-support-statement"><div class="titlepage"><div><div><h2 class="title"><span class="number">5 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Support Statement for SUSE Cloud Application Platform</span> <a title="Permalink" class="permalink" href="#sec-cap-support-statement">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>common_intro_support_statement_i.xml</li><li><span class="ds-label">ID: </span>sec-cap-support-statement</li></ul></div></div></div></div><p>
   To receive support, you need an appropriate subscription with SUSE. For more
@@ -313,7 +310,7 @@ June 15, 2021
   </p></dd><dt><span class="chapter"><a href="#cha-cap-depl-kube-requirements"><span class="number">2 </span><span class="name">Other Kubernetes Systems</span></a></span></dt><dd class="toc-abstract"><p>
    SUSE Cloud Application Platform is designed to run on any Kubernetes system that meets the
    following requirements:
-  </p></dd></dl></div><div class="chapter " id="cha-cap-overview"><div class="titlepage"><div><div><h2 class="title"><span class="number">1 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">About SUSE Cloud Application Platform</span> <a title="Permalink" class="permalink" href="#cha-cap-overview">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_overview.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><div class="line"><div class="toc"><dl><dt><span class="sect1"><a href="#sec-cap-overview"><span class="number">1.1 </span><span class="name">SUSE Cloud Application Platform Overview</span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-architecture"><span class="number">1.2 </span><span class="name">SUSE Cloud Application Platform Architecture</span></a></span></dt></dl></div></div><div id="id-1.3.3.3.2" class="admonition tip normal"><img class="symbol" alt="Tip" title="Tip" src="static/images/icon-tip.png" /><h6>Tip: Read the Release Notes</h6><p>
+  </p></dd></dl></div><div class="chapter " id="cha-cap-overview"><div class="titlepage"><div><div><h2 class="title"><span class="number">1 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">About SUSE Cloud Application Platform</span> <a title="Permalink" class="permalink" href="#cha-cap-overview">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_overview.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><div class="line"><div class="toc"><dl><dt><span class="sect1"><a href="#sec-cap-overview"><span class="number">1.1 </span><span class="name">SUSE Cloud Application Platform Overview</span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-architecture"><span class="number">1.2 </span><span class="name">SUSE Cloud Application Platform Architecture</span></a></span></dt></dl></div></div><div id="id-1.3.3.3.2" class="admonition tip normal"><img class="symbol" alt="Tip" title="Tip" src="static/images/icon-tip.svg" /><h6>Tip: Read the Release Notes</h6><p>
    Make sure to review the release notes for SUSE Cloud Application Platform published at
    <a class="link" href="https://www.suse.com/releasenotes/x86_64/SUSE-CAP/2.0/" target="_blank">https://www.suse.com/releasenotes/x86_64/SUSE-CAP/2.0/</a>.
   </p></div><div class="sect1 " id="sec-cap-overview"><div class="titlepage"><div><div><h2 class="title"><span class="number">1.1 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">SUSE Cloud Application Platform Overview</span> <a title="Permalink" class="permalink" href="#sec-cap-overview">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_overview.xml</li><li><span class="ds-label">ID: </span>sec-cap-overview</li></ul></div></div></div></div><p>
@@ -886,7 +883,7 @@ tcp-router-0                0/5     Init:5/11    0          6m37s
 uaa-0                       0/6     Init:8/13    0          6m36s</pre></div></div><div class="sect1 " id="id-1.3.4.3.5"><div class="titlepage"><div><div><h2 class="title"><span class="number">3.3 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Length of Release Names</span> <a title="Permalink" class="permalink" href="#id-1.3.4.3.5">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_admin_notes.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><p>
   Release names (for example, when you run <code class="command">helm install
   RELEASE_NAME</code>) have a maximum length of 36 characters.
- </p></div><div class="sect1 " id="cha-cap-depl-notes-releases"><div class="titlepage"><div><div><h2 class="title"><span class="number">3.4 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Releases and Associated Versions</span> <a title="Permalink" class="permalink" href="#cha-cap-depl-notes-releases">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_admin_notes.xml</li><li><span class="ds-label">ID: </span>cha-cap-depl-notes-releases</li></ul></div></div></div></div><div id="id-1.3.4.3.6.2" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.png" /><h6>Warning: KubeCF and cf-operator versions</h6><p>
+ </p></div><div class="sect1 " id="cha-cap-depl-notes-releases"><div class="titlepage"><div><div><h2 class="title"><span class="number">3.4 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Releases and Associated Versions</span> <a title="Permalink" class="permalink" href="#cha-cap-depl-notes-releases">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_admin_notes.xml</li><li><span class="ds-label">ID: </span>cha-cap-depl-notes-releases</li></ul></div></div></div></div><div id="id-1.3.4.3.6.2" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.svg" /><h6>Warning: KubeCF and cf-operator versions</h6><p>
    KubeCF and cf-operator interoperate closely. Before you deploy a
    specific version combination, make sure they were confirmed to work. For more
    information see <a class="xref" href="#cha-cap-depl-notes-releases" title="3.4. Releases and Associated Versions">Section 3.4, “Releases and Associated Versions”</a>.
@@ -908,7 +905,7 @@ uaa-0                       0/6     Init:8/13    0          6m36s</pre></div></d
   External Database
  </span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-addrepo-caasp"><span class="number">4.12 </span><span class="name">Add the Kubernetes Charts Repository</span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-cap-on-caasp"><span class="number">4.13 </span><span class="name">Deploying SUSE Cloud Application Platform</span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-caasp-ldap"><span class="number">4.14 </span><span class="name">
   LDAP Integration
- </span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-caasp-add-capacity"><span class="number">4.15 </span><span class="name">Expanding Capacity of a Cloud Application Platform Deployment on SUSE® CaaS Platform</span></a></span></dt></dl></div></div><div id="id-1.3.4.4.2" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important</h6><p>
+ </span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-caasp-add-capacity"><span class="number">4.15 </span><span class="name">Expanding Capacity of a Cloud Application Platform Deployment on SUSE® CaaS Platform</span></a></span></dt></dl></div></div><div id="id-1.3.4.4.2" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.svg" /><h6>Important</h6><p>
   Before you start deploying SUSE Cloud Application Platform, review the following documents:
   </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
         <a class="link" href="https://www.suse.com/releasenotes/x86_64/SUSE-CAP/2.0/" target="_blank">
@@ -1051,7 +1048,7 @@ uaa-0                       0/6     Init:8/13    0          6m36s</pre></div></d
    remote management workstation. Cloud Application Platform requires Helm 3.
    For more information regarding Helm, refer to the documentation at
    <a class="link" href="https://helm.sh/docs/" target="_blank">https://helm.sh/docs/</a>.
-  </p><div id="id-1.3.4.4.6.3" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.png" /><h6>Warning</h6><p>Make sure that you are installing and using Helm 3 and not Helm 2.</p></div><p>
+  </p><div id="id-1.3.4.4.6.3" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.svg" /><h6>Warning</h6><p>Make sure that you are installing and using Helm 3 and not Helm 2.</p></div><p>
    If your remote management workstation has the SUSE CaaS Platform package repository,
    install <code class="command">helm</code> by running
   </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>sudo zypper install helm3
@@ -1103,7 +1100,7 @@ sed 's/"namespace": "default"/"namespace": "kubecf"/' | kubectl create --filenam
    <code class="filename">values.yaml</code> file, called
    <code class="filename">kubecf-config-values.yaml</code> in this guide, provides an
    example of a SUSE Cloud Application Platform configuration.
-  </p><div id="id-1.3.4.4.8.3" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.png" /><h6>Warning: kubecf-config-values.yaml changes</h6><p>
+  </p><div id="id-1.3.4.4.8.3" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.svg" /><h6>Warning: kubecf-config-values.yaml changes</h6><p>
     The format of the <code class="filename">kubecf-config-values.yaml</code> file has been restructured completely in
     Cloud Application Platform 2.x. Do not re-use the Cloud Application Platform 1.x version of the file. Instead, see the
     default file in the appendix in
@@ -1113,7 +1110,7 @@ sed 's/"namespace": "default"/"namespace": "kubecf"/' | kubectl create --filenam
    Ensure <code class="literal">system_domain</code> maps to the load balancer configured for
    your SUSE CaaS Platform cluster (see
    <a class="link" href="https://documentation.suse.com/suse-caasp/4.5/single-html/caasp-deployment/#loadbalancer" target="_blank">https://documentation.suse.com/suse-caasp/4.5/single-html/caasp-deployment/#loadbalancer</a>).
-  </p><div id="id-1.3.4.4.8.5" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.png" /><h6>Warning: Supported Domains</h6><p>
+  </p><div id="id-1.3.4.4.8.5" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.svg" /><h6>Warning: Supported Domains</h6><p>
    When selecting a domain, SUSE Cloud Application Platform expects <code class="literal">system_domain</code> to
    be either a subdomain or a root domain. Setting <code class="literal">system_domain</code> to
    a top-level domain, such as <code class="literal">suse</code>, is not supported.
@@ -1298,7 +1295,7 @@ nginx-ingress-controller   LoadBalancer   <em class="replaceable ">10.63.248.70<
         to2WV7rPMb9W9fd2vVUXKKHTc+PiNg==
         -----END RSA PRIVATE KEY-----</pre></div></li></ol></div></div></div></div><div class="sect1 " id="sec-cap-caasp-affinity"><div class="titlepage"><div><div><h2 class="title"><span class="number">4.8 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">
   Affinity and Anti-affinity
- </span> <a title="Permalink" class="permalink" href="#sec-cap-caasp-affinity">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_caasp.xml</li><li><span class="ds-label">ID: </span>sec-cap-caasp-affinity</li></ul></div></div></div></div><div id="id-1.3.4.4.11.2" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important</h6><p>
+ </span> <a title="Permalink" class="permalink" href="#sec-cap-caasp-affinity">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_caasp.xml</li><li><span class="ds-label">ID: </span>sec-cap-caasp-affinity</li></ul></div></div></div></div><div id="id-1.3.4.4.11.2" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.svg" /><h6>Important</h6><p>
    This feature requires SUSE Cloud Application Platform 2.0.1 or newer.
   </p></div><p>
   Operators can set affinity/anti-affinity rules to restrict how the scheduler
@@ -1433,12 +1430,12 @@ perl -ne '/^sizing/..0 and do { print $.,":",$_ if /^ [a-z]/ || /high avail|scal
     <code class="literal">true</code>. This changes the size of all roles to the minimum
     required for a highly available deployment. Your configuration file,
     <code class="filename">kubecf-config-values.yaml</code>, should include the following.
-   </p><div class="verbatim-wrap"><pre class="screen">high_availability: true</pre></div><div id="id-1.3.4.4.12.2.5.4" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important: Sizing Priority</h6><p>
+   </p><div class="verbatim-wrap"><pre class="screen">high_availability: true</pre></div><div id="id-1.3.4.4.12.2.5.4" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.svg" /><h6>Important: Sizing Priority</h6><p>
    When sizing values are specified, it takes precedence over the <code class="literal">high_availability</code> property.
   </p></div></div><div class="sect3 " id="id-1.3.4.4.12.2.6"><div class="titlepage"><div><div><h4 class="title"><span class="number">4.9.1.3 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Using Custom Sizing Configurations</span> <a title="Permalink" class="permalink" href="#id-1.3.4.4.12.2.6">#</a></h4><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_caasp.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><p>
     Another method to make your SUSE Cloud Application Platform deployment highly available is           
     to explicitly configure the instance count of an instance group.
-   </p><div id="id-1.3.4.4.12.2.6.3" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important: Sizing Priority</h6><p>
+   </p><div id="id-1.3.4.4.12.2.6.3" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.svg" /><h6>Important: Sizing Priority</h6><p>
    When sizing values are specified, it takes precedence over the <code class="literal">high_availability</code> property.
   </p></div><p>
     To see the full list of configurable instance groups, refer to default
@@ -1555,7 +1552,7 @@ perl -ne '/^sizing/..0 and do { print $.,":",$_ if /^ [a-z]/ || /high avail|scal
    deployment and configuration of the external database itself is the
    responsibility of the operator and beyond the scope of this documentation. It
    is assumed the external database has been deployed and accessible.
-  </p><div id="id-1.3.4.4.14.6.3" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important: Configuration during Initial Install Only</h6><p>
+  </p><div id="id-1.3.4.4.14.6.3" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.svg" /><h6>Important: Configuration during Initial Install Only</h6><p>
     Configuration of SUSE Cloud Application Platform to use an external database
     <span class="bold"><strong>must</strong></span> be done during the initial
     installation and cannot be changed afterwards.
@@ -1628,7 +1625,7 @@ suse/kubecf                     2.7.13                2.1.1          A Helm char
 suse/metrics                    1.3.0                2.1.1          A Helm chart for Stratos Metrics
 suse/minibroker                 1.2.0                               A minibroker for your minikube
 suse/nginx-ingress              0.28.4               0.15.0         An nginx Ingress controller that uses ConfigMap to store ...
-...</pre></div></div><div class="sect1 " id="sec-cap-cap-on-caasp"><div class="titlepage"><div><div><h2 class="title"><span class="number">4.13 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Deploying SUSE Cloud Application Platform</span> <a title="Permalink" class="permalink" href="#sec-cap-cap-on-caasp">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_caasp.xml</li><li><span class="ds-label">ID: </span>sec-cap-cap-on-caasp</li></ul></div></div></div></div><div id="id-1.3.4.4.16.2" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.png" /><h6>Warning: KubeCF and cf-operator versions</h6><p>
+...</pre></div></div><div class="sect1 " id="sec-cap-cap-on-caasp"><div class="titlepage"><div><div><h2 class="title"><span class="number">4.13 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Deploying SUSE Cloud Application Platform</span> <a title="Permalink" class="permalink" href="#sec-cap-cap-on-caasp">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_caasp.xml</li><li><span class="ds-label">ID: </span>sec-cap-cap-on-caasp</li></ul></div></div></div></div><div id="id-1.3.4.4.16.2" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.svg" /><h6>Warning: KubeCF and cf-operator versions</h6><p>
    KubeCF and cf-operator interoperate closely. Before you deploy a
    specific version combination, make sure they were confirmed to work. For more
    information see <a class="xref" href="#cha-cap-depl-notes-releases" title="3.4. Releases and Associated Versions">Section 3.4, “Releases and Associated Versions”</a>.
@@ -1891,7 +1888,7 @@ User:           username@ldap.example.com</pre></div></li></ol></div></div></div
   External Database
  </span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-addrepo-aks"><span class="number">5.12 </span><span class="name">Add the Kubernetes Charts Repository</span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-cap-on-aks"><span class="number">5.13 </span><span class="name">Deploying SUSE Cloud Application Platform</span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-aks-ldap"><span class="number">5.14 </span><span class="name">
   LDAP Integration
- </span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-aks-add-capacity"><span class="number">5.15 </span><span class="name">Expanding Capacity of a Cloud Application Platform Deployment on Microsoft AKS</span></a></span></dt></dl></div></div><div id="id-1.3.4.5.2" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important</h6><p>
+ </span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-aks-add-capacity"><span class="number">5.15 </span><span class="name">Expanding Capacity of a Cloud Application Platform Deployment on Microsoft AKS</span></a></span></dt></dl></div></div><div id="id-1.3.4.5.2" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.svg" /><h6>Important</h6><p>
   Before you start deploying SUSE Cloud Application Platform, review the following documents:
   </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
         <a class="link" href="https://www.suse.com/releasenotes/x86_64/SUSE-CAP/2.0/" target="_blank">
@@ -2008,7 +2005,7 @@ User:           username@ldap.example.com</pre></div></li></ol></div></div></div
    remote management workstation. Cloud Application Platform requires Helm 3.
    For more information regarding Helm, refer to the documentation at
    <a class="link" href="https://helm.sh/docs/" target="_blank">https://helm.sh/docs/</a>.
-  </p><div id="id-1.3.4.5.7.3" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.png" /><h6>Warning</h6><p>Make sure that you are installing and using Helm 3 and not Helm 2.</p></div><p>
+  </p><div id="id-1.3.4.5.7.3" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.svg" /><h6>Warning</h6><p>Make sure that you are installing and using Helm 3 and not Helm 2.</p></div><p>
    If your remote management workstation has the SUSE CaaS Platform package repository,
    install <code class="command">helm</code> by running
   </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>sudo zypper install helm3
@@ -2047,13 +2044,13 @@ User:           username@ldap.example.com</pre></div></li></ol></div></div></div
   storage_class: <em class="replaceable ">my-storage-class</em></pre></div></div><div class="sect1 " id="sec-cap-aks-config"><div class="titlepage"><div><div><h2 class="title"><span class="number">5.5 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Deployment Configuration</span> <a title="Permalink" class="permalink" href="#sec-cap-aks-config">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_aks.xml</li><li><span class="ds-label">ID: </span>sec-cap-aks-config</li></ul></div></div></div></div><p>
    The following file, <code class="filename">kubecf-config-values.yaml</code>, provides a
    minimal example deployment configuration.
-  </p><div id="id-1.3.4.5.9.3" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.png" /><h6>Warning: kubecf-config-values.yaml changes</h6><p>
+  </p><div id="id-1.3.4.5.9.3" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.svg" /><h6>Warning: kubecf-config-values.yaml changes</h6><p>
     The format of the <code class="filename">kubecf-config-values.yaml</code> file has been restructured completely in
     Cloud Application Platform 2.x. Do not re-use the Cloud Application Platform 1.x version of the file. Instead, see the
     default file in the appendix in
     <a class="xref" href="#app-kubecf-values-yaml" title="A.1. Complete suse/kubecf values.yaml File">Section A.1, “Complete suse/kubecf values.yaml File”</a> and pick parameters according to
     your needs.
-  </p></div><div id="id-1.3.4.5.9.4" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.png" /><h6>Warning: Supported Domains</h6><p>
+  </p></div><div id="id-1.3.4.5.9.4" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.svg" /><h6>Warning: Supported Domains</h6><p>
    When selecting a domain, SUSE Cloud Application Platform expects <code class="literal">system_domain</code> to
    be either a subdomain or a root domain. Setting <code class="literal">system_domain</code> to
    a top-level domain, such as <code class="literal">suse</code>, is not supported.
@@ -2238,7 +2235,7 @@ nginx-ingress-controller   LoadBalancer   <em class="replaceable ">10.63.248.70<
         to2WV7rPMb9W9fd2vVUXKKHTc+PiNg==
         -----END RSA PRIVATE KEY-----</pre></div></li></ol></div></div></div></div><div class="sect1 " id="sec-cap-aks-affinity"><div class="titlepage"><div><div><h2 class="title"><span class="number">5.8 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">
   Affinity and Anti-affinity
- </span> <a title="Permalink" class="permalink" href="#sec-cap-aks-affinity">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_aks.xml</li><li><span class="ds-label">ID: </span>sec-cap-aks-affinity</li></ul></div></div></div></div><div id="id-1.3.4.5.12.2" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important</h6><p>
+ </span> <a title="Permalink" class="permalink" href="#sec-cap-aks-affinity">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_aks.xml</li><li><span class="ds-label">ID: </span>sec-cap-aks-affinity</li></ul></div></div></div></div><div id="id-1.3.4.5.12.2" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.svg" /><h6>Important</h6><p>
    This feature requires SUSE Cloud Application Platform 2.0.1 or newer.
   </p></div><p>
   Operators can set affinity/anti-affinity rules to restrict how the scheduler
@@ -2373,12 +2370,12 @@ perl -ne '/^sizing/..0 and do { print $.,":",$_ if /^ [a-z]/ || /high avail|scal
     <code class="literal">true</code>. This changes the size of all roles to the minimum
     required for a highly available deployment. Your configuration file,
     <code class="filename">kubecf-config-values.yaml</code>, should include the following.
-   </p><div class="verbatim-wrap"><pre class="screen">high_availability: true</pre></div><div id="id-1.3.4.5.13.2.5.4" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important: Sizing Priority</h6><p>
+   </p><div class="verbatim-wrap"><pre class="screen">high_availability: true</pre></div><div id="id-1.3.4.5.13.2.5.4" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.svg" /><h6>Important: Sizing Priority</h6><p>
    When sizing values are specified, it takes precedence over the <code class="literal">high_availability</code> property.
   </p></div></div><div class="sect3 " id="id-1.3.4.5.13.2.6"><div class="titlepage"><div><div><h4 class="title"><span class="number">5.9.1.3 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Using Custom Sizing Configurations</span> <a title="Permalink" class="permalink" href="#id-1.3.4.5.13.2.6">#</a></h4><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_aks.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><p>
     Another method to make your SUSE Cloud Application Platform deployment highly available is           
     to explicitly configure the instance count of an instance group.
-   </p><div id="id-1.3.4.5.13.2.6.3" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important: Sizing Priority</h6><p>
+   </p><div id="id-1.3.4.5.13.2.6.3" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.svg" /><h6>Important: Sizing Priority</h6><p>
    When sizing values are specified, it takes precedence over the <code class="literal">high_availability</code> property.
   </p></div><p>
     To see the full list of configurable instance groups, refer to default
@@ -2495,7 +2492,7 @@ perl -ne '/^sizing/..0 and do { print $.,":",$_ if /^ [a-z]/ || /high avail|scal
    deployment and configuration of the external database itself is the
    responsibility of the operator and beyond the scope of this documentation. It
    is assumed the external database has been deployed and accessible.
-  </p><div id="id-1.3.4.5.15.6.3" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important: Configuration during Initial Install Only</h6><p>
+  </p><div id="id-1.3.4.5.15.6.3" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.svg" /><h6>Important: Configuration during Initial Install Only</h6><p>
     Configuration of SUSE Cloud Application Platform to use an external database
     <span class="bold"><strong>must</strong></span> be done during the initial
     installation and cannot be changed afterwards.
@@ -2571,7 +2568,7 @@ suse/nginx-ingress              0.28.4               0.15.0         An nginx Ing
 ...</pre></div></div><div class="sect1 " id="sec-cap-cap-on-aks"><div class="titlepage"><div><div><h2 class="title"><span class="number">5.13 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Deploying SUSE Cloud Application Platform</span> <a title="Permalink" class="permalink" href="#sec-cap-cap-on-aks">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_aks.xml</li><li><span class="ds-label">ID: </span>sec-cap-cap-on-aks</li></ul></div></div></div></div><p>
    This section describes how to deploy SUSE Cloud Application Platform with a Azure Standard SKU
    load balancer.
-  </p><div id="id-1.3.4.5.17.3" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.png" /><h6>Warning: KubeCF and cf-operator versions</h6><p>
+  </p><div id="id-1.3.4.5.17.3" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.svg" /><h6>Warning: KubeCF and cf-operator versions</h6><p>
    KubeCF and cf-operator interoperate closely. Before you deploy a
    specific version combination, make sure they were confirmed to work. For more
    information see <a class="xref" href="#cha-cap-depl-notes-releases" title="3.4. Releases and Associated Versions">Section 3.4, “Releases and Associated Versions”</a>.
@@ -2842,7 +2839,7 @@ User:           username@ldap.example.com</pre></div></li></ol></div></div></div
   External Database
  </span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-addrepo-eks"><span class="number">6.12 </span><span class="name">Add the Kubernetes Charts Repository</span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-cap-on-eks"><span class="number">6.13 </span><span class="name">Deploying SUSE Cloud Application Platform</span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-eks-ldap"><span class="number">6.14 </span><span class="name">
   LDAP Integration
- </span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-eks-add-capacity"><span class="number">6.15 </span><span class="name">Expanding Capacity of a Cloud Application Platform Deployment on Amazon EKS</span></a></span></dt></dl></div></div><div id="id-1.3.4.6.2" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important</h6><div id="id-1.3.4.6.2.1" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important</h6><p>
+ </span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-eks-add-capacity"><span class="number">6.15 </span><span class="name">Expanding Capacity of a Cloud Application Platform Deployment on Amazon EKS</span></a></span></dt></dl></div></div><div id="id-1.3.4.6.2" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.svg" /><h6>Important</h6><div id="id-1.3.4.6.2.1" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.svg" /><h6>Important</h6><p>
   Before you start deploying SUSE Cloud Application Platform, review the following documents:
   </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
         <a class="link" href="https://www.suse.com/releasenotes/x86_64/SUSE-CAP/2.0/" target="_blank">
@@ -2909,7 +2906,7 @@ User:           username@ldap.example.com</pre></div></li></ol></div></div></div
    remote management workstation. Cloud Application Platform requires Helm 3.
    For more information regarding Helm, refer to the documentation at
    <a class="link" href="https://helm.sh/docs/" target="_blank">https://helm.sh/docs/</a>.
-  </p><div id="id-1.3.4.6.6.3" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.png" /><h6>Warning</h6><p>Make sure that you are installing and using Helm 3 and not Helm 2.</p></div><p>
+  </p><div id="id-1.3.4.6.6.3" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.svg" /><h6>Warning</h6><p>Make sure that you are installing and using Helm 3 and not Helm 2.</p></div><p>
    If your remote management workstation has the SUSE CaaS Platform package repository,
    install <code class="command">helm</code> by running
   </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>sudo zypper install helm3
@@ -2948,13 +2945,13 @@ User:           username@ldap.example.com</pre></div></li></ol></div></div></div
   storage_class: <em class="replaceable ">my-storage-class</em></pre></div></div><div class="sect1 " id="sec-cap-eks-configuration"><div class="titlepage"><div><div><h2 class="title"><span class="number">6.5 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Deployment Configuration</span> <a title="Permalink" class="permalink" href="#sec-cap-eks-configuration">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_eks.xml</li><li><span class="ds-label">ID: </span>sec-cap-eks-configuration</li></ul></div></div></div></div><p>
    Use this example <code class="filename">kubecf-config-values.yaml</code> as a template
    for your configuration.
-  </p><div id="id-1.3.4.6.8.3" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.png" /><h6>Warning: kubecf-config-values.yaml changes</h6><p>
+  </p><div id="id-1.3.4.6.8.3" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.svg" /><h6>Warning: kubecf-config-values.yaml changes</h6><p>
     The format of the <code class="filename">kubecf-config-values.yaml</code> file has been restructured completely in
     Cloud Application Platform 2.x. Do not re-use the Cloud Application Platform 1.x version of the file. Instead, see the
     default file in the appendix in
     <a class="xref" href="#app-kubecf-values-yaml" title="A.1. Complete suse/kubecf values.yaml File">Section A.1, “Complete suse/kubecf values.yaml File”</a> and pick parameters according to
     your needs.
-  </p></div><div id="id-1.3.4.6.8.4" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.png" /><h6>Warning: Supported Domains</h6><p>
+  </p></div><div id="id-1.3.4.6.8.4" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.svg" /><h6>Warning: Supported Domains</h6><p>
    When selecting a domain, SUSE Cloud Application Platform expects <code class="literal">system_domain</code> to
    be either a subdomain or a root domain. Setting <code class="literal">system_domain</code> to
    a top-level domain, such as <code class="literal">suse</code>, is not supported.
@@ -3139,7 +3136,7 @@ nginx-ingress-controller   LoadBalancer   <em class="replaceable ">10.63.248.70<
         to2WV7rPMb9W9fd2vVUXKKHTc+PiNg==
         -----END RSA PRIVATE KEY-----</pre></div></li></ol></div></div></div></div><div class="sect1 " id="sec-cap-eks-affinity"><div class="titlepage"><div><div><h2 class="title"><span class="number">6.8 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">
   Affinity and Anti-affinity
- </span> <a title="Permalink" class="permalink" href="#sec-cap-eks-affinity">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_eks.xml</li><li><span class="ds-label">ID: </span>sec-cap-eks-affinity</li></ul></div></div></div></div><div id="id-1.3.4.6.11.2" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important</h6><p>
+ </span> <a title="Permalink" class="permalink" href="#sec-cap-eks-affinity">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_eks.xml</li><li><span class="ds-label">ID: </span>sec-cap-eks-affinity</li></ul></div></div></div></div><div id="id-1.3.4.6.11.2" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.svg" /><h6>Important</h6><p>
    This feature requires SUSE Cloud Application Platform 2.0.1 or newer.
   </p></div><p>
   Operators can set affinity/anti-affinity rules to restrict how the scheduler
@@ -3274,12 +3271,12 @@ perl -ne '/^sizing/..0 and do { print $.,":",$_ if /^ [a-z]/ || /high avail|scal
     <code class="literal">true</code>. This changes the size of all roles to the minimum
     required for a highly available deployment. Your configuration file,
     <code class="filename">kubecf-config-values.yaml</code>, should include the following.
-   </p><div class="verbatim-wrap"><pre class="screen">high_availability: true</pre></div><div id="id-1.3.4.6.12.2.5.4" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important: Sizing Priority</h6><p>
+   </p><div class="verbatim-wrap"><pre class="screen">high_availability: true</pre></div><div id="id-1.3.4.6.12.2.5.4" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.svg" /><h6>Important: Sizing Priority</h6><p>
    When sizing values are specified, it takes precedence over the <code class="literal">high_availability</code> property.
   </p></div></div><div class="sect3 " id="id-1.3.4.6.12.2.6"><div class="titlepage"><div><div><h4 class="title"><span class="number">6.9.1.3 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Using Custom Sizing Configurations</span> <a title="Permalink" class="permalink" href="#id-1.3.4.6.12.2.6">#</a></h4><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_eks.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><p>
     Another method to make your SUSE Cloud Application Platform deployment highly available is           
     to explicitly configure the instance count of an instance group.
-   </p><div id="id-1.3.4.6.12.2.6.3" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important: Sizing Priority</h6><p>
+   </p><div id="id-1.3.4.6.12.2.6.3" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.svg" /><h6>Important: Sizing Priority</h6><p>
    When sizing values are specified, it takes precedence over the <code class="literal">high_availability</code> property.
   </p></div><p>
     To see the full list of configurable instance groups, refer to default
@@ -3396,7 +3393,7 @@ perl -ne '/^sizing/..0 and do { print $.,":",$_ if /^ [a-z]/ || /high avail|scal
    deployment and configuration of the external database itself is the
    responsibility of the operator and beyond the scope of this documentation. It
    is assumed the external database has been deployed and accessible.
-  </p><div id="id-1.3.4.6.14.6.3" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important: Configuration during Initial Install Only</h6><p>
+  </p><div id="id-1.3.4.6.14.6.3" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.svg" /><h6>Important: Configuration during Initial Install Only</h6><p>
     Configuration of SUSE Cloud Application Platform to use an external database
     <span class="bold"><strong>must</strong></span> be done during the initial
     installation and cannot be changed afterwards.
@@ -3471,7 +3468,7 @@ suse/minibroker                 1.2.0                               A minibroker
 suse/nginx-ingress              0.28.4               0.15.0         An nginx Ingress controller that uses ConfigMap to store ...
 ...</pre></div></div><div class="sect1 " id="sec-cap-cap-on-eks"><div class="titlepage"><div><div><h2 class="title"><span class="number">6.13 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Deploying SUSE Cloud Application Platform</span> <a title="Permalink" class="permalink" href="#sec-cap-cap-on-eks">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_eks.xml</li><li><span class="ds-label">ID: </span>sec-cap-cap-on-eks</li></ul></div></div></div></div><p>
    This section describes how to deploy SUSE Cloud Application Platform on Amazon EKS.
-  </p><div id="id-1.3.4.6.16.3" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.png" /><h6>Warning: KubeCF and cf-operator versions</h6><p>
+  </p><div id="id-1.3.4.6.16.3" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.svg" /><h6>Warning: KubeCF and cf-operator versions</h6><p>
    KubeCF and cf-operator interoperate closely. Before you deploy a
    specific version combination, make sure they were confirmed to work. For more
    information see <a class="xref" href="#cha-cap-depl-notes-releases" title="3.4. Releases and Associated Versions">Section 3.4, “Releases and Associated Versions”</a>.
@@ -3742,7 +3739,7 @@ kubecf'</pre></div></li></ol></div></div></div></div><div class="chapter " id="c
   External Database
  </span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-addrepo-gke"><span class="number">7.13 </span><span class="name">Add the Kubernetes charts repository</span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-cap-on-gke"><span class="number">7.14 </span><span class="name">Deploying SUSE Cloud Application Platform</span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-gke-ldap"><span class="number">7.15 </span><span class="name">
   LDAP Integration
- </span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-gke-add-capacity"><span class="number">7.16 </span><span class="name">Expanding Capacity of a Cloud Application Platform Deployment on Google GKE</span></a></span></dt></dl></div></div><div id="id-1.3.4.7.2" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important</h6><p>
+ </span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-gke-add-capacity"><span class="number">7.16 </span><span class="name">Expanding Capacity of a Cloud Application Platform Deployment on Google GKE</span></a></span></dt></dl></div></div><div id="id-1.3.4.7.2" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.svg" /><h6>Important</h6><p>
   Before you start deploying SUSE Cloud Application Platform, review the following documents:
   </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
         <a class="link" href="https://www.suse.com/releasenotes/x86_64/SUSE-CAP/2.0/" target="_blank">
@@ -3869,7 +3866,7 @@ kubecf'</pre></div></li></ol></div></div></div></div><div class="chapter " id="c
    remote management workstation. Cloud Application Platform requires Helm 3.
    For more information regarding Helm, refer to the documentation at
    <a class="link" href="https://helm.sh/docs/" target="_blank">https://helm.sh/docs/</a>.
-  </p><div id="id-1.3.4.7.7.3" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.png" /><h6>Warning</h6><p>Make sure that you are installing and using Helm 3 and not Helm 2.</p></div><p>
+  </p><div id="id-1.3.4.7.7.3" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.svg" /><h6>Warning</h6><p>Make sure that you are installing and using Helm 3 and not Helm 2.</p></div><p>
    If your remote management workstation has the SUSE CaaS Platform package repository,
    install <code class="command">helm</code> by running
   </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>sudo zypper install helm3
@@ -3908,13 +3905,13 @@ kubecf'</pre></div></li></ol></div></div></div></div><div class="chapter " id="c
   storage_class: <em class="replaceable ">my-storage-class</em></pre></div></div><div class="sect1 " id="sec-cap-gke-config"><div class="titlepage"><div><div><h2 class="title"><span class="number">7.6 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Deployment Configuration</span> <a title="Permalink" class="permalink" href="#sec-cap-gke-config">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span>sec-cap-gke-config</li></ul></div></div></div></div><p>
    The following file, <code class="filename">kubecf-config-values.yaml</code>, provides a
    minimal example deployment configuration.
-  </p><div id="id-1.3.4.7.9.3" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.png" /><h6>Warning: kubecf-config-values.yaml changes</h6><p>
+  </p><div id="id-1.3.4.7.9.3" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.svg" /><h6>Warning: kubecf-config-values.yaml changes</h6><p>
     The format of the <code class="filename">kubecf-config-values.yaml</code> file has been restructured completely in
     Cloud Application Platform 2.x. Do not re-use the Cloud Application Platform 1.x version of the file. Instead, see the
     default file in the appendix in
     <a class="xref" href="#app-kubecf-values-yaml" title="A.1. Complete suse/kubecf values.yaml File">Section A.1, “Complete suse/kubecf values.yaml File”</a> and pick parameters according to
     your needs.
-  </p></div><div id="id-1.3.4.7.9.4" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.png" /><h6>Warning: Supported Domains</h6><p>
+  </p></div><div id="id-1.3.4.7.9.4" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.svg" /><h6>Warning: Supported Domains</h6><p>
    When selecting a domain, SUSE Cloud Application Platform expects <code class="literal">system_domain</code> to
    be either a subdomain or a root domain. Setting <code class="literal">system_domain</code> to
    a top-level domain, such as <code class="literal">suse</code>, is not supported.
@@ -4099,7 +4096,7 @@ nginx-ingress-controller   LoadBalancer   <em class="replaceable ">10.63.248.70<
         to2WV7rPMb9W9fd2vVUXKKHTc+PiNg==
         -----END RSA PRIVATE KEY-----</pre></div></li></ol></div></div></div></div><div class="sect1 " id="sec-cap-gke-affinity"><div class="titlepage"><div><div><h2 class="title"><span class="number">7.9 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">
   Affinity and Anti-affinity
- </span> <a title="Permalink" class="permalink" href="#sec-cap-gke-affinity">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span>sec-cap-gke-affinity</li></ul></div></div></div></div><div id="id-1.3.4.7.12.2" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important</h6><p>
+ </span> <a title="Permalink" class="permalink" href="#sec-cap-gke-affinity">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span>sec-cap-gke-affinity</li></ul></div></div></div></div><div id="id-1.3.4.7.12.2" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.svg" /><h6>Important</h6><p>
    This feature requires SUSE Cloud Application Platform 2.0.1 or newer.
   </p></div><p>
   Operators can set affinity/anti-affinity rules to restrict how the scheduler
@@ -4234,12 +4231,12 @@ perl -ne '/^sizing/..0 and do { print $.,":",$_ if /^ [a-z]/ || /high avail|scal
     <code class="literal">true</code>. This changes the size of all roles to the minimum
     required for a highly available deployment. Your configuration file,
     <code class="filename">kubecf-config-values.yaml</code>, should include the following.
-   </p><div class="verbatim-wrap"><pre class="screen">high_availability: true</pre></div><div id="id-1.3.4.7.13.2.5.4" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important: Sizing Priority</h6><p>
+   </p><div class="verbatim-wrap"><pre class="screen">high_availability: true</pre></div><div id="id-1.3.4.7.13.2.5.4" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.svg" /><h6>Important: Sizing Priority</h6><p>
    When sizing values are specified, it takes precedence over the <code class="literal">high_availability</code> property.
   </p></div></div><div class="sect3 " id="id-1.3.4.7.13.2.6"><div class="titlepage"><div><div><h4 class="title"><span class="number">7.10.1.3 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Using Custom Sizing Configurations</span> <a title="Permalink" class="permalink" href="#id-1.3.4.7.13.2.6">#</a></h4><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><p>
     Another method to make your SUSE Cloud Application Platform deployment highly available is           
     to explicitly configure the instance count of an instance group.
-   </p><div id="id-1.3.4.7.13.2.6.3" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important: Sizing Priority</h6><p>
+   </p><div id="id-1.3.4.7.13.2.6.3" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.svg" /><h6>Important: Sizing Priority</h6><p>
    When sizing values are specified, it takes precedence over the <code class="literal">high_availability</code> property.
   </p></div><p>
     To see the full list of configurable instance groups, refer to default
@@ -4356,7 +4353,7 @@ perl -ne '/^sizing/..0 and do { print $.,":",$_ if /^ [a-z]/ || /high avail|scal
    deployment and configuration of the external database itself is the
    responsibility of the operator and beyond the scope of this documentation. It
    is assumed the external database has been deployed and accessible.
-  </p><div id="id-1.3.4.7.15.6.3" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important: Configuration during Initial Install Only</h6><p>
+  </p><div id="id-1.3.4.7.15.6.3" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.svg" /><h6>Important: Configuration during Initial Install Only</h6><p>
     Configuration of SUSE Cloud Application Platform to use an external database
     <span class="bold"><strong>must</strong></span> be done during the initial
     installation and cannot be changed afterwards.
@@ -4432,7 +4429,7 @@ suse/nginx-ingress              0.28.4               0.15.0         An nginx Ing
 ...</pre></div></div><div class="sect1 " id="sec-cap-cap-on-gke"><div class="titlepage"><div><div><h2 class="title"><span class="number">7.14 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Deploying SUSE Cloud Application Platform</span> <a title="Permalink" class="permalink" href="#sec-cap-cap-on-gke">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_gke.xml</li><li><span class="ds-label">ID: </span>sec-cap-cap-on-gke</li></ul></div></div></div></div><p>
    This section describes how to deploy SUSE Cloud Application Platform on Google GKE, and how to
    configure your DNS records.
-  </p><div id="id-1.3.4.7.17.3" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.png" /><h6>Warning: KubeCF and cf-operator versions</h6><p>
+  </p><div id="id-1.3.4.7.17.3" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.svg" /><h6>Warning: KubeCF and cf-operator versions</h6><p>
    KubeCF and cf-operator interoperate closely. Before you deploy a
    specific version combination, make sure they were confirmed to work. For more
    information see <a class="xref" href="#cha-cap-depl-notes-releases" title="3.4. Releases and Associated Versions">Section 3.4, “Releases and Associated Versions”</a>.
@@ -4721,7 +4718,7 @@ suse/nginx-ingress              0.28.4               0.15.0         An nginx Ing
 
 console:
   # Use local admin user instead of UAA
-  localAdminPassword: <em class="replaceable ">changeme</em></pre></div><div id="id-1.3.4.8.3.9" class="admonition note normal"><img class="symbol" alt="Note" title="Note" src="static/images/icon-note.png" /><h6>Note: Technology Preview Features</h6><p>
+  localAdminPassword: <em class="replaceable ">changeme</em></pre></div><div id="id-1.3.4.8.3.9" class="admonition note normal"><img class="symbol" alt="Note" title="Note" src="static/images/icon-note.svg" /><h6>Note: Technology Preview Features</h6><p>
   Some Stratos releases may include features as part of a technology preview.
   Technology preview features are for evaluation purposes only and
   <span class="bold"><strong>not</strong></span> supported for production use. To see the
@@ -4877,7 +4874,7 @@ services:
 
 kube:
   storage_class:
-    persistent: gp2scoped</pre></div><div id="id-1.3.4.8.4.11" class="admonition note normal"><img class="symbol" alt="Note" title="Note" src="static/images/icon-note.png" /><h6>Note: Technology Preview Features</h6><p>
+    persistent: gp2scoped</pre></div><div id="id-1.3.4.8.4.11" class="admonition note normal"><img class="symbol" alt="Note" title="Note" src="static/images/icon-note.svg" /><h6>Note: Technology Preview Features</h6><p>
   Some Stratos releases may include features as part of a technology preview.
   Technology preview features are for evaluation purposes only and
   <span class="bold"><strong>not</strong></span> supported for production use. To see the
@@ -4982,7 +4979,7 @@ console:
   localAdminPassword: <em class="replaceable ">changeme</em>
 
 services:
-  loadbalanced: true</pre></div><div id="id-1.3.4.8.5.5" class="admonition note normal"><img class="symbol" alt="Note" title="Note" src="static/images/icon-note.png" /><h6>Note: Technology Preview Features</h6><p>
+  loadbalanced: true</pre></div><div id="id-1.3.4.8.5.5" class="admonition note normal"><img class="symbol" alt="Note" title="Note" src="static/images/icon-note.svg" /><h6>Note: Technology Preview Features</h6><p>
   Some Stratos releases may include features as part of a technology preview.
   Technology preview features are for evaluation purposes only and
   <span class="bold"><strong>not</strong></span> supported for production use. To see the
@@ -5080,7 +5077,7 @@ console:
   localAdminPassword: <em class="replaceable ">changeme</em>
 
 services:
-  loadbalanced: true</pre></div><div id="id-1.3.4.8.6.5" class="admonition note normal"><img class="symbol" alt="Note" title="Note" src="static/images/icon-note.png" /><h6>Note: Technology Preview Features</h6><p>
+  loadbalanced: true</pre></div><div id="id-1.3.4.8.6.5" class="admonition note normal"><img class="symbol" alt="Note" title="Note" src="static/images/icon-note.svg" /><h6>Note: Technology Preview Features</h6><p>
   Some Stratos releases may include features as part of a technology preview.
   Technology preview features are for evaluation purposes only and
   <span class="bold"><strong>not</strong></span> supported for production use. To see the
@@ -5453,7 +5450,7 @@ susecf-metrics-metrics-nginx   NodePort   172.28.107.209   10.86.101.115,172.28.
      and <code class="literal">features.suse_buildpacks</code> must be enabled as well.
      A cflinuxfs3 Eirini image is currently not available, and the SUSE stack
      must be used. By default, both the SUSE stack and buildpacks are enabled. 
-    </p><div id="id-1.3.4.9.5.2.1.4" class="admonition note normal"><img class="symbol" alt="Note" title="Note" src="static/images/icon-note.png" /><h6>Note</h6><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
+    </p><div id="id-1.3.4.9.5.2.1.4" class="admonition note normal"><img class="symbol" alt="Note" title="Note" src="static/images/icon-note.svg" /><h6>Note</h6><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
         After enabling Eirini, you will still see the
         <code class="literal">diego-api</code> pod. This is normal behavior because the Diego pod has a component required by Eirini.
        </p></li><li class="listitem "><p>
@@ -5479,7 +5476,7 @@ susecf-metrics-metrics-nginx   NodePort   172.28.107.209   10.86.101.115,172.28.
      production usage, but can be useful in test clusters with self-signed
      Kubelet serving certificates. For production, use
      <code class="literal">--tls-private-key-file</code>.
-    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>helm install <em class="replaceable ">metrics-server</em> stable/metrics-server --set args[0]="--kubelet-preferred-address-types=InternalIP" --set args[1]="--kubelet-insecure-tls"</pre></div></li></ol></div></div></div></div><div class="chapter " id="cha-cap-depl-terraform"><div class="titlepage"><div><div><h2 class="title"><span class="number">10 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Deploying SUSE Cloud Application Platform Using Terraform</span> <a title="Permalink" class="permalink" href="#cha-cap-depl-terraform">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_terraform.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><div class="line"></div><div id="id-1.3.4.10.2" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important</h6><p>
+    </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>helm install <em class="replaceable ">metrics-server</em> stable/metrics-server --set args[0]="--kubelet-preferred-address-types=InternalIP" --set args[1]="--kubelet-insecure-tls"</pre></div></li></ol></div></div></div></div><div class="chapter " id="cha-cap-depl-terraform"><div class="titlepage"><div><div><h2 class="title"><span class="number">10 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Deploying SUSE Cloud Application Platform Using Terraform</span> <a title="Permalink" class="permalink" href="#cha-cap-depl-terraform">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_terraform.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><div class="line"></div><div id="id-1.3.4.10.2" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.svg" /><h6>Important</h6><p>
   Before you start deploying SUSE Cloud Application Platform, review the following documents:
   </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
         <a class="link" href="https://www.suse.com/releasenotes/x86_64/SUSE-CAP/2.0/" target="_blank">
@@ -5493,7 +5490,7 @@ susecf-metrics-metrics-nginx   NodePort   172.28.107.209   10.86.101.115,172.28.
   including KubeCF, cf-operator, Stratos, and Stratos Metrics. Operators can
   deploy using Terraform  by following the instructions from
   <a class="link" href="https://github.com/SUSE/cap-terraform" target="_blank">https://github.com/SUSE/cap-terraform</a>.
- </p></div><div class="chapter " id="cha-cap-depl-air-gap-registry"><div class="titlepage"><div><div><h2 class="title"><span class="number">11 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Setting Up a Registry for an Air Gapped Environment</span> <a title="Permalink" class="permalink" href="#cha-cap-depl-air-gap-registry">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_air_gap_registry.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><div class="line"><div class="toc"><dl><dt><span class="sect1"><a href="#sec-cap-prereqs-air-gap-registry"><span class="number">11.1 </span><span class="name">Prerequisites</span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-air-gap-registry"><span class="number">11.2 </span><span class="name">Mirror Images to Registry</span></a></span></dt></dl></div></div><div id="id-1.3.4.11.2" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important</h6><p>
+ </p></div><div class="chapter " id="cha-cap-depl-air-gap-registry"><div class="titlepage"><div><div><h2 class="title"><span class="number">11 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Setting Up a Registry for an Air Gapped Environment</span> <a title="Permalink" class="permalink" href="#cha-cap-depl-air-gap-registry">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_air_gap_registry.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><div class="line"><div class="toc"><dl><dt><span class="sect1"><a href="#sec-cap-prereqs-air-gap-registry"><span class="number">11.1 </span><span class="name">Prerequisites</span></a></span></dt><dt><span class="sect1"><a href="#sec-cap-air-gap-registry"><span class="number">11.2 </span><span class="name">Mirror Images to Registry</span></a></span></dt></dl></div></div><div id="id-1.3.4.11.2" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.svg" /><h6>Important</h6><p>
   Before you start deploying SUSE Cloud Application Platform, review the following documents:
   </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
         <a class="link" href="https://www.suse.com/releasenotes/x86_64/SUSE-CAP/2.0/" target="_blank">
@@ -5579,7 +5576,7 @@ mirror minibroker</pre></div><p>
     hostname: <em class="replaceable ">"MY_REGISTRY.COM"</em>
     username: ""
     password: ""
-  organization: "cap"</pre></div></div></div><div class="chapter " id="cha-cap-depl-private-registry"><div class="titlepage"><div><div><h2 class="title"><span class="number">12 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">SUSE Private Registry</span> <a title="Permalink" class="permalink" href="#cha-cap-depl-private-registry">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_private_registry.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><div class="line"></div><div id="id-1.3.4.12.2" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important</h6><p>
+  organization: "cap"</pre></div></div></div><div class="chapter " id="cha-cap-depl-private-registry"><div class="titlepage"><div><div><h2 class="title"><span class="number">12 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">SUSE Private Registry</span> <a title="Permalink" class="permalink" href="#cha-cap-depl-private-registry">#</a></h2><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_depl_private_registry.xml</li><li><span class="ds-label">ID: </span><span class="ds-message">no ID found</span></li></ul></div></div></div></div><div class="line"></div><div id="id-1.3.4.12.2" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.svg" /><h6>Important</h6><p>
   Before you start deploying SUSE Cloud Application Platform, review the following documents:
   </p><div class="itemizedlist "><ul class="itemizedlist"><li class="listitem "><p>
         <a class="link" href="https://www.suse.com/releasenotes/x86_64/SUSE-CAP/2.0/" target="_blank">
@@ -5681,7 +5678,7 @@ mirror minibroker</pre></div><p>
   values, whether through your <code class="filename">kubecf-config-values.yaml</code> file
   or directly using Helm's <code class="command">--set</code> flag, are applied using
   the <code class="command">helm upgrade</code> command.
- </p><div id="id-1.3.5.4.3" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.png" /><h6>Warning: Do Not Make Changes to Pod Counts During a Version Upgrade</h6><p>
+ </p><div id="id-1.3.5.4.3" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.svg" /><h6>Warning: Do Not Make Changes to Pod Counts During a Version Upgrade</h6><p>
    The <code class="command">helm upgrade</code> command can be used to apply
    configuration changes as well as perform version upgrades to Cloud Application Platform. A change
    to the pod count configuration should not be applied simultaneously with a
@@ -6369,7 +6366,7 @@ data:
         Droplets
        </p></li></ul></div></li><li class="listitem "><p>
       User data
-     </p></li></ul></div></div><div class="sect2 " id="sec-cap-raw-data-backup-procedure"><div class="titlepage"><div><div><h3 class="title"><span class="number">21.2.3 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Performing a Raw Data Backup</span> <a title="Permalink" class="permalink" href="#sec-cap-raw-data-backup-procedure">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_admin_backup-restore.xml</li><li><span class="ds-label">ID: </span>sec-cap-raw-data-backup-procedure</li></ul></div></div></div></div><div id="id-1.3.5.11.3.5.2" class="admonition note normal"><img class="symbol" alt="Note" title="Note" src="static/images/icon-note.png" /><h6>Note: Restore to the Same Version</h6><p>
+     </p></li></ul></div></div><div class="sect2 " id="sec-cap-raw-data-backup-procedure"><div class="titlepage"><div><div><h3 class="title"><span class="number">21.2.3 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Performing a Raw Data Backup</span> <a title="Permalink" class="permalink" href="#sec-cap-raw-data-backup-procedure">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_admin_backup-restore.xml</li><li><span class="ds-label">ID: </span>sec-cap-raw-data-backup-procedure</li></ul></div></div></div></div><div id="id-1.3.5.11.3.5.2" class="admonition note normal"><img class="symbol" alt="Note" title="Note" src="static/images/icon-note.svg" /><h6>Note: Restore to the Same Version</h6><p>
      This process is intended for backing up and restoring to a target
      deployment with the same version as the source deployment. For example,
      data from a backup of SUSE Cloud Application Platform 2.1.1 should be restored to a
@@ -6401,7 +6398,7 @@ mysqldump cloud_controller &gt; ccdb-src.sql</pre></div></li><li class="step " i
       needed to include all keys.
      </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>kubectl exec --stdin --tty --namespace kubecf api-0 -- bash
 -c "cat /var/vcap/jobs/cloud_controller_ng/config/cloud_controller_ng.yml | grep
--A 10 db_encryption" &gt; enc_key</pre></div></li></ol></div></div></div><div class="sect2 " id="sec-cap-raw-data-restore-procedure"><div class="titlepage"><div><div><h3 class="title"><span class="number">21.2.4 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Performing a Raw Data Restore</span> <a title="Permalink" class="permalink" href="#sec-cap-raw-data-restore-procedure">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_admin_backup-restore.xml</li><li><span class="ds-label">ID: </span>sec-cap-raw-data-restore-procedure</li></ul></div></div></div></div><div id="id-1.3.5.11.3.6.2" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important: Ensure Access to the Correct Deployment</h6><p>
+-A 10 db_encryption" &gt; enc_key</pre></div></li></ol></div></div></div><div class="sect2 " id="sec-cap-raw-data-restore-procedure"><div class="titlepage"><div><div><h3 class="title"><span class="number">21.2.4 </span><span xmlns:dm="urn:x-suse:ns:docmanager" class="name">Performing a Raw Data Restore</span> <a title="Permalink" class="permalink" href="#sec-cap-raw-data-restore-procedure">#</a></h3><div class="doc-status"><ul><li><span class="ds-label">File Name: </span>cap_admin_backup-restore.xml</li><li><span class="ds-label">ID: </span>sec-cap-raw-data-restore-procedure</li></ul></div></div></div></div><div id="id-1.3.5.11.3.6.2" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.svg" /><h6>Important: Ensure Access to the Correct Deployment</h6><p>
      Working with multiple Kubernetes clusters simultaneously can be confusing.
      Ensure you are communicating with the desired cluster
      <a class="link" href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/#set-the-kubeconfig-environment-variable" target="_blank">by
@@ -6516,7 +6513,7 @@ credentials:
    broker</a> created by members of the
    <a class="link" href="https://github.com/osbkit" target="_blank">Microsoft Azure team</a>. It
    provides a simple method to provision service brokers on Kubernetes clusters.
-  </p><div id="id-1.3.5.12.5.3" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important: Minibroker Upstream Services</h6><p>
+  </p><div id="id-1.3.5.12.5.3" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.svg" /><h6>Important: Minibroker Upstream Services</h6><p>
     The services deployed by Minibroker are sourced from the stable upstream
     charts repository, see
     <a class="link" href="https://github.com/helm/charts/tree/master/stable" target="_blank">https://github.com/helm/charts/tree/master/stable</a>,
@@ -6541,7 +6538,7 @@ credentials:
      </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>kubectl get secret ceph-secret-admin --output json
 --namespace default | \
 sed 's/"namespace": "default"/"namespace": "minibroker"/' | kubectl create
---filename -</pre></div><div id="id-1.3.5.12.5.4.2.2.5" class="admonition note normal"><img class="symbol" alt="Note" title="Note" src="static/images/icon-note.png" /><h6>Note</h6><p>
+--filename -</pre></div><div id="id-1.3.5.12.5.4.2.2.5" class="admonition note normal"><img class="symbol" alt="Note" title="Note" src="static/images/icon-note.svg" /><h6>Note</h6><p>
        Platform users provisioning service instances will be able to set
        arbitrary parameters, which can be potentially dangerous, e.g. if setting
        a high number of replicas. To prevent this, it is possible to define
@@ -6741,7 +6738,7 @@ provisioning:
       The first <code class="literal">GET</code> will return <code class="literal">key not
       present</code>. After storing a value, it will return
       <code class="literal">bar</code>.
-     </p></li></ol></div></div><div id="id-1.3.5.12.5.6.4" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important: Database Names for PostgreSQL and MariaDB Instances</h6><p>
+     </p></li></ol></div></div><div id="id-1.3.5.12.5.6.4" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.svg" /><h6>Important: Database Names for PostgreSQL and MariaDB Instances</h6><p>
      By default, Minibroker creates PostgreSQL and MariaDB server instances
      without a named database. A named database is required for normal usage
      with these and will need to be added during the <code class="command">cf
@@ -6948,7 +6945,7 @@ provisioning:
     </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>helm upgrade <em class="replaceable ">kubecf</em> suse/kubecf \
 --namespace <em class="replaceable ">kubecf</em> \
 --values <em class="replaceable ">kubecf-config-values.yaml</em> \
---version 2.7.13</pre></div></li></ul></div><div id="id-1.3.5.14.4.7" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.png" /><h6>Warning</h6><p>
+--version 2.7.13</pre></div></li></ul></div><div id="id-1.3.5.14.4.7" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.svg" /><h6>Warning</h6><p>
     On occasion, the <code class="literal">credhub</code> pod may fail to start due to
     database migration failures; this has been spotted intermittently on
     Microsoft Azure Kubernetes Service and to a lesser extent, other public clouds.
@@ -7150,7 +7147,7 @@ ANOTHER_RUBY_BUILDPACK   11         true      false    ruby-buildpack-v1.7.41.1-
     tool, which is available as a
     <a class="link" href="https://www.docker.com/" target="_blank">Docker</a> image. The only
     requirement to use this tool is a system with Docker support.
-   </p><div id="id-1.3.5.15.7.3.3" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important: Disclaimer</h6><p>
+   </p><div id="id-1.3.5.15.7.3.3" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.svg" /><h6>Important: Disclaimer</h6><p>
      Some Cloud Foundry buildpacks can reference binaries with proprietary or
      mutually incompatible open source licenses which cannot be distributed
      together as offline/cached buildpack archives. Operators who wish to
@@ -7239,7 +7236,7 @@ dotnet-core_buildpack   10         true      false    dotnet-core-buildpack-v2.0
       Deploy a sample Rails app using the new buildpack:
      </p><div class="verbatim-wrap"><pre class="screen"><code class="prompt user">tux &gt; </code>git clone <em class="replaceable ">https://github.com/scf-samples/12factor</em>
 <code class="prompt user">tux &gt; </code>cd <em class="replaceable ">12factor</em>
-<code class="prompt user">tux &gt; </code>cf push <em class="replaceable ">12factor</em> -b <em class="replaceable ">RUBY_BUILDPACK_CACHED</em></pre></div></li></ol></div></div><div id="id-1.3.5.15.7.3.10" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.png" /><h6>Warning: Deprecation of <code class="literal">cflinuxfs2</code> and <code class="literal">sle12</code> Stacks</h6><p>
+<code class="prompt user">tux &gt; </code>cf push <em class="replaceable ">12factor</em> -b <em class="replaceable ">RUBY_BUILDPACK_CACHED</em></pre></div></li></ol></div></div><div id="id-1.3.5.15.7.3.10" class="admonition warning normal"><img class="symbol" alt="Warning" title="Warning" src="static/images/icon-warning.svg" /><h6>Warning: Deprecation of <code class="literal">cflinuxfs2</code> and <code class="literal">sle12</code> Stacks</h6><p>
    As of SUSE Cloud Foundry 2.18.0, since our <code class="literal">cf-deployment</code> version is 9.5
    , the <code class="literal">cflinuxfs2</code> stack is no longer supported, as was
    advised in SUSE Cloud Foundry 2.17.1 or Cloud Application Platform 1.4.1. The <code class="literal">cflinuxfs2</code>
@@ -7523,7 +7520,7 @@ routing-api-0            0/1   Running   0         16h</pre></div><p>
    This prints a lot of information, including IP addresses, routine events,
    warnings, and errors. You should find the reason for the failure in this
    output.
-  </p><div id="id-1.3.7.3.7.7" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.png" /><h6>Important</h6><p>
+  </p><div id="id-1.3.7.3.7.7" class="admonition important normal"><img class="symbol" alt="Important" title="Important" src="static/images/icon-important.svg" /><h6>Important</h6><p>
   During deployment, pods are spawned over time, starting with a single
   pod whose name stars with <code class="literal">ig-</code>. This pod will eventually
   disappear and will be replaced by other pods whose progress
